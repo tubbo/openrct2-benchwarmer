@@ -80,7 +80,8 @@
     "globals": {
       "registerPlugin": true,
       "ui": true,
-      "map": true
+      "map": true,
+      "park": true
     }
   }
 }
