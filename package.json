@@ -9,7 +9,7 @@
     "watch": "npm-watch",
     "dev": "yarn watch build",
     "clean": "rm -rf build",
-    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro --verbose"
+    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro"
   },
   "watch": {
     "build": "src/*.js"

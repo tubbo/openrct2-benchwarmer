@@ -1,0 +1,15 @@
+name: Build
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    name: Ensure Build Succeeds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - run: yarn
+      - run: yarn build
