@@ -1,24 +1,59 @@
-# OpenRCT2 plugin boilerplate
-This boilerplate project (starting point to create OpenRCT2 plugins with) allows you to create a multi-file ES6 OpenRCT2 plugin and have it transpiled to a single ES5 file (Which OpenRCT2 supports).
+# Benchwarmer
+
+A plugin for [OpenRCT2][] that quickly builds benches and litter bins on
+each alternating footpath tile. This is generally the best way to ensure
+your park value stays high, and is a very tedious part of playing
+RollerCoaster Tycoon 2.
+
+## Features
+
+- Select which bin and bench you wish to place.
+- Optionally $5 for benches and $3 for bins from your cash, so you can
+  play scenarios as if you placed each piece yourself.
 
 ## Installation
-- Clone or download the project and put it somewhere on your computer.
-- Run `npm install` to install all the required packages (Download [Node.js](https://nodejs.org/) if npm is not recognized).
-- In the package.json and `src/index.js`, replace `MYPLUGINNAME` with the name of your plugin, and replace `OPENRCT2PATH` with the path to your OpenRCT2 directory.
 
-## Build
-You can build your project using the following commands:
-- `npm run build` Manually build the project
-- `npm run watch build` Automatically build everytime a source file is updated
-If the installation was done correctly the transpiled JS file can be found in both the `build` directory and in the `plugin` directory of OpenRCT2. 
-With hotreloading enabled and the watch command being used you no longer have to restart the game, and move files around manually.
+Download the [latest release][] from GitHub. Then, unzip the archive and
+place the plugin in your OpenRCT2 plugin folder. On macOS, this is
+`~/Library/Application Support/OpenRCT2/plugin`.
+
+## Usage
+
+This plugin adds a new dialog window to the "Map" menu, where all other
+plugins are located, allowing you to choose which two pieces of
+bench/bin scenery you wish to add to the map.
+
+<img />
+
+After selecting the two pieces of scenery, click the "Add benches and
+bins to footpaths" button to automatically add each bin and bench to
+your footpaths. You can uncheck the "Deduct cash" checkbox if you're
+playing in a sandboxed mode, and you don't want the cost of this
+construction to deduct from your cash on hand.
 
 ## Development
-You can create your project in the `src` directory. The `index.js` file is the root of your project, from there feel free to [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) other modules (files).
 
-## Helper Suggestions
-Check out OliUI if you plan on incorporating a custom window in your plugin. OliUI takes away the hassle that comes with having to position every single UI element manually and instead lets you focus on the functionality.
-OliUI is an ES6 module that is compatible with this boilerplate. Simple copy [**the OliUI module file**](https://github.com/oli414/OliUI/blob/master/build/OliUI.js) into your project's `src/` folder and import the module.
-```javascript
-import Oui from "./OliUI";
+If you wish to contribute to this project, make sure it builds locally
+before pushing your changes.
+
+To do this, install dependencies with Yarn:
+
+```bash
+yarn
 ```
+
+Then, build the project to the local **build/** folder. There should be
+no errors.
+
+```bash
+yarn build
+```
+
+Also, make sure to run ESLint before pushing your changes:
+
+```bash
+yarn test
+```
+
+[latest release]: https://github.com/tubbo/openrct2-benchwarmer/releases
+[OpenRCT2]: https://openrct2.org/
