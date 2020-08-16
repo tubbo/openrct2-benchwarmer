@@ -9,7 +9,8 @@
     "watch": "npm-watch",
     "dev": "yarn watch build",
     "clean": "rm -rf build",
-    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro"
+    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro",
+    "release": "git tag v$(jq -r '.version' package.json) && git push --tags"
   },
   "watch": {
     "build": "src/*.js"
