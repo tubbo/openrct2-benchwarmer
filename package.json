@@ -1,0 +1,27 @@
+{
+  "name": "MYPLUGINNAME",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup ./src/index.js --file ./build/MYPLUGINNAME.js && babel ./build/MYPLUGINNAME.js --out-file ./build/MYPLUGINNAME.js && cpy ./build/MYPLUGINNAME.js OPENRCT2PATH/plugin/ --rename=MYPLUGINNAME.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build": "src/*.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "cpy-cli": "^3.1.1",
+    "npm-watch": "^0.6.0",
+    "rollup": "^2.7.2"
+  },
+  "dependencies": {}
+}
