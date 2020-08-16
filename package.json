@@ -8,7 +8,8 @@
     "test": "eslint src",
     "watch": "npm-watch",
     "dev": "yarn watch build",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build",
+    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro --verbose"
   },
   "watch": {
     "build": "src/*.js"
@@ -81,7 +82,8 @@
       "registerPlugin": true,
       "ui": true,
       "map": true,
-      "park": true
+      "park": true,
+      "context": true
     }
   }
 }

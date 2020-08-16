@@ -1,5 +1,10 @@
-export default function Add(bench=0, bin=4) {
+export default function Add() {
   const paths = []
+  const additions = context.getAllObjects("footpath_addition")
+  const benches = additions.filter(addition => addition.name === "Bench")
+  const bins = additions.filter(addition => addition.name === "Litter Bin")
+  const bench = additions.indexOf(benches[0])
+  const bin = additions.indexOf(bins[0])
 
   // Iterate every tile in the map
   for (let y = 0; y < map.size.y; y++) {
