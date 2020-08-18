@@ -5,25 +5,16 @@ each alternating footpath tile. This is generally the best way to ensure
 your park value stays high, and is a very tedious part of playing
 RollerCoaster Tycoon 2.
 
-## Features
-
-- Select which bin and bench you wish to place.
-- Optionally $5 for benches and $3 for bins from your cash, so you can
-  play scenarios as if you placed each piece yourself.
-
 ## Installation
 
-Download the [latest release][] from GitHub. Then, unzip the archive and
-place the plugin in your OpenRCT2 plugin folder. On macOS, this is
-`~/Library/Application Support/OpenRCT2/plugin`.
+Download the [latest release][] from GitHub. Then, place the `.js` file
+in your OpenRCT2 plugin folder. On macOS, this is `~/Library/Application Support/OpenRCT2/plugin`.
 
 ## Usage
 
 This plugin adds a new dialog window to the "Map" menu, where all other
 plugins are located, allowing you to choose which two pieces of
 bench/bin scenery you wish to add to the map.
-
-<img />
 
 After selecting the two pieces of scenery, click the "Add benches and
 bins to footpaths" button to automatically add each bin and bench to
