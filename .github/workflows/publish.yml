@@ -20,13 +20,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: Release ${{ steps.get_version.outputs.version }}
       - uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./
-          asset_name: openrct2-benchwarmer-${{ steps.get_version.outputs.version }}.tar.gz
-          asset_content_type: application/tar+gzip
+          asset_path: build
+          asset_name: benchwarmer.js
+          asset_content_type: text/javascript
