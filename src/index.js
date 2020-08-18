@@ -77,10 +77,10 @@ function main() {
 }
 
 registerPlugin({
-    name,
-    version,
-    licence,
-    authors: [author],
-    type: "local",
-    main: main
+  name,
+  version,
+  licence,
+  authors: [author],
+  type: "local",
+  main: main
 })
