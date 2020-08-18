@@ -16,11 +16,10 @@ This plugin adds a new dialog window to the "Map" menu, where all other
 plugins are located, allowing you to choose which two pieces of
 bench/bin scenery you wish to add to the map.
 
-After selecting the two pieces of scenery, click the "Add benches and
-bins to footpaths" button to automatically add each bin and bench to
-your footpaths. You can uncheck the "Deduct cash" checkbox if you're
-playing in a sandboxed mode, and you don't want the cost of this
-construction to deduct from your cash on hand.
+After selecting the two pieces of scenery, click the "Add" button to
+automatically add each bin and bench to your footpaths. Benches are
+added to footpaths with an even index, and bins are added to footpaths
+with an odd index. Sloped footpaths and ride queues are ignored.
 
 ## Development
 
