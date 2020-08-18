@@ -13,6 +13,8 @@ jobs:
           node-version: 13.x
       - run: yarn
       - run: yarn build
+      - id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
       - id: create_release
         uses: actions/create-release@v1.0.0
         env:
@@ -26,5 +28,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./
-          asset_name: openrct2-benchwarmer-${{ github.ref }}.tar.gz
+          asset_name: openrct2-benchwarmer-${{ steps.get_version.outputs.version }}.tar.gz
           asset_content_type: application/tar+gzip
