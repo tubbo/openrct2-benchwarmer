@@ -1,5 +1,9 @@
-function unslopedNormalFootpath(path) {
-  return path.type === "footpath" && !path.isQueue && !path.slopeDirection //&& !path.addition === null
+function buildOnTile(surface, path) {
+  return surface &&
+    surface.hasOwnership &&
+    path &&
+    !path.isQueue &&
+    !path.slopeDirection
 }
 
 export default function Add(bench=null, bin=null) {
@@ -8,16 +12,12 @@ export default function Add(bench=null, bin=null) {
   // Iterate every tile in the map
   for (let y = 0; y < map.size.y; y++) {
     for (let x = 0; x < map.size.x; x++) {
-      const tile = map.getTile(x, y)
+      const { elements } = map.getTile(x, y)
+      const surface = elements.filter(element => element.type === "surface")[0]
+      const path = elements.filter(element => element.type === "footpath")[0]
 
-      // Iterate every element on the tile
-      for (let i = 0; i < tile.numElements; i++) {
-        const element = tile.getElement(i)
-
-        // If the element is a footpath, add it to our array
-        if (unslopedNormalFootpath(element)) {
-            paths.push(element)
-        }
+      if (buildOnTile(surface, path)) {
+        paths.push(path)
       }
     }
   }

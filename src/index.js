@@ -12,8 +12,8 @@ function main() {
     const benches = additions.filter(addition => addition.name === "Bench")
     const bins = additions.filter(addition => addition.name === "Litter Bin")
 
-    let bench = benches[1].index
-    let bin = bins[1].index
+    let bench = benches[1] ? benches[1].index : 0
+    let bin = bins[1] ? bins[1].index : 0
 
     const window = ui.openWindow({
       title: name,
