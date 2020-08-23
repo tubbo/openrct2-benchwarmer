@@ -9,8 +9,8 @@ const name = "Benchwarmer"
 function main() {
   ui.registerMenuItem(name, () => {
     const additions = context.getAllObjects("footpath_addition")
-    const benches = additions.filter(addition => addition.name === "Bench")
-    const bins = additions.filter(addition => addition.name === "Litter Bin")
+    const benches = additions.filter(addition => addition.identifier.includes("bench"))
+    const bins = additions.filter(addition => addition.identifier.includes("litter"))
 
     let bench = benches[1] ? benches[1].index : 0
     let bin = bins[1] ? bins[1].index : 0
