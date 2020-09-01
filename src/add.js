@@ -22,7 +22,7 @@ export default function Add(bench=null, bin=null) {
     }
   }
 
-  if (bench && bin) {
+  if (bench !== null && bin !== null) {
     paths.forEach((path, index) => {
       if (path.x % 2 === path.y % 2) {
         path.path.addition = bench
