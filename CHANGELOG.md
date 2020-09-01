@@ -23,7 +23,7 @@ A quick bug fix. Shoutout to @Fred-1044276 for catching this one.
 
 ### Changed
 
-- Fix bins/benches being built on footpaths outside park's ownership
+- [Fix bins/benches being built on footpaths outside park's ownership](https://github.com/tubbo/openrct2-benchwarmer/commit/f02c1d3539c779d667ac18c05dd4e5c7f8e09512)
 
 ## v0.1.0 - 8/16/2020
 
