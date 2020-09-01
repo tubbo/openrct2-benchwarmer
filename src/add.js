@@ -17,18 +17,18 @@ export default function Add(bench=null, bin=null) {
       const path = elements.filter(element => element.type === "footpath")[0]
 
       if (buildOnTile(surface, path)) {
-        paths.push(path)
+        paths.push({ path: path, x: x, y: y })
       }
     }
   }
 
   if (bench && bin) {
     paths.forEach((path, index) => {
-      if (index % 2 === 0) {
-        path.addition = bench
+      if (path.x % 2 === path.y % 2) {
+        path.path.addition = bench
         park.cash -= 5
       } else {
-        path.addition = bin
+        path.path.addition = bin
         park.cash -= 3
       }
     })
