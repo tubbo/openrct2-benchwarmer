@@ -1,7 +1,8 @@
 name: Build
 on:
   push:
-    branches: [master]
+    tags_ignore:
+      - v*
 jobs:
   build:
     name: Ensure Build Succeeds

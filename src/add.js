@@ -1,9 +1,7 @@
 function buildOnTile(surface, path) {
-  return surface &&
-    surface.hasOwnership &&
-    path &&
-    !path.isQueue &&
-    path.slopeDirection === null;
+  return surface?.hasOwnership &&
+    !path?.isQueue &&
+    path?.slopeDirection === null
 }
 
 export default function Add(bench=null, bin=null) {
@@ -14,11 +12,13 @@ export default function Add(bench=null, bin=null) {
     for (let x = 0; x < map.size.x; x++) {
       const { elements } = map.getTile(x, y)
       const surface = elements.filter(element => element.type === "surface")[0]
-      const path = elements.filter(element => element.type === "footpath")[0]
+      const footpaths = elements.filter(element => element.type === "footpath")
 
-      if (buildOnTile(surface, path)) {
-        paths.push({ path: path, x: x, y: y })
-      }
+      footpaths.forEach(path => {
+        if (buildOnTile(surface, path)) {
+          paths.push({ path: path, x: x, y: y })
+        }
+      })
     }
   }
 
