@@ -12,8 +12,8 @@ function main() {
     const benches = additions.filter(addition => addition.identifier.includes("bench"))
     const bins = additions.filter(addition => addition.identifier.includes("litter"))
 
-    let bench = benches[1] ? benches[1].index : 0
-    let bin = bins[1] ? bins[1].index : 0
+    let bench = benches.length > 0 ? benches[0].index : 0
+    let bin = bins.length > 0 ? bins[0].index : 0
 
     const window = ui.openWindow({
       title: name,
@@ -37,7 +37,7 @@ function main() {
           width: 200,
           height: 10,
           items: benches.map(b => `${b.name} ${b.identifier}`),
-          selectedIndex: 1,
+          selectedIndex: 0,
           onChange: (number) => { bench = benches[number].index }
         },
         {
@@ -56,7 +56,7 @@ function main() {
           height: 10,
 
           items: bins.map(b => `${b.name} ${b.identifier}`),
-          selectedIndex: 1,
+          selectedIndex: 0,
           onChange: (number) => { bin = bins[number].index }
         },
         {
