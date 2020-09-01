@@ -3,7 +3,7 @@ function buildOnTile(surface, path) {
     surface.hasOwnership &&
     path &&
     !path.isQueue &&
-    !path.slopeDirection
+    path.slopeDirection === null;
 }
 
 export default function Add(bench=null, bin=null) {
