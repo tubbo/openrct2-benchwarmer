@@ -8,7 +8,12 @@ RollerCoaster Tycoon 2.
 ## Installation
 
 Download the [latest release][] from GitHub. Then, place the `.js` file
-in your OpenRCT2 plugin folder. On macOS, this is `~/Library/Application Support/OpenRCT2/plugin`.
+in your [OpenRCT2 plugin folder][].
+
+On macOS, this is `~/Library/Application Support/OpenRCT2/plugin`.
+On Windows, this is `%USERPROFILE%\Documents\OpenRCT2\plugin`.
+On Linux, this is `$XDG_CONFIG_HOME/OpenRCT2/plugin`.
+(`$XDG_CONFIG_HOME` is typically set to `~/.config`)
 
 ## Usage
 
@@ -47,3 +52,4 @@ yarn test
 
 [latest release]: https://github.com/tubbo/openrct2-benchwarmer/releases
 [OpenRCT2]: https://openrct2.org/
+[OpenRCT2 plugin folder]: https://www.pcgamingwiki.com/wiki/OpenRCT2#Configuration_file.28s.29_location
