@@ -14,6 +14,7 @@ function main() {
 
     let bench = benches.length > 0 ? benches[0].index : 0
     let bin = bins.length > 0 ? bins[0].index : 0
+    let buildBinsOnAllSlopedPaths = false
 
     const window = ui.openWindow({
       title: name,
@@ -60,14 +61,26 @@ function main() {
           onChange: (number) => { bin = bins[number].index }
         },
         {
+          type: "checkbox",
+          x: 10,
+          y: 55,
+          width: 200,
+          height: 15,
+          isChecked: buildBinsOnAllSlopedPaths,
+          text: "Build bins on all sloped footpaths",
+          onChange: (checked) => { buildBinsOnAllSlopedPaths = checked }
+        },
+        {
           type: "button",
           text: "Add",
           x: 10,
-          y: 70,
+          y: 75,
           width: 50,
           height: 20,
           onClick: () => {
-            Add(bench, bin)
+            if (bench !== null && bin !== null) {
+              Add(bench, bin, buildBinsOnAllSlopedPaths)
+            }
             window.close()
           }
         }

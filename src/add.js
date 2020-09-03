@@ -1,11 +1,5 @@
-function buildOnTile(surface, path) {
-  return surface?.hasOwnership &&
-    !path?.isQueue &&
-    path?.slopeDirection === null
-}
-
-export default function Add(bench=null, bin=null) {
-  const paths = []
+export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
+  const paths = { unsloped: [], sloped: [] }
 
   // Iterate every tile in the map
   for (let y = 0; y < map.size.y; y++) {
@@ -15,22 +9,33 @@ export default function Add(bench=null, bin=null) {
       const footpaths = elements.filter(element => element.type === "footpath")
 
       footpaths.forEach(path => {
-        if (buildOnTile(surface, path)) {
-          paths.push({ path: path, x: x, y: y })
+        if (surface?.hasOwnership && !path?.isQueue) {
+          if (path?.slopeDirection === null) {
+            paths.unsloped.push({ path, x, y })
+          } else {
+            paths.sloped.push({ path, x, y })
+          }
         }
       })
     }
   }
 
-  if (bench !== null && bin !== null) {
-    paths.forEach((path, index) => {
-      if (path.x % 2 === path.y % 2) {
-        path.path.addition = bench
-        park.cash -= 5
-      } else {
-        path.path.addition = bin
-        park.cash -= 3
-      }
-    })
-  }
+  // Build benches and bins on unsloped paths
+  paths.unsloped.forEach(({ path, x, y }) => {
+    if (x % 2 === y % 2) {
+      path.addition = bench
+      park.cash -= 5
+    } else {
+      path.addition = bin
+      park.cash -= 3
+    }
+  })
+
+  // Build bins on sloped paths
+  paths.sloped.forEach(({ path, x, y }) => {
+    if (buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) {
+      path.addition = bin
+      park.cash -= 3
+    }
+  })
 }
