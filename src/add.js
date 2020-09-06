@@ -23,19 +23,25 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
   // Build benches and bins on unsloped paths
   paths.unsloped.forEach(({ path, x, y }) => {
     if (x % 2 === y % 2) {
-      path.addition = bench
-      park.cash -= 5
+      if (path.addition !== bench) {
+        path.addition = bench
+        park.cash -= 5
+      }
     } else {
-      path.addition = bin
-      park.cash -= 3
+      if (path.addition !== bin) {
+        path.addition = bin
+        park.cash -= 3
+      }
     }
   })
 
   // Build bins on sloped paths
   paths.sloped.forEach(({ path, x, y }) => {
     if (buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) {
-      path.addition = bin
-      park.cash -= 3
+      if (path.addition !== bin) {
+        path.addition = bin
+        park.cash -= 3
+      }
     }
   })
 }
