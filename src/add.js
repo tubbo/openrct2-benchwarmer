@@ -9,7 +9,7 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
       const footpaths = elements.filter(element => element.type === "footpath")
 
       footpaths.forEach(path => {
-        if (surface?.hasOwnership && !path?.isQueue) {
+        if ((surface?.hasOwnership || surface?.hasConstructionRights) && !path?.isQueue) {
           if (path?.slopeDirection === null) {
             paths.unsloped.push({ path, x, y })
           } else {
