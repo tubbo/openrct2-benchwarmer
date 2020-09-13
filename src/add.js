@@ -42,8 +42,9 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
 }
 
 function ensureHasAddition(path, addition, price) {
-  if (path.addition !== addition) {
+  if (path.addition !== addition || path.isAdditionBroken) {
     path.addition = addition
+    path.isAdditionBroken = false
     park.cash -= price
   }
 }
