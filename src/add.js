@@ -1,5 +1,10 @@
-export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
+export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins) {
   const paths = { unsloped: [], sloped: [] }
+  const isBenchOrBin = ({ path }) => (
+    path.addition === null ||
+    benches.include(path.addition) ||
+    bins.include(path.addition)
+  )
 
   // Money in RCT2 is expressed in dimes, e.g. $3 is "30"
   const priceBin = 30
@@ -25,7 +30,7 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
   }
 
   // Build benches and bins on unsloped paths
-  paths.unsloped.forEach(({ path, x, y }) => {
+  paths.unsloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
     if (x % 2 === y % 2) {
       ensureHasAddition(path, bench, priceBench)
     } else {
@@ -34,7 +39,7 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths) {
   })
 
   // Build bins on sloped paths
-  paths.sloped.forEach(({ path, x, y }) => {
+  paths.sloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
     if (buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) {
       ensureHasAddition(path, bin, priceBin)
     }

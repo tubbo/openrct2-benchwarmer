@@ -79,7 +79,7 @@ function main() {
           height: 20,
           onClick: () => {
             if (bench !== null && bin !== null) {
-              Add(bench, bin, buildBinsOnAllSlopedPaths)
+              Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins)
             }
             window.close()
           }
