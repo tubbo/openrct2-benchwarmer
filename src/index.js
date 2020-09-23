@@ -79,7 +79,11 @@ function main() {
           height: 20,
           onClick: () => {
             if (bench !== null && bin !== null) {
-              Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins)
+              try {
+                Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins)
+              } catch(e) {
+                ui.showError("Error Building Benches/Bins", e.message)
+              }
             }
             window.close()
           }
