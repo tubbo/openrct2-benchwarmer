@@ -1,5 +1,31 @@
 # Changelog
 
+## [v0.3.1][] - 9/24/2020
+
+Bug fixes related to insufficient funds and overwriting custom scenery additions.
+
+### Changed
+
+- [Prevent Building Bins/Benches With Insufficient Funds](https://github.com/tubbo/openrct2-benchwarmer/pull/21)
+- [Prevent Overwriting Other Path Additions](https://github.com/tubbo/openrct2-benchwarmer/pull/22)
+
+## [v0.3.0][] - 9/16/2020
+
+This minor release adds a new option for building only bins on sloped
+footpaths, in addition to some fixes regarding how much money is spent
+on benches/bins when they are placed as well as which ones are placed.
+Shoutout to @pencil for all the great work they have done! Also, thanks to
+@RundesBalli for reporting the sloped footpaths issue.
+
+### Added
+
+- [Build bins on all sloped footpaths](https://github.com/tubbo/openrct2-benchwarmer/pull/13)
+- [Build on paths with construction rights](https://github.com/tubbo/openrct2-benchwarmer/pull/16)
+
+### Changed
+
+- [Don't charge money when no addition added](https://github.com/tubbo/openrct2-benchwarmer/pull/15)
+
 ## [v0.2.0][] - 9/1/2020
 
 Shoutouts to @pencil and @gfrewqpoiu for all their great work on this
@@ -31,3 +57,5 @@ Initial Release
 
 [v0.1.1]: https://github.com/tubbo/openrct2-benchwarmer/compare/v0.1.0...v0.1.1
 [v0.2.0]: https://github.com/tubbo/openrct2-benchwarmer/compare/v0.1.1...v0.2.0
+[v0.3.0]: https://github.com/tubbo/openrct2-benchwarmer/compare/v0.2.0...v0.3.0
+[v0.3.1]: https://github.com/tubbo/openrct2-benchwarmer/compare/v0.3.0...v0.3.1

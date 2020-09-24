@@ -1,6 +1,6 @@
 {
   "name": "openrct2-benchwarmer",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "index.js",
   "scripts": {
