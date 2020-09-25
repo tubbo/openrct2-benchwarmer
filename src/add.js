@@ -1,3 +1,5 @@
+import "polyfill-array-includes"
+
 // Money in RCT2 is expressed in dimes, e.g. $3 is "30"
 const PRICE_BIN = 30
 const PRICE_BENCH = 50
@@ -6,8 +8,8 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins
   const paths = { unsloped: [], sloped: [] }
   const isBenchOrBin = ({ path }) => (
     path.addition === null ||
-    benches.include(path.addition) ||
-    bins.include(path.addition)
+    benches.includes(path.addition) ||
+    bins.includes(path.addition)
   )
 
   // Iterate every tile in the map
@@ -56,6 +58,7 @@ function ensureHasAddition(path, addition, price) {
   if (path.addition !== addition || path.isAdditionBroken) {
     path.addition = addition
     path.isAdditionBroken = false
+    path.isAdditionGhost = false
     park.cash -= price
   }
 }
