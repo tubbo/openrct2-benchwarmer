@@ -18,7 +18,7 @@ function main() {
       id: 1,
       classification: name,
       width: 300,
-      height: 100,
+      height: 115,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -36,6 +36,11 @@ function main() {
           "Build bins on all sloped footpaths",
           settings.buildBinsOnAllSlopedPaths,
           checked => { settings.buildBinsOnAllSlopedPaths = checked }
+        ),
+        Checkbox(
+          "Preserve other additions (e.g. lamps)",
+          settings.preserveOtherAdditions,
+          checked => { settings.preserveOtherAdditions = checked }
         ),
         Button("Add", () => {
           if (settings.configured) {

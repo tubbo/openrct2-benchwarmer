@@ -1,6 +1,7 @@
 const BENCH = "Benchwarmer.Bench"
 const BIN = "Benchwarmer.Bin"
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths"
+const PRESERVE = "Benchwarmer.PreserveOtherAdditions"
 
 export default class Settings {
   constructor(all) {
@@ -27,6 +28,10 @@ export default class Settings {
     return context.sharedStorage.get(BUILD, false)
   }
 
+  get preserveOtherAdditions() {
+    return context.sharedStorage.get(PRESERVE, true)
+  }
+
   set bench(number) {
     context.sharedStorage.set(BENCH, number)
   }
@@ -37,6 +42,10 @@ export default class Settings {
 
   set buildBinsOnAllSlopedPaths(value) {
     context.sharedStorage.set(BUILD, value)
+  }
+
+  set preserveOtherAdditions(value) {
+    context.sharedStorage.set(PRESERVE, value)
   }
 
   get configured() {
