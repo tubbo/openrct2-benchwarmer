@@ -37,6 +37,10 @@ To do this, install dependencies with Yarn:
 yarn
 ```
 
+Make sure you have `$OPENRCT2_BIN` set to your OpenRCT2 CLI, and
+`$OPENRCT2_DIR` set to the directory in which OpenRCT2 keeps all its
+user content.
+
 Then, build the project to the local **build/** folder. There should be
 no errors.
 

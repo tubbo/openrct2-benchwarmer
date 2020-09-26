@@ -4,13 +4,13 @@
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c && cpy ./build/benchwarmer.js ~/Library/Application\\ Support/OpenRCT2/plugin --rename=benchwarmer.js",
+    "build": "rollup -c && cpy ./build/benchwarmer.js \"${OPENRCT2_DIR}/plugin\" --rename=benchwarmer.js",
     "test": "eslint src",
     "watch": "npm-watch",
     "dev": "yarn watch build",
     "clean": "rm -rf build",
-    "start": "yarn build && /Applications/OpenRCT2.app/Contents/MacOS/OpenRCT2 intro",
-    "release": "git tag v$(jq -r '.version' package.json) && git push --tags"
+    "start": "yarn build && $OPENRCT2_BIN intro",
+    "release": "node bin/release.js"
   },
   "watch": {
     "build": "src/*.js"
