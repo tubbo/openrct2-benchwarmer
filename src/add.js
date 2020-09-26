@@ -20,7 +20,7 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins
       const footpaths = elements.filter(element => element.type === "footpath")
 
       footpaths.forEach(path => {
-        if ((surface?.hasOwnership || surface?.hasConstructionRights) && !path?.isQueue) {
+        if (canBuildAdditionOnPath(surface, path)) {
           if (path?.slopeDirection === null) {
             paths.unsloped.push({ path, x, y })
           } else {
@@ -69,4 +69,21 @@ function findAdditionAndPrice(bench, bin, x, y) {
   } else {
     return [bin, PRICE_BIN]
   }
+}
+
+function canBuildAdditionOnPath(surface, path) {
+  if (!surface || !path) {
+    return false
+  }
+  if (path.isQueue) {
+    return false
+  }
+  if (surface.hasOwnership) {
+    return true
+  }
+  // Only allowed to build underground or elevated on land with construction rights
+  if (surface.hasConstructionRights && surface.baseHeight !== path.baseHeight) {
+    return true
+  }
+  return false
 }
