@@ -18,8 +18,8 @@ export default class Settings {
   }
 
   get selections() {
-    const bench = context.sharedStorage.get(BENCH, 1)
-    const bin = context.sharedStorage.get(BIN, 1)
+    const bench = context.sharedStorage.get(BENCH, 0)
+    const bin = context.sharedStorage.get(BIN, 0)
 
     return { bench, bin }
   }
