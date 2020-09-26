@@ -32,6 +32,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           onlyLastTag: true
+          stripHeaders: true
+          stripGeneratorNotice: true
 
       - name: Create GitHub Release
         id: create_release
@@ -57,6 +59,7 @@ jobs:
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          stripGeneratorNotice: true
 
       - name: Commit Changelog
         run: |
