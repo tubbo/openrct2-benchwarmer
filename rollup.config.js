@@ -19,7 +19,8 @@ export default {
             modules: false
           }
         ]
-      ]
+      ],
+      babelHelpers: "bundled"
     }),
     json(),
     resolve(),
