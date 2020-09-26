@@ -1,8 +1,7 @@
 name: Build
 on:
   push:
-    tags_ignore:
-      - v*
+    tags_ignore: [*]
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
