@@ -17,6 +17,12 @@ jobs:
       - run: yarn build
       - id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      - name: Generate Release Notes
+        id: notes
+        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          onlyLastTag: true
       - id: create_release
         uses: actions/create-release@v1.0.0
         env:
@@ -24,6 +30,7 @@ jobs:
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           release_name: Release ${{ steps.get_version.outputs.version }}
+          body: ${{ steps.notes.outputs.changelog }}
       - uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -32,3 +39,4 @@ jobs:
           asset_path: build/benchwarmer.js
           asset_name: benchwarmer-${{ steps.get_version.outputs.version }}.js
           asset_content_type: text/javascript
+
