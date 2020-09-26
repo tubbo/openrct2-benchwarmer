@@ -2,12 +2,19 @@ name: Publish
 on:
   push:
     tags: [v*]
+env:
+  OPENRCT2_DIR: OpenRCT2
 jobs:
-  build:
+  release:
     name: Release New Version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - run: yarn
+      - run: yarn build
       - id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
       - id: create_release
