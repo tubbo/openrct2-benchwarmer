@@ -1,7 +1,10 @@
 name: Build
 on:
   push:
-    tags_ignore: [*]
+    tags-ignore:
+      - 'v*'
+    paths-ignore:
+      - '*.md'
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
