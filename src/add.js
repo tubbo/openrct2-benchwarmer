@@ -4,12 +4,12 @@ import "polyfill-array-includes"
 const PRICE_BIN = 30
 const PRICE_BENCH = 50
 
-export default function Add(config) {
+export default function Add(settings) {
   const paths = { unsloped: [], sloped: [] }
   const isBenchOrBin = ({ path }) => (
     path.addition === null ||
-    config.benches.includes(path.addition) ||
-    config.bins.includes(path.addition)
+    settings.benches.includes(path.addition) ||
+    settings.bins.includes(path.addition)
   )
 
   // Iterate every tile in the map
@@ -33,7 +33,8 @@ export default function Add(config) {
 
   // Build benches and bins on unsloped paths
   paths.unsloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
-    const [addition, price] = findAdditionAndPrice(config.bench, config.bin, x, y)
+    const { bench, bin } = settings
+    const [addition, price] = findAdditionAndPrice(bench, bin, x, y)
     const cash = park.cash - price
 
     if (cash >= 0) {
@@ -47,9 +48,16 @@ export default function Add(config) {
 
   paths.sloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
     const cash = park.cash - PRICE_BIN
+    const buildOnSlopedPath = (
+      (
+        settings.buildBinsOnAllSlopedPaths ||
+        (x % 2 === y % 2)
+      )
+      && cash >= 0
+    )
 
-    if ((config.buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) && cash >= 0) {
-      ensureHasAddition(path, config.bin, PRICE_BIN)
+    if (buildOnSlopedPath) {
+      ensureHasAddition(path, settings.bin, PRICE_BIN)
     }
   })
 }
@@ -75,15 +83,19 @@ function canBuildAdditionOnPath(surface, path) {
   if (!surface || !path) {
     return false
   }
+
   if (path.isQueue) {
     return false
   }
+
   if (surface.hasOwnership) {
     return true
   }
+
   // Only allowed to build underground or elevated on land with construction rights
   if (surface.hasConstructionRights && surface.baseHeight !== path.baseHeight) {
     return true
   }
+
   return false
 }

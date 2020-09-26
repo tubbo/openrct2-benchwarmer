@@ -9,19 +9,18 @@ export default class Settings {
   }
 
   get bench() {
-    return this.benches[this.benchIndex].index
+    return this.benches[this.selections.bench].index
   }
 
   get bin() {
-    return this.benches[this.binIndex].index
+    return this.bins[this.selections.bin].index
   }
 
-  get benchIndex() {
-    return context.sharedStorage.get(BENCH, 1)
-  }
+  get selections() {
+    const bench = context.sharedStorage.get(BENCH, 1)
+    const bin = context.sharedStorage.get(BIN, 1)
 
-  get binIndex() {
-    return context.sharedStorage.get(BIN, 1)
+    return { bench, bin }
   }
 
   get buildBinsOnAllSlopedPaths() {

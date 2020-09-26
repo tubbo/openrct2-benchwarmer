@@ -1,8 +1,15 @@
 const LABEL_X = 10
 const INPUT_X = 70
+
 let y = 0
 
-export function dropdown(text, choices, selectedIndex, onChange) {
+export function Document(...widgets) {
+  y = 0
+
+  return widgets
+}
+
+export function Dropdown(text, choices, selectedIndex, onChange) {
   const items = choices.map(b => `${b.name} ${b.identifier}`)
 
   y += 20
@@ -29,7 +36,7 @@ export function dropdown(text, choices, selectedIndex, onChange) {
   ]
 }
 
-export function checkbox(text, isChecked, onChange) {
+export function Checkbox(text, isChecked, onChange) {
   y += 15
 
   return {
@@ -44,7 +51,7 @@ export function checkbox(text, isChecked, onChange) {
   }
 }
 
-export function button(text, onClick) {
+export function Button(text, onClick) {
   y += 20
 
   return {
