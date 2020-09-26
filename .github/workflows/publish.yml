@@ -13,16 +13,20 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 13.x
+
       - run: yarn
       - run: yarn build
+
       - id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
       - name: Generate Release Notes
         id: notes
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           onlyLastTag: true
+
       - id: create_release
         uses: actions/create-release@v1
         env:
@@ -31,6 +35,7 @@ jobs:
           tag_name: ${{ steps.get_version.outputs.version }}
           release_name: Release ${{ steps.get_version.outputs.version }}
           body: ${{ steps.notes.outputs.changelog }}
+
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,3 +45,20 @@ jobs:
           asset_name: benchwarmer-${{ steps.get_version.outputs.version }}.js
           asset_content_type: text/javascript
 
+      - name: Generate Changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit Changelog
+        run: |
+          git config --local user.email actions@github.com
+          git config --local user.name GitHub
+          git add CHANGELOG.md
+          git commit -am "Update CHANGELOG for Release ${{ steps.get_version.outputs.version }}"
+
+      - id: push
+        name: Push Changelog Updates to GitHub
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
