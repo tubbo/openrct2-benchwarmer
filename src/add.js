@@ -4,12 +4,12 @@ import "polyfill-array-includes"
 const PRICE_BIN = 30
 const PRICE_BENCH = 50
 
-export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins) {
+export default function Add(config) {
   const paths = { unsloped: [], sloped: [] }
   const isBenchOrBin = ({ path }) => (
     path.addition === null ||
-    benches.includes(path.addition) ||
-    bins.includes(path.addition)
+    config.benches.includes(path.addition) ||
+    config.bins.includes(path.addition)
   )
 
   // Iterate every tile in the map
@@ -33,7 +33,7 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins
 
   // Build benches and bins on unsloped paths
   paths.unsloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
-    const [addition, price] = findAdditionAndPrice(bench, bin, x, y)
+    const [addition, price] = findAdditionAndPrice(config.bench, config.bin, x, y)
     const cash = park.cash - price
 
     if (cash >= 0) {
@@ -48,8 +48,8 @@ export default function Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins
   paths.sloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
     const cash = park.cash - PRICE_BIN
 
-    if ((buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) && cash >= 0) {
-      ensureHasAddition(path, bin, PRICE_BIN)
+    if ((config.buildBinsOnAllSlopedPaths || (x % 2 === y % 2)) && cash >= 0) {
+      ensureHasAddition(path, config.bin, PRICE_BIN)
     }
   })
 }

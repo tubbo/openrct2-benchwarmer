@@ -3,19 +3,14 @@
 
 import { version, author, license as licence } from "../package.json"
 import Add from "./add"
+import Settings from "./settings"
 
 const name = "Benchwarmer"
 
 function main() {
+  const config = new Settings(context.getAllObjects("footpath_addition"))
+
   ui.registerMenuItem(name, () => {
-    const additions = context.getAllObjects("footpath_addition")
-    const benches = additions.filter(addition => addition.identifier.includes("bench"))
-    const bins = additions.filter(addition => addition.identifier.includes("litter"))
-
-    let bench = benches.length > 0 ? benches[0].index : 0
-    let bin = bins.length > 0 ? bins[0].index : 0
-    let buildBinsOnAllSlopedPaths = false
-
     const window = ui.openWindow({
       title: name,
       id: 1,
@@ -29,7 +24,7 @@ function main() {
           y: 20,
           width: 50,
           height: 10,
-          text: "Bench:"
+          text: "Butts:"
         },
         {
           type: "dropdown",
@@ -37,9 +32,9 @@ function main() {
           y: 20,
           width: 200,
           height: 10,
-          items: benches.map(b => `${b.name} ${b.identifier}`),
-          selectedIndex: 0,
-          onChange: (number) => { bench = benches[number].index }
+          items: config.benches.map(b => `${b.name} ${b.identifier}`),
+          selectedIndex: config.benchIndex,
+          onChange: (number) => { config.bench = number }
         },
         {
           type: "label",
@@ -55,10 +50,9 @@ function main() {
           y: 40,
           width: 200,
           height: 10,
-
-          items: bins.map(b => `${b.name} ${b.identifier}`),
-          selectedIndex: 0,
-          onChange: (number) => { bin = bins[number].index }
+          items: config.bins.map(b => `${b.name} ${b.identifier}`),
+          selectedIndex: config.binIndex,
+          onChange: (number) => { config.bin = number }
         },
         {
           type: "checkbox",
@@ -66,9 +60,9 @@ function main() {
           y: 55,
           width: 200,
           height: 15,
-          isChecked: buildBinsOnAllSlopedPaths,
+          isChecked: config.buildBinsOnAllSlopedPaths,
           text: "Build bins on all sloped footpaths",
-          onChange: (checked) => { buildBinsOnAllSlopedPaths = checked }
+          onChange: (checked) => { config.buildBinsOnAllSlopedPaths = checked }
         },
         {
           type: "button",
@@ -78,9 +72,9 @@ function main() {
           width: 50,
           height: 20,
           onClick: () => {
-            if (bench !== null && bin !== null) {
+            if (config.configured) {
               try {
-                Add(bench, bin, buildBinsOnAllSlopedPaths, benches, bins)
+                Add(config)
               } catch(e) {
                 ui.showError("Error Building Benches/Bins", e.message)
               }
