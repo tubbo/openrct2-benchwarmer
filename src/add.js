@@ -6,11 +6,13 @@ const PRICE_BENCH = 50
 
 export default function Add(settings) {
   const paths = { unsloped: [], sloped: [] }
+  const benchIndexes = settings.benches.map(b => b.index)
+  const binIndexes = settings.bins.map(b => b.index)
   const conflictsWithExistingAddition = (path) => (
     settings.preserveOtherAdditions &&
     path.addition !== null &&
-    !settings.benches.includes(path.addition) &&
-    !settings.bins.includes(path.addition)
+    !benchIndexes.includes(path.addition) &&
+    !binIndexes.includes(path.addition)
   )
 
   // Iterate every tile in the map
