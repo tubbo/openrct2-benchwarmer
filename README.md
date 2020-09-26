@@ -11,8 +11,11 @@ Download the [latest release][] from GitHub. Then, place the `.js` file
 in your [OpenRCT2 plugin folder][].
 
 On macOS, this is `~/Library/Application Support/OpenRCT2/plugin`.
+
 On Windows, this is `%USERPROFILE%\Documents\OpenRCT2\plugin`.
+
 On Linux, this is `$XDG_CONFIG_HOME/OpenRCT2/plugin`.
+
 (`$XDG_CONFIG_HOME` is typically set to `~/.config`)
 
 ## Usage
