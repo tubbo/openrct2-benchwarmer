@@ -3,7 +3,7 @@ const BIN = "Benchwarmer.Bin"
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths"
 
 export default class Settings {
-  constructor(all) {
+  initializeAvailableAdditions(all) {
     this.benches = all.filter(a => a.identifier.includes("bench"))
     this.bins = all.filter(a => a.identifier.includes("litter"))
   }

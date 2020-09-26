@@ -10,9 +10,10 @@ const name = "Benchwarmer"
 
 function main() {
   const additions = context.getAllObjects("footpath_addition")
-  const settings = new Settings(additions)
+  const settings = new Settings()
 
   ui.registerMenuItem(name, () => {
+    settings.initializeAvailableAdditions(additions)
     const window = ui.openWindow({
       title: name,
       id: 1,
