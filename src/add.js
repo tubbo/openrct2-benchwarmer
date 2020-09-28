@@ -6,10 +6,13 @@ const PRICE_BENCH = 50
 
 export default function Add(settings) {
   const paths = { unsloped: [], sloped: [] }
-  const isBenchOrBin = ({ path }) => (
-    path.addition === null ||
-    settings.benches.includes(path.addition) ||
-    settings.bins.includes(path.addition)
+  const benchIndexes = settings.benches.map(b => b.index)
+  const binIndexes = settings.bins.map(b => b.index)
+  const conflictsWithExistingAddition = (path) => (
+    settings.preserveOtherAdditions &&
+    path.addition !== null &&
+    !benchIndexes.includes(path.addition) &&
+    !binIndexes.includes(path.addition)
   )
 
   // Iterate every tile in the map
@@ -20,19 +23,23 @@ export default function Add(settings) {
       const footpaths = elements.filter(element => element.type === "footpath")
 
       footpaths.forEach(path => {
-        if (canBuildAdditionOnPath(surface, path)) {
-          if (path?.slopeDirection === null) {
-            paths.unsloped.push({ path, x, y })
-          } else {
-            paths.sloped.push({ path, x, y })
-          }
+        if (!canBuildAdditionOnPath(surface, path)) {
+          return
+        }
+        if (conflictsWithExistingAddition(path)) {
+          return
+        }
+        if (path?.slopeDirection === null) {
+          paths.unsloped.push({ path, x, y })
+        } else {
+          paths.sloped.push({ path, x, y })
         }
       })
     }
   }
 
   // Build benches and bins on unsloped paths
-  paths.unsloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
+  paths.unsloped.forEach(({ path, x, y }) => {
     const { bench, bin } = settings
     const [addition, price] = findAdditionAndPrice(bench, bin, x, y)
     const cash = park.cash - price
@@ -46,7 +53,7 @@ export default function Add(settings) {
 
   // Build bins on sloped paths
 
-  paths.sloped.filter(isBenchOrBin).forEach(({ path, x, y }) => {
+  paths.sloped.forEach(({ path, x, y }) => {
     const cash = park.cash - PRICE_BIN
     const buildOnSlopedPath = (
       (
