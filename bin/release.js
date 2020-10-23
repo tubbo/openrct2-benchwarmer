@@ -1,3 +1,11 @@
+/**
+ * A short script for creating a new release. It can be run using `yarn`
+ * with `yarn release VERSION`, passing it the new version. This script
+ * updates the version in `package.json`, commits that change, and then
+ * creates/pushes a new tag to GitHub. From there, GitHub actions take
+ * over to do all of the building and changelog generation.
+ */
+
 const { execSync: exec } = require("child_process")
 const { writeFileSync: write } = require("fs")
 const config = require("../package.json")
