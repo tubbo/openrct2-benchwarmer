@@ -14,6 +14,7 @@ export default function Add(settings) {
     !benchIndexes.includes(path.addition) &&
     !binIndexes.includes(path.addition)
   )
+  const useMoney = !park.getFlag("noMoney")
 
   // Iterate every tile in the map
   for (let y = 0; y < map.size.y; y++) {
@@ -44,27 +45,27 @@ export default function Add(settings) {
     const [addition, price] = findAdditionAndPrice(bench, bin, x, y)
     const cash = park.cash - price
 
-    if (cash >= 0) {
+    if (useMoney && cash >= 0) {
       ensureHasAddition(path, addition, price)
+    } else if (!useMoney) {
+      ensureHasAddition(path, addition, 0)
     } else {
       throw new Error("Insufficient funds.")
     }
   })
 
   // Build bins on sloped paths
-
   paths.sloped.forEach(({ path, x, y }) => {
     const cash = park.cash - PRICE_BIN
-    const buildOnSlopedPath = (
-      (
-        settings.buildBinsOnAllSlopedPaths ||
-        (x % 2 === y % 2)
-      )
-      && cash >= 0
-    )
+    const affordable = cash >= 0
+    const { buildBinsOnAllSlopedPaths } = settings
+    const evenTile = x % 2 === y % 2
+    const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile
 
-    if (buildOnSlopedPath) {
+    if (useMoney && buildOnSlopedPath && affordable) {
       ensureHasAddition(path, settings.bin, PRICE_BIN)
+    } else if (!useMoney && buildOnSlopedPath) {
+      ensureHasAddition(path, settings.bin, 0)
     }
   })
 }
