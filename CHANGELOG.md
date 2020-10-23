@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.4.1](https://github.com/tubbo/openrct2-benchwarmer/tree/v0.4.1) (2020-10-23)
+
+**Implemented enhancements:**
+
+- Save placed benches/bins for the scenario [\#17](https://github.com/tubbo/openrct2-benchwarmer/issues/17)
+
+**Fixed bugs:**
+
+- Unable to use this plugin when the map does not use money [\#31](https://github.com/tubbo/openrct2-benchwarmer/issues/31)
+
 ## [v0.3.3](https://github.com/tubbo/openrct2-benchwarmer/tree/v0.3.3) (2020-09-26)
 
 **Fixed bugs:**
@@ -44,3 +54,6 @@
 - Plug-in causes benches and bins to appear on paths outside owned land [\#1](https://github.com/tubbo/openrct2-benchwarmer/issues/1)
 
 ## [v0.1.0](https://github.com/tubbo/openrct2-benchwarmer/tree/v0.1.0) (2020-08-18)
+
+
+
