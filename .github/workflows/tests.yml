@@ -1,15 +1,19 @@
-name: Build
+name: Tests
 on:
   push:
     branches:
+      - '**'
+    branches-ignore:
       - master
+    tags-ignore:
+      - 'v*'
     paths-ignore:
       - '*.md'
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
   build:
-    name: Build Plugin From Source
+    name: Ensure Build Succeeds
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -18,7 +22,3 @@ jobs:
           node-version: 13.x
       - run: yarn
       - run: yarn build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: benchwarmer-${{ github.sha }}
-          path: build
