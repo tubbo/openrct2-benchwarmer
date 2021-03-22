@@ -2,7 +2,7 @@
   "name": "openrct2-benchwarmer",
   "version": "0.4.1",
   "description": "Add benches and trash cans to all of your paths with one click",
-  "main": "index.js",
+  "main": "build/benchwarmer.js",
   "scripts": {
     "build": "rollup -c && cpy ./build/benchwarmer.js \"${OPENRCT2_DIR}/plugin\" --rename=benchwarmer.js",
     "test": "eslint src",
