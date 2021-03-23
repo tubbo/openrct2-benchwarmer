@@ -8,7 +8,7 @@
     "use": "cpy ./build/benchwarmer.js \"${OPENRCT2_DIR}/plugin\" --rename=benchwarmer.js",
     "test": "jest",
     "lint": "eslint .",
-    "fmt": "prettier --write .",
+    "fmt": "yarn lint --fix",
     "watch": "npm-watch",
     "dev": "yarn watch build",
     "clean": "rm -rf build",
