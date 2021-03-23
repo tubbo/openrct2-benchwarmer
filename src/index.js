@@ -1,17 +1,17 @@
 // Expose the OpenRCT2 to Visual Studio Code's Intellisense
 /// <reference path="OPENRCT2PATH/bin/openrct2.d.ts" />
 
-import { version, author, license as licence } from "../package.json"
-import Add from "./add"
-import Settings from "./settings"
-import { Dropdown, Checkbox, Button, Document } from "./ui"
+import { version, author, license as licence } from "../package.json";
+import Add from "./add";
+import Settings from "./settings";
+import { Dropdown, Checkbox, Button, Document } from "./ui";
 
-const name = "Benchwarmer"
+const name = "Benchwarmer";
 
 function main() {
   ui.registerMenuItem(name, () => {
-    const additions = context.getAllObjects("footpath_addition")
-    const settings = new Settings(additions)
+    const additions = context.getAllObjects("footpath_addition");
+    const settings = new Settings(additions);
 
     const window = ui.openWindow({
       title: name,
@@ -24,37 +24,45 @@ function main() {
           "Bench:",
           settings.benches,
           settings.selections.bench,
-          (number) => { settings.bench = number }
+          (number) => {
+            settings.bench = number;
+          }
         ),
         ...Dropdown(
           "Bin:",
           settings.bins,
           settings.selections.bin,
-          (number) => { settings.bin = number }
+          (number) => {
+            settings.bin = number;
+          }
         ),
         Checkbox(
           "Build bins on all sloped footpaths",
           settings.buildBinsOnAllSlopedPaths,
-          checked => { settings.buildBinsOnAllSlopedPaths = checked }
+          (checked) => {
+            settings.buildBinsOnAllSlopedPaths = checked;
+          }
         ),
         Checkbox(
           "Preserve other additions (e.g. lamps)",
           settings.preserveOtherAdditions,
-          checked => { settings.preserveOtherAdditions = checked }
+          (checked) => {
+            settings.preserveOtherAdditions = checked;
+          }
         ),
         Button("Add", () => {
           if (settings.configured) {
             try {
-              Add(settings)
-            } catch(e) {
-              ui.showError("Error Building Benches/Bins", e.message)
+              Add(settings);
+            } catch (e) {
+              ui.showError("Error Building Benches/Bins", e.message);
             }
           }
-          window.close()
+          window.close();
         })
-      )
-    })
-  })
+      ),
+    });
+  });
 }
 
 registerPlugin({
@@ -63,5 +71,5 @@ registerPlugin({
   licence,
   authors: [author],
   type: "local",
-  main: main
-})
+  main: main,
+});

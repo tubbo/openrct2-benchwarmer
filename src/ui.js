@@ -1,18 +1,18 @@
-const LABEL_X = 10
-const INPUT_X = 70
+const LABEL_X = 10;
+const INPUT_X = 70;
 
-let y = 0
+let y = 0;
 
 export function Document(...widgets) {
-  y = 0
+  y = 0;
 
-  return widgets
+  return widgets;
 }
 
 export function Dropdown(text, choices, selectedIndex, onChange) {
-  const items = choices.map(b => `${b.name} ${b.identifier}`)
+  const items = choices.map((b) => `${b.name} ${b.identifier}`);
 
-  y += 20
+  y += 20;
 
   return [
     {
@@ -21,7 +21,7 @@ export function Dropdown(text, choices, selectedIndex, onChange) {
       y,
       width: 50,
       height: 10,
-      text
+      text,
     },
     {
       type: "dropdown",
@@ -31,13 +31,13 @@ export function Dropdown(text, choices, selectedIndex, onChange) {
       height: 10,
       items,
       selectedIndex,
-      onChange
+      onChange,
     },
-  ]
+  ];
 }
 
 export function Checkbox(text, isChecked, onChange) {
-  y += 15
+  y += 15;
 
   return {
     type: "checkbox",
@@ -48,11 +48,11 @@ export function Checkbox(text, isChecked, onChange) {
     isChecked,
     text,
     onChange,
-  }
+  };
 }
 
 export function Button(text, onClick) {
-  y += 20
+  y += 20;
 
   return {
     type: "button",
@@ -61,6 +61,6 @@ export function Button(text, onClick) {
     y: y,
     width: 50,
     height: 20,
-    onClick
-  }
+    onClick,
+  };
 }

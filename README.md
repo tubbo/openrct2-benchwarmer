@@ -55,5 +55,5 @@ yarn test
 ```
 
 [latest release]: https://github.com/tubbo/openrct2-benchwarmer/releases
-[OpenRCT2]: https://openrct2.org/
-[OpenRCT2 plugin folder]: https://www.pcgamingwiki.com/wiki/OpenRCT2#Configuration_file.28s.29_location
+[openrct2]: https://openrct2.org/
+[openrct2 plugin folder]: https://www.pcgamingwiki.com/wiki/OpenRCT2#Configuration_file.28s.29_location

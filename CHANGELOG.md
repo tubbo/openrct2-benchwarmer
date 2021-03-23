@@ -54,6 +54,3 @@
 - Plug-in causes benches and bins to appear on paths outside owned land [\#1](https://github.com/tubbo/openrct2-benchwarmer/issues/1)
 
 ## [v0.1.0](https://github.com/tubbo/openrct2-benchwarmer/tree/v0.1.0) (2020-08-18)
-
-
-

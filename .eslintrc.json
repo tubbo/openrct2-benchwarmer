@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:json/recommended-with-comments"
+  ],
+  "plugins": ["prettier", "json"],
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {
+    "registerPlugin": true,
+    "ui": true,
+    "map": true,
+    "park": true,
+    "context": true
+  }
+}

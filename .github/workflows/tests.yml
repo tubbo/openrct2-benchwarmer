@@ -4,7 +4,7 @@ on:
     branches-ignore:
       - master
     paths-ignore:
-      - '*.md'
+      - "*.md"
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:

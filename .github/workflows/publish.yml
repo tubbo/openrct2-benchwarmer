@@ -11,6 +11,22 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install NodeJS
         uses: actions/setup-node@v1
@@ -18,57 +34,13 @@ jobs:
           node-version: 13.x
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn install
 
       - name: Build Plugin
         run: yarn build
 
-      - name: Obtain Current Version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-
-      - name: Generate Release Notes
-        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          onlyLastTag: true
-          stripHeaders: true
-          stripGeneratorNotice: true
-
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Publish to NPM
+        run: yarn release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.get_version.outputs.version }}
-          release_name: Release ${{ steps.get_version.outputs.version }}
-          body_path: CHANGELOG.md
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/benchwarmer.js
-          asset_name: benchwarmer-${{ steps.get_version.outputs.version }}.js
-          asset_content_type: text/javascript
-
-      - name: Generate Changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          stripGeneratorNotice: true
-
-      - name: Commit Changelog
-        run: |
-          git config --local user.email actions@github.com
-          git config --local user.name GitHub
-          git add CHANGELOG.md
-          git commit -am "Update CHANGELOG for Release ${{ steps.get_version.outputs.version }}"
-
-      - name: Push Changelog Updates to GitHub
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
