@@ -2,10 +2,11 @@
   "extends": [
     "eslint:recommended",
     "prettier",
-    "plugin:json/recommended-with-comments"
+    "plugin:json/recommended-with-comments",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["prettier", "json"],
-  "parser": "babel-eslint",
+  "plugins": ["prettier", "json", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "rules": {
     "prettier/prettier": "error"
   },

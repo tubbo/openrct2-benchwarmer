@@ -12,9 +12,41 @@ jobs:
     name: Ensure Build Succeeds
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
         with:
-          node-version: 13.x
+          path: node_modules
+          key: ${{ hashFiles('yarn.lock') }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
       - run: yarn
       - run: yarn build
+  test:
+    name: Run Automated Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ hashFiles('yarn.lock') }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn
+      - run: yarn test --ci
+  lint:
+    name: Run Automated Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ hashFiles('yarn.lock') }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn
+      - run: yarn lint

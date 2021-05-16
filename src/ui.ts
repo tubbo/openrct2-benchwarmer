@@ -3,13 +3,27 @@ const INPUT_X = 70;
 
 let y = 0;
 
-export function Document(...widgets) {
+export type ChangeEventHandler<Value> = (value: Value) => void;
+
+export type ClickEventHandler = () => void;
+
+export type Choice = {
+  name: string;
+  identifier: string;
+};
+
+export function Document(...widgets: Widget[]): Widget[] {
   y = 0;
 
   return widgets;
 }
 
-export function Dropdown(text, choices, selectedIndex, onChange) {
+export function Dropdown(
+  text: string,
+  choices: Choice[],
+  selectedIndex: number,
+  onChange: ChangeEventHandler<number>
+): [LabelWidget, DropdownWidget] {
   const items = choices.map((b) => `${b.name} ${b.identifier}`);
 
   y += 20;
@@ -36,7 +50,11 @@ export function Dropdown(text, choices, selectedIndex, onChange) {
   ];
 }
 
-export function Checkbox(text, isChecked, onChange) {
+export function Checkbox(
+  text: string,
+  isChecked: boolean,
+  onChange: ChangeEventHandler<boolean>
+): CheckboxWidget {
   y += 15;
 
   return {
@@ -51,7 +69,7 @@ export function Checkbox(text, isChecked, onChange) {
   };
 }
 
-export function Button(text, onClick) {
+export function Button(text: string, onClick: ClickEventHandler): ButtonWidget {
   y += 20;
 
   return {

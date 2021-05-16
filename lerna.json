@@ -1,0 +1,12 @@
+{
+  "npmClient": "yarn",
+  "packages": ["."],
+  "version": "0.7.0",
+  "command": {
+    "version": {
+      "message": "chore(release): %s",
+      "conventionalCommits": true,
+      "createRelease": "github"
+    }
+  }
+}
