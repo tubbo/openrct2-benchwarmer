@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - yarn.lock
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
