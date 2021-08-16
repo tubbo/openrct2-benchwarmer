@@ -11,7 +11,7 @@
     "fmt": "yarn lint --fix",
     "watch": "npm-watch",
     "dev": "yarn watch build",
-    "clean": "rm -rf build",
+    "clean": "rm -rf build coverage tags",
     "start": "yarn build && $OPENRCT2_BIN intro",
     "release": "lerna version -y"
   },
