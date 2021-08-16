@@ -15,7 +15,7 @@ type Paths = {
   sloped: Path[];
 };
 
-export default function Add(settings: Settings): void {
+export default function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
   const benchIndexes = settings.benches.map((b: LoadedObject) => b.index);
   const binIndexes = settings.bins.map((b: LoadedObject) => b.index);
@@ -82,6 +82,8 @@ export default function Add(settings: Settings): void {
       ensureHasAddition(path, settings.bin, 0);
     }
   });
+
+  return paths;
 }
 
 function ensureHasAddition(
