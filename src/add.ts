@@ -1,4 +1,4 @@
-import Settings from "./settings";
+import { Settings } from "./settings";
 
 // Money in RCT2 is expressed in dimes, e.g. $3 is "30"
 const PRICE_BIN = 30;
@@ -15,7 +15,7 @@ type Paths = {
   sloped: Path[];
 };
 
-export default function Add(settings: Settings): Paths {
+export function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
   const benchIndexes = settings.benches.map((b: LoadedObject) => b.index);
   const binIndexes = settings.bins.map((b: LoadedObject) => b.index);

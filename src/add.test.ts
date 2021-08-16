@@ -1,5 +1,5 @@
-import Add from "./add";
-import Settings from "./settings";
+import { Add } from "./add";
+import { Settings } from "./settings";
 import { mocked } from "ts-jest/utils";
 
 const sharedStorage = mocked(context.sharedStorage);

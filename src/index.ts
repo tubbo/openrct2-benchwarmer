@@ -1,6 +1,6 @@
 import { version, author, license as licence } from "../package.json";
-import Add from "./add";
-import Settings from "./settings";
+import { Add } from "./add";
+import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
 
 const name = "Benchwarmer";
@@ -68,5 +68,5 @@ registerPlugin({
   licence,
   authors: [author],
   type: "local",
-  main: main,
+  main,
 });

@@ -8,7 +8,7 @@ type Selections = {
   bin: number;
 };
 
-export default class Settings {
+export class Settings {
   benches: LoadedObject[];
   bins: LoadedObject[];
 
