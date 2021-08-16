@@ -3,7 +3,7 @@ import { mocked } from "ts-jest/utils";
 
 const sharedStorage = mocked(context.sharedStorage);
 
-describe("Settings", () => {
+describe("settings", () => {
   const additions: LoadedObject[] = [
     {
       index: 0,
@@ -21,17 +21,19 @@ describe("Settings", () => {
     },
   ];
 
-  test("return bench and bin selections", () => {
+  it("returns bench and bin selections", () => {
+    expect.hasAssertions();
     sharedStorage.get.mockReturnValue(0);
 
     const settings = new Settings(additions);
 
-    expect(settings.bench).toEqual(0);
-    expect(settings.bin).toEqual(1);
+    expect(settings.bench).toStrictEqual(0);
+    expect(settings.bin).toStrictEqual(1);
     expect(settings.configured).toBe(true);
   });
 
-  test("select a bench", () => {
+  it("selects a bench", () => {
+    expect.hasAssertions();
     sharedStorage.get.mockReturnValue(0);
 
     const settings = new Settings(additions);
@@ -39,11 +41,12 @@ describe("Settings", () => {
     settings.bench = 0;
     settings.bin = 0;
 
-    expect(settings.bench).toEqual(0);
-    expect(settings.bin).toEqual(1);
+    expect(settings.bench).toStrictEqual(0);
+    expect(settings.bin).toStrictEqual(1);
   });
 
-  test("preserve additions", () => {
+  it("preserves additions", () => {
+    expect.hasAssertions();
     sharedStorage.get.mockReturnValue(false);
 
     const settings = new Settings(additions);
@@ -53,7 +56,8 @@ describe("Settings", () => {
     expect(settings.preserveOtherAdditions).toBe(false);
   });
 
-  test("build bins on all sloped paths", () => {
+  it("builds bins on all sloped paths", () => {
+    expect.hasAssertions();
     sharedStorage.get.mockReturnValue(true);
 
     const settings = new Settings(additions);

@@ -4,7 +4,7 @@
     "prettier",
     "plugin:json/recommended-with-comments",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/all"
   ],
   "plugins": ["json", "@typescript-eslint", "jest"],
   "parser": "@typescript-eslint/parser",
