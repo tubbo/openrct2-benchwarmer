@@ -1,14 +1,25 @@
-import "polyfill-array-includes";
+import { Settings } from "./settings";
 
 // Money in RCT2 is expressed in dimes, e.g. $3 is "30"
 const PRICE_BIN = 30;
 const PRICE_BENCH = 50;
 
-export default function Add(settings) {
-  const paths = { unsloped: [], sloped: [] };
-  const benchIndexes = settings.benches.map((b) => b.index);
-  const binIndexes = settings.bins.map((b) => b.index);
-  const conflictsWithExistingAddition = (path) =>
+type Path = {
+  path: FootpathElement;
+  x: number;
+  y: number;
+};
+
+type Paths = {
+  unsloped: Path[];
+  sloped: Path[];
+};
+
+export function Add(settings: Settings): Paths {
+  const paths: Paths = { unsloped: [], sloped: [] };
+  const benchIndexes = settings.benches.map((b: LoadedObject) => b.index);
+  const binIndexes = settings.bins.map((b: LoadedObject) => b.index);
+  const conflictsWithExistingAddition = (path: FootpathElement) =>
     settings.preserveOtherAdditions &&
     path.addition !== null &&
     !benchIndexes.includes(path.addition) &&
@@ -21,12 +32,12 @@ export default function Add(settings) {
       const { elements } = map.getTile(x, y);
       const surface = elements.filter(
         (element) => element.type === "surface"
-      )[0];
+      )[0] as SurfaceElement;
       const footpaths = elements.filter(
         (element) => element.type === "footpath"
-      );
+      ) as FootpathElement[];
 
-      footpaths.forEach((path) => {
+      footpaths.forEach((path: FootpathElement) => {
         if (!canBuildAdditionOnPath(surface, path)) {
           return;
         }
@@ -71,9 +82,15 @@ export default function Add(settings) {
       ensureHasAddition(path, settings.bin, 0);
     }
   });
+
+  return paths;
 }
 
-function ensureHasAddition(path, addition, price) {
+function ensureHasAddition(
+  path: FootpathElement,
+  addition: number,
+  price: number
+) {
   if (path.addition !== addition || path.isAdditionBroken) {
     path.addition = addition;
     path.isAdditionBroken = false;
@@ -82,7 +99,12 @@ function ensureHasAddition(path, addition, price) {
   }
 }
 
-function findAdditionAndPrice(bench, bin, x, y) {
+function findAdditionAndPrice(
+  bench: number,
+  bin: number,
+  x: number,
+  y: number
+) {
   if (x % 2 === y % 2) {
     return [bench, PRICE_BENCH];
   } else {
@@ -90,7 +112,10 @@ function findAdditionAndPrice(bench, bin, x, y) {
   }
 }
 
-function canBuildAdditionOnPath(surface, path) {
+function canBuildAdditionOnPath(
+  surface: SurfaceElement,
+  path: FootpathElement
+) {
   if (!surface || !path) {
     return false;
   }

@@ -2,16 +2,16 @@
   "extends": [
     "eslint:recommended",
     "prettier",
-    "plugin:json/recommended-with-comments"
+    "plugin:json/recommended-with-comments",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/all"
   ],
-  "plugins": ["prettier", "json"],
-  "parser": "babel-eslint",
-  "rules": {
-    "prettier/prettier": "error"
-  },
+  "plugins": ["json", "@typescript-eslint", "jest"],
+  "parser": "@typescript-eslint/parser",
   "env": {
     "node": true,
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "sourceType": "module"
