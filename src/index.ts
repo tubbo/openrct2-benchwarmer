@@ -1,5 +1,5 @@
 import { version, author, license as licence } from "../package.json";
-import { Add } from "./add";
+import { Add, AddQueueTVs } from "./add";
 import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
 
@@ -15,7 +15,7 @@ function main() {
       id: 1,
       classification: name,
       width: 300,
-      height: 115,
+      height: 140,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -31,6 +31,14 @@ function main() {
           settings.selections.bin,
           (index: number) => {
             settings.bin = index;
+          }
+        ),
+        ...Dropdown(
+          "Queue TV:",
+          settings.queuetvs,
+          settings.selections.queuetv,
+          (index: number) => {
+            settings.queuetv = index;
           }
         ),
         Checkbox(
@@ -52,10 +60,19 @@ function main() {
             try {
               Add(settings);
             } catch (e) {
-              ui.showError("Error Building Benches/Bins", e.message);
+              ui.showError("Error Building Benches/Bins", (e as Error).message);
             }
           }
           window.close();
+        }),
+        Button("Add Queue TVs", () => {
+          if (settings.queueTVConfigured) {
+            try {
+              AddQueueTVs(settings);
+            } catch (e) {
+              ui.showError("Error Building Queue TVs", (e as Error).message);
+            }
+          }
         })
       ),
     });

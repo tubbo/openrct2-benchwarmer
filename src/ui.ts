@@ -2,6 +2,8 @@ const LABEL_X = 10;
 const INPUT_X = 70;
 
 let y = 0;
+let x = 10;
+let secondButton = false;
 
 export type ChangeEventHandler<Value> = (value: Value) => void;
 
@@ -14,6 +16,8 @@ export type Choice = {
 
 export function Document(...widgets: Widget[]): Widget[] {
   y = 0;
+  x = 10;
+  secondButton = false;
 
   return widgets;
 }
@@ -33,7 +37,7 @@ export function Dropdown(
       type: "label",
       x: LABEL_X,
       y,
-      width: 50,
+      width: 60,
       height: 10,
       text,
     },
@@ -70,14 +74,19 @@ export function Checkbox(
 }
 
 export function Button(text: string, onClick: ClickEventHandler): ButtonWidget {
-  y += 20;
+  if (!secondButton) {
+    y += 20;
+    secondButton = true;
+  } else {
+    x += 160;
+  }
 
   return {
     type: "button",
     text,
-    x: 10,
+    x: x,
     y: y,
-    width: 50,
+    width: 100,
     height: 20,
     onClick,
   };
