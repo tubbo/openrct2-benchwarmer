@@ -22,13 +22,6 @@ type Queues = {
 
 export function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
-  const benchIndexes = settings.benches.map((b: LoadedObject) => b.index);
-  const binIndexes = settings.bins.map((b: LoadedObject) => b.index);
-  const conflictsWithExistingAddition = (path: FootpathElement) =>
-    settings.preserveOtherAdditions &&
-    path.addition !== null &&
-    !benchIndexes.includes(path.addition) &&
-    !binIndexes.includes(path.addition);
   const useMoney = !park.getFlag("noMoney");
 
   // Iterate every tile in the map
@@ -46,7 +39,7 @@ export function Add(settings: Settings): Paths {
         if (!canBuildAdditionOnPath(surface, path)) {
           return;
         }
-        if (conflictsWithExistingAddition(path)) {
+        if (conflictsWithExistingAddition(path, settings)) {
           return;
         }
         if (path?.slopeDirection === null) {
@@ -92,11 +85,6 @@ export function Add(settings: Settings): Paths {
 }
 export function AddQueueTVs(settings: Settings): Queues {
   const queues: Queues = {queue: []};
-  const queuetvIndexes = settings.queuetvs.map((b: LoadedObject) => b.index);
-  const conflictsWithExistingAddition = (path: FootpathElement) =>
-    settings.preserveOtherAdditions &&
-    path.addition !== null &&
-    !queuetvIndexes.includes(path.addition);
   const useMoney = !park.getFlag("noMoney");
 
   // Iterate every tile in the map
@@ -114,7 +102,7 @@ export function AddQueueTVs(settings: Settings): Queues {
         if (!canBuildAdditionOnQueue(surface, path)) {
           return;
         }
-        if (conflictsWithExistingAddition(path)) {
+        if (conflictsWithExistingAddition(path, settings)) {
           return;
         } else {
           queues.queue.push({ path, x, y });
@@ -139,6 +127,13 @@ export function AddQueueTVs(settings: Settings): Queues {
   });
 
   return queues;
+}
+
+function conflictsWithExistingAddition(
+  path: FootpathElement,
+  settings: Settings
+): boolean {
+  return (path.addition !== null && settings.preserveOtherAdditions)
 }
 
 function ensureHasAddition(
