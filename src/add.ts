@@ -22,6 +22,7 @@ type Queues = {
 
 export function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
+  const queues: Queues = {queue: []};
   const useMoney = !park.getFlag("noMoney");
 
   // Iterate every tile in the map
@@ -37,7 +38,12 @@ export function Add(settings: Settings): Paths {
 
       footpaths.forEach((path: FootpathElement) => {
         if (!canBuildAdditionOnPath(surface, path)) {
-          return;
+          if (!canBuildAdditionOnQueue(surface, path)) {
+            return;
+          } else {
+            queues.queue.push({ path, x, y });
+            return;
+          }
         }
         if (conflictsWithExistingAddition(path, settings)) {
           return;
@@ -81,36 +87,6 @@ export function Add(settings: Settings): Paths {
     }
   });
 
-  return paths;
-}
-export function AddQueueTVs(settings: Settings): Queues {
-  const queues: Queues = {queue: []};
-  const useMoney = !park.getFlag("noMoney");
-
-  // Iterate every tile in the map
-  for (let y = 0; y < map.size.y; y++) {
-    for (let x = 0; x < map.size.x; x++) {
-      const { elements } = map.getTile(x, y);
-      const surface = elements.filter(
-        (element) => element.type === "surface"
-      )[0] as SurfaceElement;
-      const footpaths = elements.filter(
-        (element) => element.type === "footpath"
-      ) as FootpathElement[];
-
-      footpaths.forEach((path: FootpathElement) => {
-        if (!canBuildAdditionOnQueue(surface, path)) {
-          return;
-        }
-        if (conflictsWithExistingAddition(path, settings)) {
-          return;
-        } else {
-          queues.queue.push({ path, x, y });
-        }
-      });
-    }
-  }
-
   // Build queue tvs on queue lines
   queues.queue.forEach(({ path }) => {
     const { queuetv } = settings;
@@ -126,7 +102,7 @@ export function AddQueueTVs(settings: Settings): Queues {
     }
   });
 
-  return queues;
+  return paths;
 }
 
 function conflictsWithExistingAddition(

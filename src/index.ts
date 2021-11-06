@@ -1,5 +1,5 @@
 import { version, author, license as licence } from "../package.json";
-import { Add, AddQueueTVs } from "./add";
+import { Add } from "./add";
 import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
 
@@ -65,16 +65,7 @@ function main() {
           }
           window.close();
         }),
-        Button("Add Queue TVs", () => {
-          if (settings.queueTVConfigured) {
-            try {
-              AddQueueTVs(settings);
-            } catch (e) {
-              ui.showError("Error Building Queue TVs", (e as Error).message);
-            }
-          }
-        })
-      ),
+      )
     });
   });
 }
