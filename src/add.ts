@@ -3,6 +3,7 @@ import { Settings } from "./settings";
 // Money in RCT2 is expressed in dimes, e.g. $3 is "30"
 const PRICE_BIN = 30;
 const PRICE_BENCH = 50;
+const PRICE_QUEUETV = 150;
 
 type Path = {
   path: FootpathElement;
@@ -15,15 +16,13 @@ type Paths = {
   sloped: Path[];
 };
 
+type Queues = {
+  queue: Path[];
+}
+
 export function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
-  const benchIndexes = settings.benches.map((b: LoadedObject) => b.index);
-  const binIndexes = settings.bins.map((b: LoadedObject) => b.index);
-  const conflictsWithExistingAddition = (path: FootpathElement) =>
-    settings.preserveOtherAdditions &&
-    path.addition !== null &&
-    !benchIndexes.includes(path.addition) &&
-    !binIndexes.includes(path.addition);
+  const queues: Queues = {queue: []};
   const useMoney = !park.getFlag("noMoney");
 
   // Iterate every tile in the map
@@ -39,9 +38,14 @@ export function Add(settings: Settings): Paths {
 
       footpaths.forEach((path: FootpathElement) => {
         if (!canBuildAdditionOnPath(surface, path)) {
-          return;
+          if (!canBuildAdditionOnQueue(surface, path)) {
+            return;
+          } else {
+            queues.queue.push({ path, x, y });
+            return;
+          }
         }
-        if (conflictsWithExistingAddition(path)) {
+        if (conflictsWithExistingAddition(path, settings)) {
           return;
         }
         if (path?.slopeDirection === null) {
@@ -83,7 +87,29 @@ export function Add(settings: Settings): Paths {
     }
   });
 
+  // Build queue tvs on queue lines
+  queues.queue.forEach(({ path }) => {
+    const { queuetv } = settings;
+    const [addition, price] = [queuetv, PRICE_QUEUETV];
+    const cash = park.cash - price;
+
+    if (useMoney && cash >= 0) {
+      ensureHasAddition(path, addition, price);
+    } else if (!useMoney) {
+      ensureHasAddition(path, addition, 0);
+    } else {
+      throw new Error("Insufficient funds.");
+    }
+  });
+
   return paths;
+}
+
+function conflictsWithExistingAddition(
+  path: FootpathElement,
+  settings: Settings
+): boolean {
+  return (path.addition !== null && settings.preserveOtherAdditions)
 }
 
 function ensureHasAddition(
@@ -121,6 +147,30 @@ function canBuildAdditionOnPath(
   }
 
   if (path.isQueue) {
+    return false;
+  }
+
+  if (surface.hasOwnership) {
+    return true;
+  }
+
+  // Only allowed to build underground or elevated on land with construction rights
+  if (surface.hasConstructionRights && surface.baseHeight !== path.baseHeight) {
+    return true;
+  }
+
+  return false;
+}
+
+function canBuildAdditionOnQueue(
+  surface: SurfaceElement,
+  path: FootpathElement
+) {
+  if (!surface || !path) {
+    return false;
+  }
+
+  if (!path.isQueue) {
     return false;
   }
 

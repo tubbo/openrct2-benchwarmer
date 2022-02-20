@@ -1,20 +1,24 @@
 const BENCH = "Benchwarmer.Bench";
 const BIN = "Benchwarmer.Bin";
+const QUEUETV = "Benchwarmer.QueueTV";
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths";
 const PRESERVE = "Benchwarmer.PreserveOtherAdditions";
 
 type Selections = {
   bench: number;
   bin: number;
+  queuetv: number;
 };
 
 export class Settings {
   benches: LoadedObject[];
   bins: LoadedObject[];
+  queuetvs: LoadedObject[];
 
   constructor(all: LoadedObject[]) {
     this.benches = all.filter((a) => a.identifier.includes("bench"));
     this.bins = all.filter((a) => a.identifier.includes("litter"));
+    this.queuetvs = all.filter((a) => a.identifier.includes("qtv"));
   }
 
   get bench(): number {
@@ -33,11 +37,20 @@ export class Settings {
     context.sharedStorage.set(BIN, index);
   }
 
+  get queuetv(): number {
+    return this.queuetvs[this.selections.queuetv].index;
+  }
+
+  set queuetv(index: number) {
+    context.sharedStorage.set(QUEUETV, index);
+  }
+
   get selections(): Selections {
     const bench = context.sharedStorage.get(BENCH, 0);
     const bin = context.sharedStorage.get(BIN, 0);
+    const queuetv = context.sharedStorage.get(QUEUETV, 0);
 
-    return { bench, bin };
+    return { bench, bin, queuetv };
   }
 
   get buildBinsOnAllSlopedPaths(): boolean {
@@ -58,5 +71,9 @@ export class Settings {
 
   get configured(): boolean {
     return this.bench !== null && this.bin !== null;
+  }
+
+  get queueTVConfigured(): boolean {
+    return this.queuetv !== null;
   }
 }

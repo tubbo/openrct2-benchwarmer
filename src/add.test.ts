@@ -33,5 +33,5 @@ describe("add", () => {
     expect(paths).not.toHaveLength(0);
     expect(paths[1].addition).toStrictEqual(bench.index);
     expect(paths[2].addition).toStrictEqual(bin.index);
-  });
+  })
 });

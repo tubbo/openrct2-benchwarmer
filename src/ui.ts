@@ -33,7 +33,7 @@ export function Dropdown(
       type: "label",
       x: LABEL_X,
       y,
-      width: 50,
+      width: 60,
       height: 10,
       text,
     },

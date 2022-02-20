@@ -19,6 +19,13 @@ describe("settings", () => {
       legacyIdentifier: "litter",
       name: "litter bin",
     },
+    {
+      index: 2,
+      type: "footpath_addition",
+      identifier: "qtv",
+      legacyIdentifier: "qtv",
+      name: "queue tv",
+    },
   ];
 
   it("returns bench and bin selections", () => {
@@ -29,7 +36,9 @@ describe("settings", () => {
 
     expect(settings.bench).toStrictEqual(0);
     expect(settings.bin).toStrictEqual(1);
+    expect(settings.queuetv).toStrictEqual(2);
     expect(settings.configured).toBe(true);
+    expect(settings.queueTVConfigured).toBe(true);
   });
 
   it("selects a bench", () => {
@@ -40,9 +49,11 @@ describe("settings", () => {
 
     settings.bench = 0;
     settings.bin = 0;
+    settings.queuetv = 0;
 
     expect(settings.bench).toStrictEqual(0);
     expect(settings.bin).toStrictEqual(1);
+    expect(settings.queuetv).toStrictEqual(2);
   });
 
   it("preserves additions", () => {
