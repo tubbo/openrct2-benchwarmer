@@ -60,4 +60,14 @@ jobs:
           node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
       - run: yarn
         if: steps.cache.outputs.cache-hit != 'true'
+      - run: yarn types
+      - run: yarn style
       - run: yarn lint
+  git:
+    name: Lint Commit Messages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v4
