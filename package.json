@@ -15,7 +15,8 @@
     "start": "yarn build && $OPENRCT2_BIN intro",
     "release": "semantic-release",
     "style": "prettier --check .",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "watch": {
     "build": "src/*.js"
