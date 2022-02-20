@@ -37,6 +37,8 @@ declare global {
     var park: Park;
     /** APIs for the current scenario. */
     var scenario: Scenario;
+    /** APIs for the climate and weather. */
+    var climate: Climate;
     /**
      * APIs for creating and editing title sequences.
      * These will only be available to clients that are not running headless mode.
@@ -133,6 +135,7 @@ declare global {
         type: PluginType;
         licence: string;
         minApiVersion?: number;
+        targetApiVersion?: number;
         main: () => void;
     }
 
@@ -265,6 +268,7 @@ declare global {
         subscribe(hook: "ride.ratings.calculate", callback: (e: RideRatingsCalculateArgs) => void): IDisposable;
         subscribe(hook: "action.location", callback: (e: ActionLocationArgs) => void): IDisposable;
         subscribe(hook: "guest.generation", callback: (id: number) => void): IDisposable;
+        subscribe(hook: "vehicle.crash", callback: (e: VehicleCrashArgs) => void): IDisposable;
 
         /**
          * Registers a function to be called every so often in realtime, specified by the given delay.
@@ -363,7 +367,7 @@ declare global {
     type HookType =
         "interval.tick" | "interval.day" |
         "network.chat" | "network.action" | "network.join" | "network.leave" |
-        "ride.ratings.calculate" | "action.location";
+        "ride.ratings.calculate" | "action.location" | "vehicle.crash";
 
     type ExpenditureType =
         "ride_construction" |
@@ -513,6 +517,13 @@ declare global {
         result: boolean;
     }
 
+    type VehicleCrashIntoType = "another_vehicle" | "land" | "water";
+
+    interface VehicleCrashArgs {
+        readonly id: number;
+        readonly crashIntoType: VehicleCrashIntoType;
+    }
+
     /**
      * APIs for the in-game date.
      */
@@ -560,7 +571,15 @@ declare global {
         getTile(x: number, y: number): Tile;
         getEntity(id: number): Entity;
         getAllEntities(type: EntityType): Entity[];
+        /**
+         * @deprecated since version 34, use guest or staff instead.
+         */
         getAllEntities(type: "peep"): Peep[];
+        getAllEntities(type: "guest"): Guest[];
+        getAllEntities(type: "staff"): Staff[];
+        getAllEntities(type: "car"): Car[];
+        getAllEntities(type: "litter"): Litter[];
+        createEntity(type: EntityType, initializer: object): Entity;
     }
 
     type TileElementType =
@@ -1017,6 +1036,11 @@ declare global {
          * The value of the ride.
          */
         value: number;
+
+        /**
+         * The percentage of downtime for this ride from 0 to 100.
+         */
+        readonly downtime: number;
     }
 
     type RideClassification = "ride" | "stall" | "facility";
@@ -1054,8 +1078,13 @@ declare global {
         "jumping_fountain_water" |
         "litter" |
         "money_effect" |
-        "peep" |
-        "steam_particle";
+        "guest" |
+        "staff" |
+        "steam_particle" |
+        /**
+         * @deprecated since version 34, use guest or staff instead.
+         */
+        "peep";
 
     /**
      * Represents an object "entity" on the map that can typically moves and has a sub-tile coordinate.
@@ -1066,7 +1095,7 @@ declare global {
          */
         readonly id: number;
         /**
-         * The type of entity, e.g. car, duck, litter, or peep.
+         * The type of entity, e.g. guest, vehicle, etc.
          */
         readonly type: EntityType;
         /**
@@ -1204,9 +1233,15 @@ declare global {
         readonly remainingDistance: number;
 
         /**
-         * List of peep IDs ordered by seat.
+         * List of guest IDs ordered by seat.
+         * @deprecated since version 34, use guests instead.
          */
         peeps: Array<number | null>;
+
+        /**
+         * List of guest IDs ordered by seat.
+         */
+        guests: Array<number | null>;
 
         /**
          * Moves the vehicle forward or backwards along the track, relative to its current
@@ -1251,6 +1286,7 @@ declare global {
 
     /**
      * Represents a guest or staff member.
+     * @deprecated since version 34, use guest or staff instead.
      */
     interface Peep extends Entity {
         /**
@@ -1319,6 +1355,9 @@ declare global {
         "iceCream" |
         "hereWeAre";
 
+    /**
+     * @deprecated since version 34, use EntityType instead.
+     */
     type PeepType = "guest" | "staff";
 
     /**
@@ -1409,6 +1448,21 @@ declare global {
          * Amount of cash in the guest's pocket.
          */
         cash: number;
+
+        /**
+         * Whether the guest is within the boundaries of the park.
+         */
+        readonly isInPark: boolean;
+
+        /**
+         * Whether the guest is lost or not. The guest is lost when the countdown is below 90.
+         */
+        readonly isLost: boolean;
+
+        /**
+         * Countdown between 0 and 255 that keeps track of how long the guest has been looking for its current destination.
+         */
+        lostCountdown: number;
     }
 
     /**
@@ -1437,6 +1491,34 @@ declare global {
     }
 
     type StaffType = "handyman" | "mechanic" | "security" | "entertainer";
+
+    /**
+     * Represents litter entity.
+     */
+    interface Litter extends Entity {
+        /**
+         * The type of the litter.
+         */
+        litterType: LitterType;
+
+        /**
+         * The tick number this entity was created.
+         */
+        creationTick: number;
+    }
+
+    type LitterType = "vomit" |
+        "vomit_alt" |
+        "empty_can" |
+        "rubbish" |
+        "burger_box" |
+        "empty_cup" |
+        "empty_box" |
+        "empty_bottle" |
+        "empty_bowl_red" |
+        "empty_drink_carton" |
+        "empty_juice_cup" |
+        "empty_bowl_blue";
 
     /**
      * Network APIs
@@ -1691,6 +1773,12 @@ declare global {
         constructionRightsPrice: number;
 
         /**
+         * The amount of penalty points currentlty applied to the park rating for
+         * drowned guests and crashed coaster cars.
+         */
+        casualtyPenalty: number;
+
+        /**
          * The number of tiles on the map with park ownership or construction rights.
          * Updated every 4096 ticks.
          */
@@ -1817,6 +1905,45 @@ declare global {
          * The current highest recorded company value.
          */
         companyValueRecord: number;
+    }
+
+    type ClimateType =
+        "coolAndWet" |
+        "warm" |
+        "hotAndDry" |
+        "cold";
+
+    type WeatherType =
+        "sunny" |
+        "partiallyCloudy" |
+        "cloudy" |
+        "rain" |
+        "heavyRain" |
+        "thunder" |
+        "snow" |
+        "heavySnow" |
+        "blizzard";
+
+    interface ClimateState {
+        readonly weather: WeatherType;
+        readonly temperature: number;
+    }
+
+    interface Climate {
+        /**
+         * The climate of the park.
+         */
+        readonly type: ClimateType;
+
+        /**
+         * The current weather in the park.
+         */
+        readonly current: ClimateState;
+
+        /**
+         * The next weather the park will experience.
+         */
+        readonly future: ClimateState;
     }
 
     interface Cheats {
