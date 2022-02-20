@@ -1,9 +1,8 @@
 ## [0.5.1](https://github.com/tubbo/openrct2-benchwarmer/compare/v0.5.0...v0.5.1) (2022-02-20)
 
-
 ### Bug Fixes
 
-* **build:** target es5 in typescript build ([31ca4f3](https://github.com/tubbo/openrct2-benchwarmer/commit/31ca4f31409a2ed3e11a87415f6cb55350abae42))
+- **build:** target es5 in typescript build ([31ca4f3](https://github.com/tubbo/openrct2-benchwarmer/commit/31ca4f31409a2ed3e11a87415f6cb55350abae42))
 
 # Changelog
 

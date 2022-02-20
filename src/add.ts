@@ -18,11 +18,11 @@ type Paths = {
 
 type Queues = {
   queue: Path[];
-}
+};
 
 export function Add(settings: Settings): Paths {
   const paths: Paths = { unsloped: [], sloped: [] };
-  const queues: Queues = {queue: []};
+  const queues: Queues = { queue: [] };
   const useMoney = !park.getFlag("noMoney");
 
   // Iterate every tile in the map
@@ -109,7 +109,7 @@ function conflictsWithExistingAddition(
   path: FootpathElement,
   settings: Settings
 ): boolean {
-  return (path.addition !== null && settings.preserveOtherAdditions)
+  return path.addition !== null && settings.preserveOtherAdditions;
 }
 
 function ensureHasAddition(

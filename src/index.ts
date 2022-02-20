@@ -64,8 +64,8 @@ function main() {
             }
           }
           window.close();
-        }),
-      )
+        })
+      ),
     });
   });
 }
