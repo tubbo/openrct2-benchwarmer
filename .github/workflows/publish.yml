@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - yarn.lock
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
@@ -16,7 +14,6 @@ jobs:
         uses: actions/checkout@v1
         with:
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
