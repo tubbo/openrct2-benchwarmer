@@ -1,10 +1,5 @@
 import { Settings } from "./settings";
 
-// Money in RCT2 is expressed in dimes, e.g. $3 is "30"
-const PRICE_BIN = 30;
-const PRICE_BENCH = 50;
-const PRICE_QUEUETV = 150;
-
 type Path = {
   path: FootpathElement;
   x: number;
@@ -14,16 +9,15 @@ type Path = {
 type Paths = {
   unsloped: Path[];
   sloped: Path[];
-};
-
-type Queues = {
-  queue: Path[];
+  queues: Path[];
 };
 
 export function Add(settings: Settings): Paths {
-  const paths: Paths = { unsloped: [], sloped: [] };
-  const queues: Queues = { queue: [] };
-  const useMoney = !park.getFlag("noMoney");
+  const paths: Paths = {
+    unsloped: [],
+    sloped: [],
+    queues: [],
+  };
 
   // Iterate every tile in the map
   for (let y = 0; y < map.size.y; y++) {
@@ -37,21 +31,14 @@ export function Add(settings: Settings): Paths {
       ) as FootpathElement[];
 
       footpaths.forEach((path: FootpathElement) => {
-        if (!canBuildAdditionOnPath(surface, path)) {
-          if (!canBuildAdditionOnQueue(surface, path)) {
-            return;
+        if (canBuildAdditionOnPath(surface, path, settings)) {
+          if (path.isQueue) {
+            paths.queues.push({ path, x, y });
+          } else if (path?.slopeDirection === null) {
+            paths.unsloped.push({ path, x, y });
           } else {
-            queues.queue.push({ path, x, y });
-            return;
+            paths.sloped.push({ path, x, y });
           }
-        }
-        if (conflictsWithExistingAddition(path, settings)) {
-          return;
-        }
-        if (path?.slopeDirection === null) {
-          paths.unsloped.push({ path, x, y });
-        } else {
-          paths.sloped.push({ path, x, y });
         }
       });
     }
@@ -60,46 +47,25 @@ export function Add(settings: Settings): Paths {
   // Build benches and bins on unsloped paths
   paths.unsloped.forEach(({ path, x, y }) => {
     const { bench, bin } = settings;
-    const [addition, price] = findAdditionAndPrice(bench, bin, x, y);
-    const cash = park.cash - price;
+    const addition = findAddition(bench, bin, x, y);
 
-    if (useMoney && cash >= 0) {
-      ensureHasAddition(path, addition, price);
-    } else if (!useMoney) {
-      ensureHasAddition(path, addition, 0);
-    } else {
-      throw new Error("Insufficient funds.");
-    }
+    ensureHasAddition(x, y, path.baseZ, addition);
   });
 
   // Build bins on sloped paths
   paths.sloped.forEach(({ path, x, y }) => {
-    const cash = park.cash - PRICE_BIN;
-    const affordable = cash >= 0;
     const { buildBinsOnAllSlopedPaths } = settings;
     const evenTile = x % 2 === y % 2;
     const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
 
-    if (useMoney && buildOnSlopedPath && affordable) {
-      ensureHasAddition(path, settings.bin, PRICE_BIN);
-    } else if (!useMoney && buildOnSlopedPath) {
-      ensureHasAddition(path, settings.bin, 0);
+    if (buildOnSlopedPath) {
+      ensureHasAddition(x, y, path.baseZ, settings.bin);
     }
   });
 
   // Build queue tvs on queue lines
-  queues.queue.forEach(({ path }) => {
-    const { queuetv } = settings;
-    const [addition, price] = [queuetv, PRICE_QUEUETV];
-    const cash = park.cash - price;
-
-    if (useMoney && cash >= 0) {
-      ensureHasAddition(path, addition, price);
-    } else if (!useMoney) {
-      ensureHasAddition(path, addition, 0);
-    } else {
-      throw new Error("Insufficient funds.");
-    }
+  paths.queues.forEach(({ path, x, y }) => {
+    ensureHasAddition(x, y, path.baseZ, settings.queuetv);
   });
 
   return paths;
@@ -112,65 +78,44 @@ function conflictsWithExistingAddition(
   return path.addition !== null && settings.preserveOtherAdditions;
 }
 
-function ensureHasAddition(
-  path: FootpathElement,
-  addition: number,
-  price: number
-) {
-  if (path.addition !== addition || path.isAdditionBroken) {
-    path.addition = addition;
-    path.isAdditionBroken = false;
-    path.isAdditionGhost = false;
-    park.cash -= price;
-  }
+/**
+ * Build the footpath addition on a footpath.
+ */
+function ensureHasAddition(x: number, y: number, z: number, addition: number) {
+  context.executeAction(
+    "footpathadditionplace",
+    {
+      // x/y coords need to be multiples of 32
+      x: x * 32,
+      y: y * 32,
+      z,
+      // 0 means "no addition", so everything must be 1-indexed
+      object: addition + 1,
+    },
+    ({ errorTitle, errorMessage }) => {
+      if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+    }
+  );
 }
 
-function findAdditionAndPrice(
-  bench: number,
-  bin: number,
-  x: number,
-  y: number
-) {
+function findAddition(bench: number, bin: number, x: number, y: number) {
   if (x % 2 === y % 2) {
-    return [bench, PRICE_BENCH];
+    return bench;
   } else {
-    return [bin, PRICE_BIN];
+    return bin;
   }
 }
 
 function canBuildAdditionOnPath(
   surface: SurfaceElement,
-  path: FootpathElement
+  path: FootpathElement,
+  settings: Settings
 ) {
   if (!surface || !path) {
     return false;
   }
 
-  if (path.isQueue) {
-    return false;
-  }
-
-  if (surface.hasOwnership) {
-    return true;
-  }
-
-  // Only allowed to build underground or elevated on land with construction rights
-  if (surface.hasConstructionRights && surface.baseHeight !== path.baseHeight) {
-    return true;
-  }
-
-  return false;
-}
-
-function canBuildAdditionOnQueue(
-  surface: SurfaceElement,
-  path: FootpathElement
-) {
-  if (!surface || !path) {
-    return false;
-  }
-
-  if (!path.isQueue) {
+  if (conflictsWithExistingAddition(path, settings)) {
     return false;
   }
 

@@ -55,7 +55,7 @@ function main() {
             settings.preserveOtherAdditions = checked;
           }
         ),
-        Button("Add", () => {
+        Button("Build on All Paths", () => {
           if (settings.configured) {
             try {
               Add(settings);
