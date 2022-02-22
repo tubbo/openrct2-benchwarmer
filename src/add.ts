@@ -64,9 +64,9 @@ export function Add(settings: Settings): Paths {
     const cash = park.cash - price;
 
     if (useMoney && cash >= 0) {
-      ensureHasAddition(path, addition, price);
+      ensureHasAddition(x, y, path.baseZ, addition);
     } else if (!useMoney) {
-      ensureHasAddition(path, addition, 0);
+      ensureHasAddition(x, y, path.baseZ, addition);
     } else {
       throw new Error("Insufficient funds.");
     }
@@ -81,22 +81,22 @@ export function Add(settings: Settings): Paths {
     const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
 
     if (useMoney && buildOnSlopedPath && affordable) {
-      ensureHasAddition(path, settings.bin, PRICE_BIN);
+      ensureHasAddition(x, y, path.baseZ, settings.bin);
     } else if (!useMoney && buildOnSlopedPath) {
-      ensureHasAddition(path, settings.bin, 0);
+      ensureHasAddition(x, y, path.baseZ, settings.bin);
     }
   });
 
   // Build queue tvs on queue lines
-  queues.queue.forEach(({ path }) => {
+  queues.queue.forEach(({ path, x, y }) => {
     const { queuetv } = settings;
     const [addition, price] = [queuetv, PRICE_QUEUETV];
     const cash = park.cash - price;
 
     if (useMoney && cash >= 0) {
-      ensureHasAddition(path, addition, price);
+      ensureHasAddition(x, y, path.baseZ, addition);
     } else if (!useMoney) {
-      ensureHasAddition(path, addition, 0);
+      ensureHasAddition(x, y, path.baseZ, addition);
     } else {
       throw new Error("Insufficient funds.");
     }
@@ -112,17 +112,19 @@ function conflictsWithExistingAddition(
   return path.addition !== null && settings.preserveOtherAdditions;
 }
 
-function ensureHasAddition(
-  path: FootpathElement,
-  addition: number,
-  price: number
-) {
-  if (path.addition !== addition || path.isAdditionBroken) {
-    path.addition = addition;
-    path.isAdditionBroken = false;
-    path.isAdditionGhost = false;
-    park.cash -= price;
-  }
+function ensureHasAddition(x: number, y: number, z: number, addition: number) {
+  context.executeAction(
+    "footpathadditionplace",
+    {
+      x: x * 32,
+      y: y * 32,
+      z,
+      object: addition + 1,
+    },
+    ({ errorTitle, errorMessage }) => {
+      if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+    }
+  );
 }
 
 function findAdditionAndPrice(

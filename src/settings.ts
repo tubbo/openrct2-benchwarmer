@@ -30,7 +30,7 @@ export class Settings {
   }
 
   get bin(): number {
-    return this.bins[this.selections.bin].index;
+    return this.bins[this.selections.bin]?.index;
   }
 
   set bin(index: number) {
@@ -38,7 +38,7 @@ export class Settings {
   }
 
   get queuetv(): number {
-    return this.queuetvs[this.selections.queuetv].index;
+    return this.queuetvs[this.selections.queuetv]?.index;
   }
 
   set queuetv(index: number) {
