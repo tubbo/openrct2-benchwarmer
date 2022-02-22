@@ -77,7 +77,7 @@ export function Button(text: string, onClick: ClickEventHandler): ButtonWidget {
     text,
     x: 10,
     y: y,
-    width: 50,
+    width: 100,
     height: 20,
     onClick,
   };
