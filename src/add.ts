@@ -31,7 +31,7 @@ export function Add(settings: Settings): Paths {
       ) as FootpathElement[];
 
       footpaths.forEach((path: FootpathElement) => {
-        if (canBuildAdditionOnPath(surface, path, settings)) {
+        if (canBuildAdditionOnPath(surface, path)) {
           if (path.isQueue) {
             paths.queues.push({ path, x, y });
           } else if (path?.slopeDirection === null) {
@@ -71,17 +71,15 @@ export function Add(settings: Settings): Paths {
   return paths;
 }
 
-function conflictsWithExistingAddition(
-  path: FootpathElement,
-  settings: Settings
-): boolean {
-  return path.addition !== null && settings.preserveOtherAdditions;
-}
-
 /**
  * Build the footpath addition on a footpath.
  */
-function ensureHasAddition(x: number, y: number, z: number, addition: number) {
+function ensureHasAddition(
+  x: number,
+  y: number,
+  z: number,
+  addition: number
+): void {
   context.executeAction(
     "footpathadditionplace",
     {
@@ -98,7 +96,12 @@ function ensureHasAddition(x: number, y: number, z: number, addition: number) {
   );
 }
 
-function findAddition(bench: number, bin: number, x: number, y: number) {
+export function findAddition(
+  bench: number,
+  bin: number,
+  x: number,
+  y: number
+): number {
   if (x % 2 === y % 2) {
     return bench;
   } else {
@@ -108,14 +111,9 @@ function findAddition(bench: number, bin: number, x: number, y: number) {
 
 function canBuildAdditionOnPath(
   surface: SurfaceElement,
-  path: FootpathElement,
-  settings: Settings
+  path: FootpathElement
 ) {
   if (!surface || !path) {
-    return false;
-  }
-
-  if (conflictsWithExistingAddition(path, settings)) {
     return false;
   }
 

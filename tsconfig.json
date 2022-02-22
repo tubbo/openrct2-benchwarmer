@@ -17,5 +17,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["node_modules", "**/node_modules/*"],
-  "include": ["types/openrct2.d.ts", "src/**/*"]
+  "include": ["types/*.d.ts", "src/**/*"]
 }
