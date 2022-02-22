@@ -3,6 +3,7 @@ const BIN = "Benchwarmer.Bin";
 const QUEUETV = "Benchwarmer.QueueTV";
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths";
 const PRESERVE = "Benchwarmer.PreserveOtherAdditions";
+const AS_YOU_GO = "Benchwarmer.BuildAsYouGo";
 
 type Selections = {
   bench: number;
@@ -75,5 +76,13 @@ export class Settings {
 
   get queueTVConfigured(): boolean {
     return this.queuetv !== null;
+  }
+
+  get asYouGo(): boolean {
+    return context.sharedStorage.get(AS_YOU_GO, false);
+  }
+
+  set asYouGo(value: boolean) {
+    context.sharedStorage.set(AS_YOU_GO, value);
   }
 }
