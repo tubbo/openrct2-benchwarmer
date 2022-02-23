@@ -113,13 +113,9 @@ function canBuildAdditionOnPath(
   surface: SurfaceElement,
   path: FootpathElement
 ) {
-  if (!surface || !path) {
-    return false;
-  }
-
-  if (surface.hasOwnership) {
-    return true;
-  }
+  if (!surface || !path) return false;
+  if (path.addition !== null) return false;
+  if (surface.hasOwnership) return true;
 
   // Only allowed to build underground or elevated on land with construction rights
   if (surface.hasConstructionRights && surface.baseHeight !== path.baseHeight) {
