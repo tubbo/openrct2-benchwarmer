@@ -15,7 +15,7 @@ function main() {
       id: 1,
       classification: name,
       width: 300,
-      height: 140,
+      height: 160,
       widgets: Document(
         ...Dropdown(
           "Bench:",
