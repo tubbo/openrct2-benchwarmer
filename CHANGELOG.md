@@ -1,3 +1,23 @@
+# [1.0.0](https://github.com/tubbo/openrct2-benchwarmer/compare/v0.5.1...v1.0.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* prevent building over decorative additions ([38fb0e0](https://github.com/tubbo/openrct2-benchwarmer/commit/38fb0e0e6ffacc2496cb56dddc76d4e63016a24b))
+
+
+### Features
+
+* build additions as new paths are built ([4c11ddb](https://github.com/tubbo/openrct2-benchwarmer/commit/4c11ddbbba77f9379c10f2483138a49038be2c9c)), closes [#14](https://github.com/tubbo/openrct2-benchwarmer/issues/14)
+* execute game actions to place benches/bins ([3249e01](https://github.com/tubbo/openrct2-benchwarmer/commit/3249e01b318770cc20ce1b49369fe1645c559db4)), closes [#20](https://github.com/tubbo/openrct2-benchwarmer/issues/20) [#24](https://github.com/tubbo/openrct2-benchwarmer/issues/24)
+* **ui:** increase window size to accommodate new options ([cc3d7c8](https://github.com/tubbo/openrct2-benchwarmer/commit/cc3d7c835abbfd8dce9eeda6f59e68466135cc55))
+
+
+### BREAKING CHANGES
+
+* We now use `executeAction()` which changes what we need to include in the code to
+prevent things like building out of bounds and ensuring you have enough money.
+
 ## [0.5.1](https://github.com/tubbo/openrct2-benchwarmer/compare/v0.5.0...v0.5.1) (2022-02-20)
 
 ### Bug Fixes
