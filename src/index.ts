@@ -6,10 +6,9 @@ import { Dropdown, Checkbox, Button, Document } from "./ui";
 const name = "Benchwarmer";
 
 function main() {
+  const additions = context.getAllObjects("footpath_addition");
+  const settings = new Settings(additions);
   ui.registerMenuItem(name, () => {
-    const additions = context.getAllObjects("footpath_addition");
-    const settings = new Settings(additions);
-
     const window = ui.openWindow({
       title: name,
       id: 1,
@@ -75,30 +74,42 @@ function main() {
             try {
               Add(settings);
             } catch (e) {
-              ui.showError("Error Building Benches/Bins", (e as Error).message);
+              ui.showError(
+                "Error Building Benches/Bins/Lights",
+                (e as Error).message
+              );
             }
           }
           window.close();
         })
       ),
     });
-
-    context.subscribe("action.execute", ({ action, args, isClientOnly }) => {
-      if (action === "footpathplace" && settings.asYouGo && !isClientOnly) {
-        const { x, y, z, slope } = args as FootpathPlaceArgs;
-        const addition = slope
+  });
+  context.subscribe("action.execute", ({ action, args, isClientOnly }) => {
+    if (action === "footpathplace" && settings.asYouGo && !isClientOnly) {
+      const { x, y, z, slope } = args as FootpathPlaceArgs;
+      let addition = settings.bin;
+      if (args.object == 11) {
+        addition = settings.queuetv;
+      } else {
+        addition = slope
           ? settings.bin
-          : findAddition(settings.bench, settings.bin, x / 32, y / 32);
-
-        context.executeAction(
-          "footpathadditionplace",
-          { x, y, z, object: addition + 1 },
-          ({ errorTitle, errorMessage }) => {
-            if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-          }
-        );
+          : findAddition(
+              settings.bench,
+              settings.bin,
+              settings.light,
+              x / 32,
+              y / 32
+            );
       }
-    });
+      context.executeAction(
+        "footpathadditionplace",
+        { x, y, z, object: addition + 1 },
+        ({ errorTitle, errorMessage }) => {
+          if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+        }
+      );
+    }
   });
 }
 
