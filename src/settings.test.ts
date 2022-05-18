@@ -26,9 +26,16 @@ describe("settings", () => {
       legacyIdentifier: "qtv",
       name: "queue tv",
     },
+    {
+      index: 3,
+      type: "footpath_addition",
+      identifier: "lamp",
+      legacyIdentifier: "lamp",
+      name: "light",
+    },
   ];
 
-  it("returns bench and bin selections", () => {
+  it("returns bench, bin, and light selections", () => {
     expect.hasAssertions();
     sharedStorage.get.mockReturnValue(0);
 
@@ -37,6 +44,7 @@ describe("settings", () => {
     expect(settings.bench).toStrictEqual(0);
     expect(settings.bin).toStrictEqual(1);
     expect(settings.queuetv).toStrictEqual(2);
+    expect(settings.light).toStrictEqual(3);
     expect(settings.configured).toBe(true);
     expect(settings.queueTVConfigured).toBe(true);
   });
@@ -50,10 +58,12 @@ describe("settings", () => {
     settings.bench = 0;
     settings.bin = 0;
     settings.queuetv = 0;
+    settings.light = 0;
 
     expect(settings.bench).toStrictEqual(0);
     expect(settings.bin).toStrictEqual(1);
     expect(settings.queuetv).toStrictEqual(2);
+    expect(settings.light).toStrictEqual(3);
   });
 
   it("preserves additions", () => {

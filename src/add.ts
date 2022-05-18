@@ -44,10 +44,10 @@ export function Add(settings: Settings): Paths {
     }
   }
 
-  // Build benches and bins on unsloped paths
+  // Build benches, bins, and lights on unsloped paths
   paths.unsloped.forEach(({ path, x, y }) => {
-    const { bench, bin } = settings;
-    const addition = findAddition(bench, bin, x, y);
+    const { bench, bin, light } = settings;
+    const addition = findAddition(bench, bin, light, x, y);
 
     ensureHasAddition(x, y, path.baseZ, addition);
   });
@@ -99,13 +99,16 @@ function ensureHasAddition(
 export function findAddition(
   bench: number,
   bin: number,
+  light: number,
   x: number,
   y: number
 ): number {
-  if (x % 2 === y % 2) {
+  if (x % 3 === y % 3) {
     return bench;
-  } else {
+  } else if (Math.abs((x % 3) - (y % 3)) == 2) {
     return bin;
+  } else {
+    return light;
   }
 }
 

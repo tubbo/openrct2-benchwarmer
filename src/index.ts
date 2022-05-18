@@ -41,6 +41,14 @@ function main() {
             settings.queuetv = index;
           }
         ),
+        ...Dropdown(
+          "Light:",
+          settings.lights,
+          settings.selections.light,
+          (index: number) => {
+            settings.light = index;
+          }
+        ),
         Checkbox(
           "Build bins on all sloped footpaths",
           settings.buildBinsOnAllSlopedPaths,
@@ -56,7 +64,7 @@ function main() {
           }
         ),
         Checkbox(
-          "Add benches and bins as paths are placed",
+          "Add benches, bins, and lights as paths are placed",
           settings.asYouGo,
           (checked: boolean) => {
             settings.asYouGo = checked;
