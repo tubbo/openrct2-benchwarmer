@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tubbo/openrct2-benchwarmer/compare/v1.0.0...v1.0.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* additions to new paths wasn't working before opening benchwarmer window ([de3926c](https://github.com/tubbo/openrct2-benchwarmer/commit/de3926c959437bf29ebb438279eb730c79cc30a7))
+
 # [1.0.0](https://github.com/tubbo/openrct2-benchwarmer/compare/v0.5.1...v1.0.0) (2022-03-01)
 
 
