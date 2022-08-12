@@ -78,7 +78,7 @@ function main() {
     if (action === "footpathplace" && settings.asYouGo && !isClientOnly) {
       const { x, y, z, slope } = args as FootpathPlaceArgs;
       let addition = settings.bin;
-      if (args.object == 11) {
+      if (args.constructFlags & 1 == 1) {
         addition = settings.queuetv;
       } else {
         addition = slope
