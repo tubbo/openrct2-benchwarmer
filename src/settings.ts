@@ -3,6 +3,7 @@ const BIN = "Benchwarmer.Bin";
 const QUEUETV = "Benchwarmer.QueueTV";
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths";
 const PRESERVE = "Benchwarmer.PreserveOtherAdditions";
+const AS_YOU_GO = "Benchwarmer.BuildAsYouGo";
 
 type Selections = {
   bench: number;
@@ -30,7 +31,7 @@ export class Settings {
   }
 
   get bin(): number {
-    return this.bins[this.selections.bin].index;
+    return this.bins[this.selections.bin]?.index;
   }
 
   set bin(index: number) {
@@ -38,7 +39,7 @@ export class Settings {
   }
 
   get queuetv(): number {
-    return this.queuetvs[this.selections.queuetv].index;
+    return this.queuetvs[this.selections.queuetv]?.index;
   }
 
   set queuetv(index: number) {
@@ -75,5 +76,13 @@ export class Settings {
 
   get queueTVConfigured(): boolean {
     return this.queuetv !== null;
+  }
+
+  get asYouGo(): boolean {
+    return context.sharedStorage.get(AS_YOU_GO, false);
+  }
+
+  set asYouGo(value: boolean) {
+    context.sharedStorage.set(AS_YOU_GO, value);
   }
 }

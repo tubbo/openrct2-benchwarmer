@@ -1,6 +1,6 @@
 {
   "name": "openrct2-benchwarmer",
-  "version": "0.5.1",
+  "version": "1.0.1",
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "build/benchwarmer.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "watch": "npm-watch",
     "dev": "yarn watch build",
     "clean": "rm -rf build coverage tags",
-    "start": "yarn build && $OPENRCT2_BIN intro",
+    "start": "yarn build && yarn use && $OPENRCT2_BIN intro",
     "release": "semantic-release",
     "style": "prettier --check .",
     "types": "tsc --noEmit",

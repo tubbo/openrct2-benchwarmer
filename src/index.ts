@@ -1,21 +1,20 @@
 import { version, author, license as licence } from "../package.json";
-import { Add } from "./add";
+import { Add, findAddition } from "./add";
 import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
 
 const name = "Benchwarmer";
 
 function main() {
+  const additions = context.getAllObjects("footpath_addition");
+  const settings = new Settings(additions);
   ui.registerMenuItem(name, () => {
-    const additions = context.getAllObjects("footpath_addition");
-    const settings = new Settings(additions);
-
     const window = ui.openWindow({
       title: name,
       id: 1,
       classification: name,
       width: 300,
-      height: 140,
+      height: 160,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -55,7 +54,14 @@ function main() {
             settings.preserveOtherAdditions = checked;
           }
         ),
-        Button("Add", () => {
+        Checkbox(
+          "Add benches and bins as paths are placed",
+          settings.asYouGo,
+          (checked: boolean) => {
+            settings.asYouGo = checked;
+          }
+        ),
+        Button("Build on All Paths", () => {
           if (settings.configured) {
             try {
               Add(settings);
@@ -67,6 +73,26 @@ function main() {
         })
       ),
     });
+  });
+  context.subscribe("action.execute", ({ action, args, isClientOnly }) => {
+    if (action === "footpathplace" && settings.asYouGo && !isClientOnly) {
+      const { x, y, z, slope } = args as FootpathPlaceArgs;
+      let addition = settings.bin;
+      if (args.constructFlags & 1 == 1) {
+        addition = settings.queuetv;
+      } else {
+        addition = slope
+          ? settings.bin
+          : findAddition(settings.bench, settings.bin, x / 32, y / 32);
+      }
+      context.executeAction(
+        "footpathadditionplace",
+        { x, y, z, object: addition + 1 },
+        ({ errorTitle, errorMessage }) => {
+          if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+        }
+      );
+    }
   });
 }
 
