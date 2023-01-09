@@ -1,0 +1,18 @@
+name: Tag
+on:
+  push:
+    branches: [master]
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: |
+          yarn version apply
+          version=$(jq package.json '.version')
+          git add package.json
+          git commit -am "release v$(version)"
+          git tag "v$(version)" -m "release v$(version)"
+          git push --tags

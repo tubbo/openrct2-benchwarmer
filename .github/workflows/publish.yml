@@ -1,7 +1,7 @@
 name: Publish
 on:
   push:
-    branches: [master]
+    tags: [v*]
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
