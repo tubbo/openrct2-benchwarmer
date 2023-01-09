@@ -65,7 +65,10 @@ export function Add(settings: Settings): Paths {
 
   // Build queue tvs on queue lines
   paths.queues.forEach(({ path, x, y }) => {
-    ensureHasAddition(x, y, path.baseZ, settings.queuetv);
+    const { buildQueueTVs } = settings;
+    if (buildQueueTVs) {
+      ensureHasAddition(x, y, path.baseZ, settings.queuetv);
+    }
   });
 
   return paths;
