@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/tubbo/openrct2-benchwarmer/compare/v1.0.1...v1.0.2) (2023-01-09)
+
+
+### Bug Fixes
+
+* **types:** resolve type checks after queue lines fix ([88b7f7e](https://github.com/tubbo/openrct2-benchwarmer/commit/88b7f7ed3db96e00bfcfe5f8d1439a3657dfd0a1)), closes [#55](https://github.com/tubbo/openrct2-benchwarmer/issues/55)
+
 ## [1.0.1](https://github.com/tubbo/openrct2-benchwarmer/compare/v1.0.0...v1.0.1) (2022-06-01)
 
 
