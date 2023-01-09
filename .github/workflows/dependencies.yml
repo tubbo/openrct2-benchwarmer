@@ -17,3 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/dependency-review-action@v3
+  usage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
+      - run: yarn depcheck
