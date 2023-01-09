@@ -32,6 +32,7 @@ const tiles = [
         {
           type: "footpath",
           slopeDirection: null,
+          addition: null,
         },
       ],
     },
@@ -44,6 +45,7 @@ const tiles = [
         {
           type: "footpath",
           slopeDirection: 1,
+          addition: null,
         },
       ],
     },
@@ -58,6 +60,7 @@ const tiles = [
         {
           type: "footpath",
           slopeDirection: null,
+          addition: null,
         },
       ],
     },
@@ -70,6 +73,7 @@ const tiles = [
         {
           type: "footpath",
           slopeDirection: null,
+          addition: null,
         },
       ],
     },
