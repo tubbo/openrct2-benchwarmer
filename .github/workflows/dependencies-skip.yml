@@ -1,0 +1,16 @@
+name: Dependencies
+on:
+  push:
+    paths-ignore:
+      - package.json
+      - yarn.lock
+      - .yarn/cache/*
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'skipped'
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'skipped'

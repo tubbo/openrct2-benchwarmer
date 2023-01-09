@@ -1,0 +1,50 @@
+name: Version
+on:
+  pull_request:
+    types: [labeled]
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+  major:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'breaking')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: |
+          yarn version major --deferred 
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .yarn/versions
+          git commit -am "release new minor version"
+          git push origin HEAD:${{ github.head_ref }}
+  minor:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'enhancement') && !contains(github.event.pull_request.labels.*.name, 'breaking')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: |
+          yarn version minor --deferred 
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .yarn/versions
+          git commit -am "release new minor version"
+          git push origin HEAD:${{ github.head_ref }}
+  patch:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'enhancement') && !contains(github.event.pull_request.labels.*.name, 'breaking')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: |
+          yarn version patch --deferred 
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .yarn/versions
+          git commit -am "release new minor version"
+          git push origin HEAD:${{ github.head_ref }}

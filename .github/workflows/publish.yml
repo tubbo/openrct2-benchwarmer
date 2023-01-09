@@ -1,52 +1,25 @@
 name: Publish
 on:
   push:
-    branches:
-      - master
-      - next
-      - next-major
-      - beta
-      - alpha
-      - "*.*.x"
+    tags: [v*]
 env:
   OPENRCT2_DIR: OpenRCT2
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   release:
-    name: Release New Version
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v1
-        with:
-          fetch-depth: 0
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ hashFiles('yarn.lock') }}
-
-      - name: Obtain NodeJS Version
-        run: echo "##[set-output name=NODE_VERSION;]$(cat .node-version)"
-        id: node_version
-      - name: Install NodeJS
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
-
-      - name: Install Dependencies
-        run: yarn install
-        if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Build Plugin
-        run: yarn build
-
-      - name: Publish to NPM
-        run: yarn release
+      - uses: actions/checkout@v3
+      - run: yarn install --immutable --immutable-cache
+      - run: yarn build
+      - uses: JS-DevTools/npm-publish@v1
+        id: npm
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: softprops/action-gh-release@v1
+        if: steps.npm.outputs.type != 'none'
+        with:
+          files: dist/benchwarmer.js
+          generate_release_notes: true

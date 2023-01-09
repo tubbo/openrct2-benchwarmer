@@ -1,3 +1,4 @@
-build
-types/openrct2.d.ts
-types/actions.d.ts
+dist
+types
+.yarn
+.pnp*
