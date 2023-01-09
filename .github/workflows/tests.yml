@@ -1,73 +1,45 @@
 name: Tests
 on:
   push:
-    paths-ignore:
-      - "*.md"
+    branches-ignore: [master]
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
   build:
-    name: Ensure Build Succeeds
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ hashFiles('yarn.lock') }}
-      - name: Obtain NodeJS Version
-        run: echo "##[set-output name=NODE_VERSION;]$(cat .node-version)"
-        id: node_version
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
-      - run: yarn
-        if: steps.cache.outputs.cache-hit != 'true'
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
       - run: yarn build
   test:
-    name: Run Automated Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ hashFiles('yarn.lock') }}
-      - name: Obtain NodeJS Version
-        run: echo "##[set-output name=NODE_VERSION;]$(cat .node-version)"
-        id: node_version
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
-      - run: yarn
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
         if: steps.cache.outputs.cache-hit != 'true'
       - run: yarn test --ci
-  lint:
-    name: Run Lint Checks
+  types:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ hashFiles('yarn.lock') }}
-      - name: Obtain NodeJS Version
-        run: echo "##[set-output name=NODE_VERSION;]$(cat .node-version)"
-        id: node_version
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
-      - run: yarn
-        if: steps.cache.outputs.cache-hit != 'true'
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
       - run: yarn types
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
       - run: yarn style
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache
       - run: yarn lint
   git:
-    name: Lint Commit Messages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v4

@@ -1,0 +1,19 @@
+name: Dependencies
+on:
+  push:
+    branches-ignore: [master]
+    paths:
+      - package.json
+      - yarn.lock
+      - .yarn/cache/*
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn --immutable --immutable-cache --check-cache
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/dependency-review-action@v3
