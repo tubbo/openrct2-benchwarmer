@@ -2,6 +2,9 @@ name: Tests
 on:
   push:
     branches-ignore: [master]
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:

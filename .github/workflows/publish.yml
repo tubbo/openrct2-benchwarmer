@@ -4,6 +4,9 @@ on:
     tags: [v*]
 env:
   OPENRCT2_DIR: OpenRCT2
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   release:
     runs-on: ubuntu-latest

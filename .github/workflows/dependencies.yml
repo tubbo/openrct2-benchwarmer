@@ -6,6 +6,9 @@ on:
       - package.json
       - yarn.lock
       - .yarn/cache/*
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   cache:
     runs-on: ubuntu-latest
