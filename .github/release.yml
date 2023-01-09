@@ -1,0 +1,12 @@
+changelog:
+  exclude:
+    labels: [dependencies]
+  categories:
+    - name: Breaking Changes
+      labels: [breaking]
+    - name: New Features
+      labels: [feature]
+    - name: Bug Fixes
+      labels: [bug]
+    - name: Enhancements
+      labels: [enhancement]

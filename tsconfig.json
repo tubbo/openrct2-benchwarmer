@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "target": "es5",
+    "lib": ["es2015"],
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,6 +18,5 @@
     "strictPropertyInitialization": true,
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules", "**/node_modules/*"],
-  "include": ["types/*.d.ts", "src/**/*"]
+  "include": ["types/*.d.ts", "*.ts"]
 }

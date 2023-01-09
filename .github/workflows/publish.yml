@@ -1,29 +1,22 @@
 name: Publish
 on:
   push:
-    branches:
-      - master
-      - next
-      - next-major
-      - beta
-      - alpha
-      - "*.*.x"
+    branches: [master]
 env:
   OPENRCT2_DIR: OpenRCT2
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install Dependencies
-        run: yarn install --immutable --immutable-cache
-      - name: Build Plugin
-        run: yarn build
-      - name: Publish to NPM
-        run: yarn release
+      - uses: actions/checkout@v3
+      - run: yarn install --immutable --immutable-cache
+      - run: yarn build
+      - uses: JS-DevTools/npm-publish@v1
+        id: npm
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: softprops/action-gh-release@v1
+        if: steps.npm.outputs.type != 'none'
+        with:
+          files: dist/benchwarmer.js
+          generate_release_notes: true

@@ -1,4 +1,4 @@
-import { Settings } from "./settings";
+import { Settings } from "../settings";
 import { mocked } from "ts-jest/utils";
 
 const sharedStorage = mocked(context.sharedStorage);

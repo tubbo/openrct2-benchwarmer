@@ -1,4 +1,4 @@
-import { version, author, license as licence } from "../package.json";
+import { version, author, license as licence } from "./package.json";
 import { Add, findAddition } from "./add";
 import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
