@@ -1,3 +1,4 @@
-build
+dist
 types/openrct2.d.ts
-CHANGELOG.md
+.yarn
+.pnp*
