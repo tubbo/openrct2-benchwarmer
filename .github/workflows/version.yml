@@ -19,7 +19,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .yarn/versions
           git commit -am "release new minor version"
-          git push
+          git push origin ${{ github.ref_name }}
   minor:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'feature')
@@ -33,7 +33,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .yarn/versions
           git commit -am "release new minor version"
-          git push
+          git push origin ${{ github.ref_name }}
   patch:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'bug') || contains(github.event.pull_request.labels.*.name, 'enhancement')
@@ -47,4 +47,4 @@ jobs:
           git config user.email github-actions@github.com
           git add .yarn/versions
           git commit -am "release new minor version"
-          git push
+          git push origin ${{ github.ref_name }}
