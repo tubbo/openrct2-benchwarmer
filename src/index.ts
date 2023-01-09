@@ -76,9 +76,9 @@ function main() {
   });
   context.subscribe("action.execute", ({ action, args, isClientOnly }) => {
     if (action === "footpathplace" && settings.asYouGo && !isClientOnly) {
-      const { x, y, z, slope } = args as FootpathPlaceArgs;
+      const { x, y, z, slope, constructFlags } = args as FootpathPlaceArgs;
       let addition = settings.bin;
-      if (args.constructFlags & 1 == 1) {
+      if (constructFlags === 1) {
         addition = settings.queuetv;
       } else {
         addition = slope

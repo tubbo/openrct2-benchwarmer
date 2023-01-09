@@ -27,8 +27,8 @@ describe("add", () => {
     ];
     const [bench, bin] = all;
     const settings = new Settings(all);
-    const { sloped, unsloped } = Add(settings);
-    const paths = [...sloped, ...unsloped].map(({ path }) => path);
+    const { sloped, unsloped, queues } = Add(settings);
+    const paths = [...sloped, ...unsloped, ...queues].map(({ path }) => path);
 
     expect(paths).not.toHaveLength(0);
     expect(paths[1].addition).toStrictEqual(bench.index);
