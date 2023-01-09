@@ -22,7 +22,7 @@ jobs:
           git push origin ${{ github.head_ref }}
   minor:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'feature')
+    if: contains(github.event.pull_request.labels.*.name, 'enhancement') && !contains(github.event.pull_request.labels.*.name, 'breaking')
     steps:
       - uses: actions/checkout@v3
         with:
@@ -36,7 +36,7 @@ jobs:
           git push origin ${{ github.head_ref }}
   patch:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'bug') || contains(github.event.pull_request.labels.*.name, 'enhancement')
+    if: contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'enhancement') && !contains(github.event.pull_request.labels.*.name, 'breaking')
     steps:
       - uses: actions/checkout@v3
         with:
