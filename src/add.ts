@@ -49,24 +49,30 @@ export function Add(settings: Settings): Paths {
     const { bench, bin } = settings;
     const addition = findAddition(bench, bin, x, y);
 
-    ensureHasAddition(x, y, path.baseZ, addition);
-  });
-
-  // Build bins on sloped paths
-  paths.sloped.forEach(({ path, x, y }) => {
-    const { buildBinsOnAllSlopedPaths } = settings;
-    const evenTile = x % 2 === y % 2;
-    const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
-
-    if (buildOnSlopedPath) {
-      ensureHasAddition(x, y, path.baseZ, settings.bin);
+    if (settings.isAdditionEnabled(addition)) {
+      ensureHasAddition(x, y, path.baseZ, addition);
     }
   });
 
+  // Build bins on sloped paths
+  if (settings.binEnabled) {
+    paths.sloped.forEach(({ path, x, y }) => {
+      const { buildBinsOnAllSlopedPaths } = settings;
+      const evenTile = x % 2 === y % 2;
+      const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
+
+      if (buildOnSlopedPath) {
+        ensureHasAddition(x, y, path.baseZ, settings.bin);
+      }
+    });
+  }
+
   // Build queue tvs on queue lines
-  paths.queues.forEach(({ path, x, y }) => {
-    ensureHasAddition(x, y, path.baseZ, settings.queuetv);
-  });
+  if (settings.queuetvEnabled) {
+    paths.queues.forEach(({ path, x, y }) => {
+      ensureHasAddition(x, y, path.baseZ, settings.queuetv);
+    });
+  }
 
   return paths;
 }

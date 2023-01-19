@@ -14,7 +14,7 @@ function main() {
       id: 1,
       classification: name,
       width: 300,
-      height: 160,
+      height: 205,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -22,6 +22,13 @@ function main() {
           settings.selections.bench,
           (index: number) => {
             settings.bench = index;
+          }
+        ),
+        Checkbox(
+          "Benches enabled",
+          settings.benchEnabled,
+          (checked: boolean) => {
+            settings.benchEnabled = checked;
           }
         ),
         ...Dropdown(
@@ -32,12 +39,22 @@ function main() {
             settings.bin = index;
           }
         ),
+        Checkbox("Bins enabled", settings.binEnabled, (checked: boolean) => {
+          settings.binEnabled = checked;
+        }),
         ...Dropdown(
           "Queue TV:",
           settings.queuetvs,
           settings.selections.queuetv,
           (index: number) => {
             settings.queuetv = index;
+          }
+        ),
+        Checkbox(
+          "Queue TVs enabled",
+          settings.queuetvEnabled,
+          (checked: boolean) => {
+            settings.queuetvEnabled = checked;
           }
         ),
         Checkbox(
@@ -85,13 +102,15 @@ function main() {
           ? settings.bin
           : findAddition(settings.bench, settings.bin, x / 32, y / 32);
       }
-      context.executeAction(
-        "footpathadditionplace",
-        { x, y, z, object: addition + 1 },
-        ({ errorTitle, errorMessage }) => {
-          if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-        }
-      );
+      if (settings.isAdditionEnabled(addition)) {
+        context.executeAction(
+          "footpathadditionplace",
+          { x, y, z, object: addition + 1 },
+          ({ errorTitle, errorMessage }) => {
+            if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+          }
+        );
+      }
     }
   });
 }

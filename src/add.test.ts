@@ -7,7 +7,8 @@ const sharedStorage = mocked(context.sharedStorage);
 describe("add", () => {
   it("places benches and bins", () => {
     expect.hasAssertions();
-    sharedStorage.get.mockReturnValue(0);
+    // mocked shared storage will return default value
+    sharedStorage.get.mockImplementation((_, defaultValue) => defaultValue);
 
     const all: LoadedObject[] = [
       {
