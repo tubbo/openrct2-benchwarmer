@@ -58,8 +58,7 @@ yarn test
 
 Releases occur automatically when pull requests are merged to the default
 branch. This project uses the [Yarn Release Workflow][] to automatically bump
-versions when new changes occur. Pull requests are required to have new `.yarn/
-versions` files defined, and we have a workflow that will assign the version
+versions when new changes occur. Pull requests are required to have new `.yarn/ versions` files defined, and we have a workflow that will assign the version
 if the pull request is labeled as such. Version numbers follow the [semantic
 versioning][] format to allow for easy communication of changes:
 
