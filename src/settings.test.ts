@@ -77,4 +77,15 @@ describe("settings", () => {
 
     expect(settings.preserveOtherAdditions).toBe(true);
   });
+
+  it("doesn't add queue tvs", () => {
+    expect.hasAssertions();
+    sharedStorage.get.mockReturnValue(false);
+
+    const settings = new Settings(additions);
+
+    settings.buildQueueTVs = false;
+
+    expect(settings.buildQueueTVs).toBe(false);
+  });
 });

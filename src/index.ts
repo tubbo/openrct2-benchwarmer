@@ -41,6 +41,13 @@ function main() {
           }
         ),
         Checkbox(
+          "Build Queue TVs",
+          settings.buildQueueTVs,
+          (checked: boolean) => {
+            settings.buildQueueTVs = checked;
+          }
+        ),
+        Checkbox(
           "Build bins on all sloped footpaths",
           settings.buildBinsOnAllSlopedPaths,
           (checked: boolean) => {
@@ -85,13 +92,18 @@ function main() {
           ? settings.bin
           : findAddition(settings.bench, settings.bin, x / 32, y / 32);
       }
-      context.executeAction(
-        "footpathadditionplace",
-        { x, y, z, object: addition + 1 },
-        ({ errorTitle, errorMessage }) => {
-          if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-        }
-      );
+      if (
+        (addition == settings.queuetv && settings.buildQueueTVs) ||
+        addition != settings.queuetv
+      ) {
+        context.executeAction(
+          "footpathadditionplace",
+          { x, y, z, object: addition + 1 },
+          ({ errorTitle, errorMessage }) => {
+            if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+          }
+        );
+      }
     }
   });
 }
