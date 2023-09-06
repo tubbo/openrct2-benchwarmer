@@ -54,6 +54,23 @@ Also, make sure to run ESLint before pushing your changes:
 yarn test
 ```
 
+## Releasing
+
+Releases occur automatically when pull requests are merged to the default
+branch. This project uses the [Yarn Release Workflow][] to automatically bump
+versions when new changes occur. Pull requests are required to have new `.yarn/ versions` files defined, and we have a workflow that will assign the version
+if the pull request is labeled as such. Version numbers follow the [semantic
+versioning][] format to allow for easy communication of changes:
+
+- **major** version upgrades are for `breaking` changes
+- **minor** version upgrades are for `enhancement` and new features
+- **patch** version upgrades are for `bug` fixes and other minor improvements
+
+The `.yarn/versions` file is written automatically whenever a pull request is
+labeled as such.
+
 [latest release]: https://github.com/tubbo/openrct2-benchwarmer/releases
 [openrct2]: https://openrct2.org/
 [openrct2 plugin folder]: https://www.pcgamingwiki.com/wiki/OpenRCT2#Configuration_file.28s.29_location
+[yarn release workflow]: https://yarnpkg.com/features/release-workflow
+[semantic versioning]: https://semver.org
