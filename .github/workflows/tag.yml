@@ -15,8 +15,7 @@ jobs:
       - uses: fregante/setup-git-user@v1
       - run: |
           yarn version apply
-          version=$(jq '.version' package.json)
           git add package.json
-          git commit -am "release v$version"
-          git tag "v$(version)" -m "release v$version"
-          git push --tags
+          git commit -am "release v$(jq '.version' package.json)"
+          git tag "v$(version)" -m "release v$(jq '.version' package.json)"
+          git push --follow-tags
