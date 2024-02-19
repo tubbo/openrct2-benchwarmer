@@ -87,8 +87,7 @@ function ensureHasAddition(
       x: x * 32,
       y: y * 32,
       z,
-      // 0 means "no addition", so everything must be 1-indexed
-      object: addition + 1,
+      object: addition,
     },
     ({ errorTitle, errorMessage }) => {
       if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
