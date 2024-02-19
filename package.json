@@ -13,8 +13,7 @@
     "clean": "rm -rf build coverage tags",
     "start": "yarn build && yarn use && $OPENRCT2_BIN intro",
     "style": "prettier --check .",
-    "types": "tsc --noEmit",
-    "prepare": "husky install"
+    "types": "tsc --noEmit"
   },
   "tsup": {
     "entry": ["benchwarmer.ts"],
