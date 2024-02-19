@@ -15,7 +15,10 @@ jobs:
       - run: |
           yarn version apply
           version=$(jq '.version' package.json)
-          git add package.json
-          git commit -am "release v$(version)"
-          git tag "v$(version)" -m "release v$(version)"
-          git push --tags
+
+          if git diff --exit-code package.json; then
+            git add package.json
+            git commit -am "release v$(version)"
+            git tag "v$(version)" -m "release v$(version)"
+            git push --tags
+          fi
