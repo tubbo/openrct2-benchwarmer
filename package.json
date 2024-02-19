@@ -24,7 +24,7 @@
   "author": "Tom Scott <tubbo@psychedeli.ca>",
   "license": "MIT",
   "devDependencies": {
-    "@swc/core": "1.3.25",
+    "@swc/core": "1.4.1",
     "@types/jest": "26.0.24",
     "@typescript-eslint/eslint-plugin": "4.29.1",
     "@typescript-eslint/parser": "4.29.1",
