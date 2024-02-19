@@ -3925,12 +3925,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:5.2.0":
-  version: 5.2.0
-  resolution: "husky@npm:5.2.0"
+"husky@npm:9.0.11":
+  version: 9.0.11
+  resolution: "husky@npm:9.0.11"
   bin:
-    husky: lib/bin.js
-  checksum: 80af5b882c3f37d72d775f15dc8d5a74f27856881f92338278ac017ab447695ee0d958cffec22ba4d0ae96532fb8ee5f99f4ca7b869bc91285e5adc0b8cdfeb3
+    husky: bin.mjs
+  checksum: 1aebc3334dc7ac6288ff5e1fb72cfb447cfa474e72cf7ba692e8c5698c573ab725c28c6a5088c9f8e6aca5f47d40fa7261beffbc07a4d307ca21656dc4571f07
   languageName: node
   linkType: hard
 
@@ -5842,7 +5842,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.10.0
     eslint-plugin-jest: 24.4.0
-    husky: 5.2.0
+    husky: 9.0.11
     jest: 26.6.3
     lint-staged: 10.5.4
     prettier: 2.8.8
