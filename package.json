@@ -12,7 +12,6 @@
     "dev": "tsup --watch",
     "clean": "rm -rf build coverage tags",
     "start": "yarn build && yarn use && $OPENRCT2_BIN intro",
-    "release": "semantic-release",
     "style": "prettier --check .",
     "types": "tsc --noEmit",
     "prepare": "husky install"
