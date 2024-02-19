@@ -12,10 +12,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - uses: fregante/setup-git-user@v1
       - run: |
           yarn version apply
           version=$(jq '.version' package.json)
           git add package.json
-          git commit -am "release v$(version)"
-          git tag "v$(version)" -m "release v$(version)"
+          git commit -am "release v$version"
+          git tag "v$(version)" -m "release v$version"
           git push --tags
