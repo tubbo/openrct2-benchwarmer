@@ -1,7 +1,7 @@
 name: Publish
 on:
   push:
-    tags: [v*]
+    tags: [v*.*.*]
 env:
   OPENRCT2_DIR: OpenRCT2
 concurrency:
