@@ -14,9 +14,10 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           fetch-depth: 0
       - uses: fregante/setup-git-user@v1
-      - name: Run yarn version apply
-        run: |
-          if yarn version apply; then
+      - run: |
+          yarn version apply
+
+          if git diff --quiet --exit-code package.json; then
             version=v$(jq -r '.version' package.json)
             git add package.json
             git commit -am "release $version"
