@@ -17,7 +17,7 @@ jobs:
       - run: |
           yarn version apply
 
-          if git diff --quiet --exit-code package.json; then
+          if git diff -s --quiet --exit-code package.json; then
             version=v$(jq -r '.version' package.json)
             git add package.json
             git commit -am "release $version"
