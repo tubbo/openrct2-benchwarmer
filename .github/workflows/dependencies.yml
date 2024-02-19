@@ -20,6 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/dependency-review-action@v3
+        with:
+          base_ref: master
+          head_ref: ${{ github.ref }}
   usage:
     runs-on: ubuntu-latest
     steps:
