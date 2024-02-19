@@ -14,11 +14,13 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           fetch-depth: 0
       - uses: fregante/setup-git-user@v1
-      - run: |
+      - name: Run yarn version apply
+        run: |
+          current=v$(jq -r '.version' package.json)
           yarn version apply
+          version=v$(jq -r '.version' package.json)
 
-          if ! git diff -s --quiet --exit-code package.json; then
-            version=v$(jq -r '.version' package.json)
+          if [[ $current != $version ]]; then
             git add package.json
             git commit -am "release $version"
             git tag "$version" -m "release $version"
