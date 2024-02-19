@@ -18,9 +18,7 @@
     "prepare": "husky install"
   },
   "tsup": {
-    "entry": [
-      "benchwarmer.ts"
-    ],
+    "entry": ["benchwarmer.ts"],
     "splitting": false,
     "clean": true
   },
@@ -52,8 +50,6 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFiles": [
-      "<rootDir>/mocks/openrct2.js"
-    ]
+    "setupFiles": ["<rootDir>/mocks/openrct2.js"]
   }
 }
