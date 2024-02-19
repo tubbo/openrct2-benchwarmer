@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
       - run: |
           yarn version apply
-          version=$(jq package.json '.version')
+          version=$(jq '.version' package.json)
           git add package.json
           git commit -am "release v$(version)"
           git tag "v$(version)" -m "release v$(version)"
