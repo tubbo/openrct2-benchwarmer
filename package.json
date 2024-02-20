@@ -45,7 +45,7 @@
     "type": "git",
     "url": "https://github.com/tubbo/openrct2-benchwarmer.git"
   },
-  "packageManager": "yarn@3.8.0",
+  "packageManager": "yarn@4.1.0",
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
