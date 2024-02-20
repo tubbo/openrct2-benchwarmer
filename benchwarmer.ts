@@ -87,7 +87,7 @@ function main() {
       }
       context.executeAction(
         "footpathadditionplace",
-        { x, y, z, object: addition + 1 },
+        { x, y, z, object: addition },
         ({ errorTitle, errorMessage }) => {
           if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
         }
