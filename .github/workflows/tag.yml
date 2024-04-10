@@ -13,7 +13,7 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
           fetch-depth: 0
-      - uses: fregante/setup-git-user@v1
+      - uses: fregante/setup-git-user@v2
       - name: Run yarn version apply
         run: |
           current=v$(jq -r '.version' package.json)
