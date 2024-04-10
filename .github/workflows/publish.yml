@@ -18,7 +18,7 @@ jobs:
         id: npm
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         if: steps.npm.outputs.type != 'none'
         with:
           files: dist/benchwarmer.js
