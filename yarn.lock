@@ -3214,9 +3214,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:24.4.0":
-  version: 24.4.0
-  resolution: "eslint-plugin-jest@npm:24.4.0"
+"eslint-plugin-jest@npm:24.7.0":
+  version: 24.7.0
+  resolution: "eslint-plugin-jest@npm:24.7.0"
   dependencies:
     "@typescript-eslint/experimental-utils": "npm:^4.0.1"
   peerDependencies:
@@ -3225,7 +3225,7 @@ __metadata:
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: 10c0/3e39cc55d322b48217ce1435e8ff277fdf2f2341057c1ef20c632e194c56c0c0fbb671ac3a3bb593972d98868076826284c7898ca7db7ae9a90e81eb44ca5c9f
+  checksum: 10c0/e93d92d83b3ee3c1b1252d696668a1c8e3bb4cfefc1acc506103636c2a35cd7d62ebb8eca6a75755b404b23e9506a0a742ad9493cdf1e3ab50e86b69fe2fbda8
   languageName: node
   linkType: hard
 
@@ -6061,7 +6061,7 @@ __metadata:
     depcheck: "npm:1.4.7"
     eslint: "npm:7.32.0"
     eslint-config-prettier: "npm:9.1.0"
-    eslint-plugin-jest: "npm:24.4.0"
+    eslint-plugin-jest: "npm:24.7.0"
     husky: "npm:9.0.11"
     jest: "npm:26.6.3"
     lint-staged: "npm:15.2.2"
