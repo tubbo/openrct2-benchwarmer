@@ -6,7 +6,7 @@ global.context = {
     get: jest.fn(),
   },
   executeAction: (_action, args, callback) => {
-    tiles[args.x / 32][args.y / 32].elements[1].addition = args.object - 1;
+    tiles[args.x / 32][args.y / 32].elements[1].addition = args.object;
     callback({});
   },
 };
