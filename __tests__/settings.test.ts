@@ -34,9 +34,9 @@ describe("settings", () => {
 
     const settings = new Settings(additions);
 
-    expect(settings.bench).toStrictEqual(0);
-    expect(settings.bin).toStrictEqual(1);
-    expect(settings.queuetv).toStrictEqual(2);
+    expect(settings.bench).toBe(0);
+    expect(settings.bin).toBe(1);
+    expect(settings.queuetv).toBe(2);
     expect(settings.configured).toBe(true);
     expect(settings.queueTVConfigured).toBe(true);
   });
@@ -51,9 +51,9 @@ describe("settings", () => {
     settings.bin = 0;
     settings.queuetv = 0;
 
-    expect(settings.bench).toStrictEqual(0);
-    expect(settings.bin).toStrictEqual(1);
-    expect(settings.queuetv).toStrictEqual(2);
+    expect(settings.bench).toBe(0);
+    expect(settings.bin).toBe(1);
+    expect(settings.queuetv).toBe(2);
   });
 
   it("preserves additions", () => {
