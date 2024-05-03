@@ -3,3 +3,4 @@ ignores:
   - 'depcheck'
   - 'lint-staged'
   - 'husky'
+  - '@eslint/*'
