@@ -24,10 +24,10 @@ export function Add(settings: Settings): Paths {
     for (let x = 0; x < map.size.x; x++) {
       const { elements } = map.getTile(x, y);
       const surface = elements.filter(
-        (element) => element.type === "surface"
+        (element) => element.type === "surface",
       )[0] as SurfaceElement;
       const footpaths = elements.filter(
-        (element) => element.type === "footpath"
+        (element) => element.type === "footpath",
       ) as FootpathElement[];
 
       footpaths.forEach((path: FootpathElement) => {
@@ -78,7 +78,7 @@ function ensureHasAddition(
   x: number,
   y: number,
   z: number,
-  addition: number
+  addition: number,
 ): void {
   context.executeAction(
     "footpathadditionplace",
@@ -91,7 +91,7 @@ function ensureHasAddition(
     },
     ({ errorTitle, errorMessage }) => {
       if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-    }
+    },
   );
 }
 
@@ -99,7 +99,7 @@ export function findAddition(
   bench: number,
   bin: number,
   x: number,
-  y: number
+  y: number,
 ): number {
   if (x % 2 === y % 2) {
     return bench;
@@ -110,7 +110,7 @@ export function findAddition(
 
 function canBuildAdditionOnPath(
   surface: SurfaceElement,
-  path: FootpathElement
+  path: FootpathElement,
 ) {
   if (!surface || !path) return false;
   if (path.addition !== null) return false;
