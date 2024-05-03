@@ -1,6 +1,7 @@
 {
   "name": "openrct2-benchwarmer",
   "version": "1.1.1",
+  "type": "module",
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "dist/benchwarmer.js",
   "scripts": {
@@ -28,6 +29,7 @@
   "author": "Tom Scott <tubbo@psychedeli.ca>",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "@jest/globals": "^29.7.0",
     "@swc/core": "1.5.0",
     "@types/jest": "29.5.12",

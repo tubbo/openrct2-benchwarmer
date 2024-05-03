@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@eslint/js", "npm:9.2.0"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.5.0"],\
           ["@types/jest", "npm:29.5.12"],\
@@ -1243,6 +1244,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@eslint-js-npm-9.1.1-75607987be-b25d11736b.zip/node_modules/@eslint/js/",\
         "packageDependencies": [\
           ["@eslint/js", "npm:9.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.2.0", {\
+        "packageLocation": "./.yarn/cache/@eslint-js-npm-9.2.0-6c74f11ab5-89632466d3.zip/node_modules/@eslint/js/",\
+        "packageDependencies": [\
+          ["@eslint/js", "npm:9.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6268,6 +6276,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["openrct2-benchwarmer", "workspace:."],\
+          ["@eslint/js", "npm:9.2.0"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.5.0"],\
           ["@types/jest", "npm:29.5.12"],\
