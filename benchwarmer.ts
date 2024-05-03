@@ -22,7 +22,7 @@ function main() {
           settings.selections.bench,
           (index: number) => {
             settings.bench = index;
-          }
+          },
         ),
         ...Dropdown(
           "Bin:",
@@ -30,7 +30,7 @@ function main() {
           settings.selections.bin,
           (index: number) => {
             settings.bin = index;
-          }
+          },
         ),
         ...Dropdown(
           "Queue TV:",
@@ -38,28 +38,28 @@ function main() {
           settings.selections.queuetv,
           (index: number) => {
             settings.queuetv = index;
-          }
+          },
         ),
         Checkbox(
           "Build bins on all sloped footpaths",
           settings.buildBinsOnAllSlopedPaths,
           (checked: boolean) => {
             settings.buildBinsOnAllSlopedPaths = checked;
-          }
+          },
         ),
         Checkbox(
           "Preserve other additions (e.g. lamps)",
           settings.preserveOtherAdditions,
           (checked: boolean) => {
             settings.preserveOtherAdditions = checked;
-          }
+          },
         ),
         Checkbox(
           "Add benches and bins as paths are placed",
           settings.asYouGo,
           (checked: boolean) => {
             settings.asYouGo = checked;
-          }
+          },
         ),
         Button("Build on All Paths", () => {
           if (settings.configured) {
@@ -70,7 +70,7 @@ function main() {
             }
           }
           window.close();
-        })
+        }),
       ),
     });
   });
@@ -90,7 +90,7 @@ function main() {
         { x, y, z, object: addition },
         ({ errorTitle, errorMessage }) => {
           if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-        }
+        },
       );
     }
   });

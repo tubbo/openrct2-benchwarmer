@@ -22,7 +22,7 @@ export function Dropdown(
   text: string,
   choices: Choice[],
   selectedIndex: number,
-  onChange: ChangeEventHandler<number>
+  onChange: ChangeEventHandler<number>,
 ): [LabelWidget, DropdownWidget] {
   const items = choices.map((b) => `${b.name} ${b.identifier}`);
 
@@ -53,7 +53,7 @@ export function Dropdown(
 export function Checkbox(
   text: string,
   isChecked: boolean,
-  onChange: ChangeEventHandler<boolean>
+  onChange: ChangeEventHandler<boolean>,
 ): CheckboxWidget {
   y += 15;
 
