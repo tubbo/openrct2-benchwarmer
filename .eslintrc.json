@@ -2,10 +2,16 @@
   "extends": [
     "eslint:recommended",
     "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jest/all"
+    "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["@typescript-eslint", "jest"],
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["*.test.ts"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/all"]
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "env": {
     "node": true,
