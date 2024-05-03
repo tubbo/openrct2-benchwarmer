@@ -17,6 +17,5 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "resolveJsonModule": true
-  },
-  "include": ["types/*.d.ts", "*.ts"]
+  }
 }

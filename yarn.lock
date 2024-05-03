@@ -5124,6 +5124,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "openrct2-benchwarmer@workspace:."
   dependencies:
+    "@jest/globals": "npm:^29.7.0"
     "@swc/core": "npm:1.5.0"
     "@types/jest": "npm:29.5.12"
     "@typescript-eslint/eslint-plugin": "npm:7.8.0"

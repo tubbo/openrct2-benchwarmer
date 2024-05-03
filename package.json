@@ -28,6 +28,7 @@
   "author": "Tom Scott <tubbo@psychedeli.ca>",
   "license": "MIT",
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@swc/core": "1.5.0",
     "@types/jest": "29.5.12",
     "@typescript-eslint/eslint-plugin": "7.8.0",

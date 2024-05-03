@@ -19,7 +19,8 @@
     "jest/globals": true
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "globals": {
     "registerPlugin": true,
