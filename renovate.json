@@ -6,7 +6,8 @@
     ":automergeBranch",
     "npm:unpublishSafe",
     ":label(dependencies)",
-    ":timezone(America/New_York)"
+    ":timezone(America/New_York)",
+    ":preserveSemverRanges"
   ],
   "packageRules": [
     {
