@@ -1,8 +1,7 @@
 import { Add } from "../add";
 import { Settings } from "../settings";
-import { mocked } from "ts-jest/utils";
 
-const sharedStorage = mocked(context.sharedStorage);
+const sharedStorage = jest.mocked(context.sharedStorage);
 
 describe("add", () => {
   it("places benches and bins", () => {
