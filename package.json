@@ -1,6 +1,6 @@
 {
   "name": "openrct2-benchwarmer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "dist/benchwarmer.js",
   "scripts": {
@@ -16,11 +16,15 @@
     "types": "tsc --noEmit"
   },
   "tsup": {
-    "entry": ["benchwarmer.ts"],
+    "entry": [
+      "benchwarmer.ts"
+    ],
     "splitting": false,
     "clean": true
   },
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "author": "Tom Scott <tubbo@psychedeli.ca>",
   "license": "MIT",
   "devDependencies": {
@@ -49,6 +53,8 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFiles": ["<rootDir>/mocks/openrct2.js"]
+    "setupFiles": [
+      "<rootDir>/mocks/openrct2.js"
+    ]
   }
 }
