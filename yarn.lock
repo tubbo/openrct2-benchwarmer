@@ -5341,7 +5341,7 @@ __metadata:
     lint-staged: "npm:15.2.7"
     prettier: "npm:3.3.3"
     ts-jest: "npm:29.2.2"
-    tsup: "npm:8.1.1"
+    tsup: "npm:8.1.2"
     typescript: "npm:5.5.3"
   languageName: unknown
   linkType: soft
@@ -6501,9 +6501,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:8.1.1":
-  version: 8.1.1
-  resolution: "tsup@npm:8.1.1"
+"tsup@npm:8.1.2":
+  version: 8.1.2
+  resolution: "tsup@npm:8.1.2"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -6537,7 +6537,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10c0/3bd5f8bd6e991068ee02b61aeece95c957769cc5895e8cb3f65673ffef6fa08ed75c441b12b3f5b555ae520b862611dd1f754761c48cfa7f3c6f96b864b3d0bf
+  checksum: 10c0/1eb472566887428bb27f51e048f8dc70798dffee79f712a77f8cd5c5dcd725b1eb54611010663b0e6fb34dc17dc7a8ef3048af50f216b649d2bec72c2bad104e
   languageName: node
   linkType: hard
 
