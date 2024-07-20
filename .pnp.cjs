@@ -38,7 +38,7 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:9.7.0"],\
           ["eslint-config-prettier", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:9.1.0"],\
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.6.0"],\
-          ["husky", "npm:9.0.11"],\
+          ["husky", "npm:9.1.0"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.2.7"],\
           ["prettier", "npm:3.3.3"],\
@@ -4803,10 +4803,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["husky", [\
-      ["npm:9.0.11", {\
-        "packageLocation": "./.yarn/cache/husky-npm-9.0.11-227bb1e4e4-2c787dcf74.zip/node_modules/husky/",\
+      ["npm:9.1.0", {\
+        "packageLocation": "./.yarn/cache/husky-npm-9.1.0-30e99ed5f0-2d2d202cba.zip/node_modules/husky/",\
         "packageDependencies": [\
-          ["husky", "npm:9.0.11"]\
+          ["husky", "npm:9.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6513,7 +6513,7 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:9.7.0"],\
           ["eslint-config-prettier", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:9.1.0"],\
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.6.0"],\
-          ["husky", "npm:9.0.11"],\
+          ["husky", "npm:9.1.0"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.2.7"],\
           ["prettier", "npm:3.3.3"],\
