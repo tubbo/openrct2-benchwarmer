@@ -29,7 +29,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@eslint/js", "npm:9.2.0"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.6.13"],\
+          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.0"],\
           ["@types/jest", "npm:29.5.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:7.16.1"],\
           ["@typescript-eslint/parser", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:7.16.1"],\
@@ -1944,27 +1944,27 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@swc/core", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-virtual-2605a77f36/node_modules/@swc/core/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-virtual-37197517ca/node_modules/@swc/core/",\
         "packageDependencies": [\
-          ["@swc/core", "npm:1.6.13"]\
+          ["@swc/core", "npm:1.7.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-virtual-2605a77f36/node_modules/@swc/core/",\
+      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-virtual-37197517ca/node_modules/@swc/core/",\
         "packageDependencies": [\
-          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.6.13"],\
-          ["@swc/core-darwin-arm64", "npm:1.6.13"],\
-          ["@swc/core-darwin-x64", "npm:1.6.13"],\
-          ["@swc/core-linux-arm-gnueabihf", "npm:1.6.13"],\
-          ["@swc/core-linux-arm64-gnu", "npm:1.6.13"],\
-          ["@swc/core-linux-arm64-musl", "npm:1.6.13"],\
-          ["@swc/core-linux-x64-gnu", "npm:1.6.13"],\
-          ["@swc/core-linux-x64-musl", "npm:1.6.13"],\
-          ["@swc/core-win32-arm64-msvc", "npm:1.6.13"],\
-          ["@swc/core-win32-ia32-msvc", "npm:1.6.13"],\
-          ["@swc/core-win32-x64-msvc", "npm:1.6.13"],\
+          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.0"],\
+          ["@swc/core-darwin-arm64", "npm:1.7.0"],\
+          ["@swc/core-darwin-x64", "npm:1.7.0"],\
+          ["@swc/core-linux-arm-gnueabihf", "npm:1.7.0"],\
+          ["@swc/core-linux-arm64-gnu", "npm:1.7.0"],\
+          ["@swc/core-linux-arm64-musl", "npm:1.7.0"],\
+          ["@swc/core-linux-x64-gnu", "npm:1.7.0"],\
+          ["@swc/core-linux-x64-musl", "npm:1.7.0"],\
+          ["@swc/core-win32-arm64-msvc", "npm:1.7.0"],\
+          ["@swc/core-win32-ia32-msvc", "npm:1.7.0"],\
+          ["@swc/core-win32-x64-msvc", "npm:1.7.0"],\
           ["@swc/counter", "npm:0.1.3"],\
           ["@swc/helpers", null],\
           ["@swc/types", "npm:0.1.9"],\
@@ -1978,91 +1978,91 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@swc/core-darwin-arm64", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-darwin-arm64-npm-1.6.13-ea49b782fe/node_modules/@swc/core-darwin-arm64/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-darwin-arm64-npm-1.7.0-9aa6eecebd/node_modules/@swc/core-darwin-arm64/",\
         "packageDependencies": [\
-          ["@swc/core-darwin-arm64", "npm:1.6.13"]\
+          ["@swc/core-darwin-arm64", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-darwin-x64", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-darwin-x64-npm-1.6.13-9475d5c0a5/node_modules/@swc/core-darwin-x64/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-darwin-x64-npm-1.7.0-33df24d3b1/node_modules/@swc/core-darwin-x64/",\
         "packageDependencies": [\
-          ["@swc/core-darwin-x64", "npm:1.6.13"]\
+          ["@swc/core-darwin-x64", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-linux-arm-gnueabihf", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm-gnueabihf-npm-1.6.13-dcc183fce7/node_modules/@swc/core-linux-arm-gnueabihf/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm-gnueabihf-npm-1.7.0-8c5cf20a72/node_modules/@swc/core-linux-arm-gnueabihf/",\
         "packageDependencies": [\
-          ["@swc/core-linux-arm-gnueabihf", "npm:1.6.13"]\
+          ["@swc/core-linux-arm-gnueabihf", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-linux-arm64-gnu", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-gnu-npm-1.6.13-8ea9958266/node_modules/@swc/core-linux-arm64-gnu/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-gnu-npm-1.7.0-c24bdfbc84/node_modules/@swc/core-linux-arm64-gnu/",\
         "packageDependencies": [\
-          ["@swc/core-linux-arm64-gnu", "npm:1.6.13"]\
+          ["@swc/core-linux-arm64-gnu", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-linux-arm64-musl", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-musl-npm-1.6.13-74cc8a0776/node_modules/@swc/core-linux-arm64-musl/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-linux-arm64-musl-npm-1.7.0-9b4cd48787/node_modules/@swc/core-linux-arm64-musl/",\
         "packageDependencies": [\
-          ["@swc/core-linux-arm64-musl", "npm:1.6.13"]\
+          ["@swc/core-linux-arm64-musl", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-linux-x64-gnu", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-gnu-npm-1.6.13-a7b9aab3c6/node_modules/@swc/core-linux-x64-gnu/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-gnu-npm-1.7.0-0af2d7c325/node_modules/@swc/core-linux-x64-gnu/",\
         "packageDependencies": [\
-          ["@swc/core-linux-x64-gnu", "npm:1.6.13"]\
+          ["@swc/core-linux-x64-gnu", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-linux-x64-musl", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-musl-npm-1.6.13-69c2037ca7/node_modules/@swc/core-linux-x64-musl/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-linux-x64-musl-npm-1.7.0-cc246c8556/node_modules/@swc/core-linux-x64-musl/",\
         "packageDependencies": [\
-          ["@swc/core-linux-x64-musl", "npm:1.6.13"]\
+          ["@swc/core-linux-x64-musl", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-win32-arm64-msvc", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-win32-arm64-msvc-npm-1.6.13-69e757c982/node_modules/@swc/core-win32-arm64-msvc/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-win32-arm64-msvc-npm-1.7.0-fe96ffc60c/node_modules/@swc/core-win32-arm64-msvc/",\
         "packageDependencies": [\
-          ["@swc/core-win32-arm64-msvc", "npm:1.6.13"]\
+          ["@swc/core-win32-arm64-msvc", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-win32-ia32-msvc", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-win32-ia32-msvc-npm-1.6.13-a77f72d460/node_modules/@swc/core-win32-ia32-msvc/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-win32-ia32-msvc-npm-1.7.0-559ec5c8fa/node_modules/@swc/core-win32-ia32-msvc/",\
         "packageDependencies": [\
-          ["@swc/core-win32-ia32-msvc", "npm:1.6.13"]\
+          ["@swc/core-win32-ia32-msvc", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@swc/core-win32-x64-msvc", [\
-      ["npm:1.6.13", {\
-        "packageLocation": "./.yarn/unplugged/@swc-core-win32-x64-msvc-npm-1.6.13-54440fea6c/node_modules/@swc/core-win32-x64-msvc/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/unplugged/@swc-core-win32-x64-msvc-npm-1.7.0-2b368c88b2/node_modules/@swc/core-win32-x64-msvc/",\
         "packageDependencies": [\
-          ["@swc/core-win32-x64-msvc", "npm:1.6.13"]\
+          ["@swc/core-win32-x64-msvc", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6504,7 +6504,7 @@ const RAW_RUNTIME_STATE =
           ["openrct2-benchwarmer", "workspace:."],\
           ["@eslint/js", "npm:9.2.0"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.6.13"],\
+          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.0"],\
           ["@types/jest", "npm:29.5.12"],\
           ["@typescript-eslint/eslint-plugin", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:7.16.1"],\
           ["@typescript-eslint/parser", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:7.16.1"],\
@@ -7818,7 +7818,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.1.2"],\
           ["@microsoft/api-extractor", null],\
-          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.6.13"],\
+          ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.0"],\
           ["@types/microsoft__api-extractor", null],\
           ["@types/postcss", null],\
           ["@types/swc__core", null],\
