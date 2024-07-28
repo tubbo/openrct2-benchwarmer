@@ -103,4 +103,6 @@ registerPlugin({
   authors: [author],
   type: "local",
   main,
+  minApiVersion: 68,
+  targetApiVersion: 77,
 });
