@@ -37,7 +37,7 @@ const RAW_RUNTIME_STATE =
           ["depcheck", "npm:1.4.7"],\
           ["eslint", "npm:9.8.0"],\
           ["eslint-config-prettier", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:9.1.0"],\
-          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.7.0"],\
+          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.8.0"],\
           ["husky", "npm:9.1.4"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.2.8"],\
@@ -3983,17 +3983,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["eslint-plugin-jest", [\
-      ["npm:28.7.0", {\
-        "packageLocation": "./.yarn/cache/eslint-plugin-jest-npm-28.7.0-4ef81f033b-8b8ee85eea.zip/node_modules/eslint-plugin-jest/",\
+      ["npm:28.8.0", {\
+        "packageLocation": "./.yarn/cache/eslint-plugin-jest-npm-28.8.0-003193f674-cb702701c2.zip/node_modules/eslint-plugin-jest/",\
         "packageDependencies": [\
-          ["eslint-plugin-jest", "npm:28.7.0"]\
+          ["eslint-plugin-jest", "npm:28.8.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.7.0", {\
-        "packageLocation": "./.yarn/__virtual__/eslint-plugin-jest-virtual-25eb76e1c7/0/cache/eslint-plugin-jest-npm-28.7.0-4ef81f033b-8b8ee85eea.zip/node_modules/eslint-plugin-jest/",\
+      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/eslint-plugin-jest-virtual-b2ce583e46/0/cache/eslint-plugin-jest-npm-28.8.0-003193f674-cb702701c2.zip/node_modules/eslint-plugin-jest/",\
         "packageDependencies": [\
-          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.7.0"],\
+          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.8.0"],\
           ["@types/eslint", null],\
           ["@types/jest", "npm:29.5.12"],\
           ["@types/typescript-eslint__eslint-plugin", null],\
@@ -6456,7 +6456,7 @@ const RAW_RUNTIME_STATE =
           ["depcheck", "npm:1.4.7"],\
           ["eslint", "npm:9.8.0"],\
           ["eslint-config-prettier", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:9.1.0"],\
-          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.7.0"],\
+          ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.8.0"],\
           ["husky", "npm:9.1.4"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.2.8"],\
