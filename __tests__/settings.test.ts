@@ -11,6 +11,7 @@ describe("settings", () => {
       identifier: "bench",
       legacyIdentifier: "bench",
       name: "bench",
+      installedObject: {} as InstalledObject,
     },
     {
       index: 1,
@@ -18,6 +19,7 @@ describe("settings", () => {
       identifier: "litter",
       legacyIdentifier: "litter",
       name: "litter bin",
+      installedObject: {} as InstalledObject,
     },
     {
       index: 2,
@@ -25,6 +27,7 @@ describe("settings", () => {
       identifier: "qtv",
       legacyIdentifier: "qtv",
       name: "queue tv",
+      installedObject: {} as InstalledObject,
     },
   ];
 
