@@ -16,6 +16,7 @@ describe("add", () => {
         identifier: "bench",
         legacyIdentifier: "bench",
         name: "bench",
+        installedObject: {} as InstalledObject,
       },
       {
         index: 1,
@@ -23,6 +24,7 @@ describe("add", () => {
         identifier: "litter",
         legacyIdentifier: "litter",
         name: "litter bin",
+        installedObject: {} as InstalledObject,
       },
     ];
     const [bench, bin] = all;

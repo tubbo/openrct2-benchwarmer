@@ -12,7 +12,7 @@ export type Choice = {
   identifier: string;
 };
 
-export function Document(...widgets: Widget[]): Widget[] {
+export function Document(...widgets: WidgetDesc[]): WidgetDesc[] {
   y = 0;
 
   return widgets;
@@ -23,7 +23,7 @@ export function Dropdown(
   choices: Choice[],
   selectedIndex: number,
   onChange: ChangeEventHandler<number>,
-): [LabelWidget, DropdownWidget] {
+): [LabelDesc, DropdownDesc] {
   const items = choices.map((b) => `${b.name} ${b.identifier}`);
 
   y += 20;
@@ -54,7 +54,7 @@ export function Checkbox(
   text: string,
   isChecked: boolean,
   onChange: ChangeEventHandler<boolean>,
-): CheckboxWidget {
+): CheckboxDesc {
   y += 15;
 
   return {
@@ -69,7 +69,7 @@ export function Checkbox(
   };
 }
 
-export function Button(text: string, onClick: ClickEventHandler): ButtonWidget {
+export function Button(text: string, onClick: ClickEventHandler): ButtonDesc {
   y += 20;
 
   return {
