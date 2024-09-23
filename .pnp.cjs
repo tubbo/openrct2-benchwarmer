@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.26"],\
           ["@types/jest", "npm:29.5.13"],\
+          ["@types/openrct2", "npm:0.4.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.6.0"],\
           ["@typescript-eslint/parser", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.6.0"],\
           ["cpy-cli", "npm:5.0.0"],\
@@ -2237,6 +2238,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-node-npm-14.0.27-d33df6dc81-fb51a720c2.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:14.0.27"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/openrct2", [\
+      ["npm:0.4.0", {\
+        "packageLocation": "./.yarn/cache/@types-openrct2-npm-0.4.0-da07947163-187c675a27.zip/node_modules/@types/openrct2/",\
+        "packageDependencies": [\
+          ["@types/openrct2", "npm:0.4.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6572,6 +6582,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/globals", "npm:29.7.0"],\
           ["@swc/core", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:1.7.26"],\
           ["@types/jest", "npm:29.5.13"],\
+          ["@types/openrct2", "npm:0.4.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.6.0"],\
           ["@typescript-eslint/parser", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.6.0"],\
           ["cpy-cli", "npm:5.0.0"],\

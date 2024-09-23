@@ -33,6 +33,7 @@
     "@jest/globals": "^29.7.0",
     "@swc/core": "1.7.26",
     "@types/jest": "29.5.13",
+    "@types/openrct2": "^0.4.0",
     "@typescript-eslint/eslint-plugin": "8.6.0",
     "@typescript-eslint/parser": "8.6.0",
     "cpy-cli": "5.0.0",
