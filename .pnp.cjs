@@ -40,7 +40,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.11.0"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:15.3.0"],\
+          ["lint-staged", "npm:15.4.0"],\
           ["prettier", "npm:3.4.2"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.5"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.3.5"],\
@@ -3620,10 +3620,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:6f87eff2f1dfc7363da5b0cbb17c2c347525a1eae4b0c21808f0bd21b40c885f339f38eabc62de6d4460721aa35cfd480922287c7f11e3a1f01aca989082ec26#npm:4.4.0", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-98ee9b8f96/0/cache/debug-npm-4.4.0-f6efe76023-db94f1a182.zip/node_modules/debug/",\
+      ["virtual:87623fb8eab8c9c0cf1efc5cefd41baac2796ff8deed102181467202f6ee8473cfc87e913c72c2e243d34f9d2cd563d5ad22cff08bd2ec43bca8001c1a7d2304#npm:4.3.7", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-e6513505e9/0/cache/debug-npm-4.3.7-385645adf9-1471db19c3.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:6f87eff2f1dfc7363da5b0cbb17c2c347525a1eae4b0c21808f0bd21b40c885f339f38eabc62de6d4460721aa35cfd480922287c7f11e3a1f01aca989082ec26#npm:4.4.0"],\
+          ["debug", "virtual:87623fb8eab8c9c0cf1efc5cefd41baac2796ff8deed102181467202f6ee8473cfc87e913c72c2e243d34f9d2cd563d5ad22cff08bd2ec43bca8001c1a7d2304#npm:4.3.7"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.3"],\
           ["supports-color", null]\
@@ -3634,10 +3634,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:87623fb8eab8c9c0cf1efc5cefd41baac2796ff8deed102181467202f6ee8473cfc87e913c72c2e243d34f9d2cd563d5ad22cff08bd2ec43bca8001c1a7d2304#npm:4.3.7", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-e6513505e9/0/cache/debug-npm-4.3.7-385645adf9-1471db19c3.zip/node_modules/debug/",\
+      ["virtual:9a16069976d36c9af7a4f77833e8fbf03f7829cee8ff3a739c1b0ba2558f54a14eb45969b63cedae8551e599b6c686421e5058495d194ef5a1c491c00f8d01ee#npm:4.4.0", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-4ce2ddf594/0/cache/debug-npm-4.4.0-f6efe76023-db94f1a182.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:87623fb8eab8c9c0cf1efc5cefd41baac2796ff8deed102181467202f6ee8473cfc87e913c72c2e243d34f9d2cd563d5ad22cff08bd2ec43bca8001c1a7d2304#npm:4.3.7"],\
+          ["debug", "virtual:9a16069976d36c9af7a4f77833e8fbf03f7829cee8ff3a739c1b0ba2558f54a14eb45969b63cedae8551e599b6c686421e5058495d194ef5a1c491c00f8d01ee#npm:4.4.0"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.3"],\
           ["supports-color", null]\
@@ -5903,13 +5903,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["lint-staged", [\
-      ["npm:15.3.0", {\
-        "packageLocation": "./.yarn/cache/lint-staged-npm-15.3.0-6f87eff2f1-1ddf9488c5.zip/node_modules/lint-staged/",\
+      ["npm:15.4.0", {\
+        "packageLocation": "./.yarn/cache/lint-staged-npm-15.4.0-9a16069976-ada9a79a98.zip/node_modules/lint-staged/",\
         "packageDependencies": [\
-          ["lint-staged", "npm:15.3.0"],\
+          ["lint-staged", "npm:15.4.0"],\
           ["chalk", "npm:5.4.1"],\
           ["commander", "npm:12.1.0"],\
-          ["debug", "virtual:6f87eff2f1dfc7363da5b0cbb17c2c347525a1eae4b0c21808f0bd21b40c885f339f38eabc62de6d4460721aa35cfd480922287c7f11e3a1f01aca989082ec26#npm:4.4.0"],\
+          ["debug", "virtual:9a16069976d36c9af7a4f77833e8fbf03f7829cee8ff3a739c1b0ba2558f54a14eb45969b63cedae8551e599b6c686421e5058495d194ef5a1c491c00f8d01ee#npm:4.4.0"],\
           ["execa", "npm:8.0.1"],\
           ["lilconfig", "npm:3.1.3"],\
           ["listr2", "npm:8.2.5"],\
@@ -6550,7 +6550,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.11.0"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:15.3.0"],\
+          ["lint-staged", "npm:15.4.0"],\
           ["prettier", "npm:3.4.2"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.5"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.3.5"],\
