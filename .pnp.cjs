@@ -42,7 +42,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.5.0"],\
           ["prettier", "npm:3.5.3"],\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.6"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.0"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.4.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
@@ -6560,7 +6560,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
           ["lint-staged", "npm:15.5.0"],\
           ["prettier", "npm:3.5.3"],\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.6"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.0"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.4.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
@@ -7843,17 +7843,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ts-jest", [\
-      ["npm:29.2.6", {\
-        "packageLocation": "./.yarn/cache/ts-jest-npm-29.2.6-81e5c09384-2a79bdb263.zip/node_modules/ts-jest/",\
+      ["npm:29.3.0", {\
+        "packageLocation": "./.yarn/cache/ts-jest-npm-29.3.0-8cb17d4807-c6a6b80e05.zip/node_modules/ts-jest/",\
         "packageDependencies": [\
-          ["ts-jest", "npm:29.2.6"]\
+          ["ts-jest", "npm:29.3.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.6", {\
-        "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-ec3aa0c3b2/0/cache/ts-jest-npm-29.2.6-81e5c09384-2a79bdb263.zip/node_modules/ts-jest/",\
+      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-0c35f99ef9/0/cache/ts-jest-npm-29.3.0-8cb17d4807-c6a6b80e05.zip/node_modules/ts-jest/",\
         "packageDependencies": [\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.2.6"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.0"],\
           ["@babel/core", null],\
           ["@jest/transform", null],\
           ["@jest/types", null],\
@@ -7875,6 +7875,7 @@ const RAW_RUNTIME_STATE =
           ["lodash.memoize", "npm:4.1.2"],\
           ["make-error", "npm:1.3.6"],\
           ["semver", "npm:7.7.1"],\
+          ["type-fest", "npm:4.38.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["yargs-parser", "npm:21.1.1"]\
         ],\
@@ -7971,6 +7972,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/type-fest-npm-0.21.3-5ff2a9c6fd-902bd57bfa.zip/node_modules/type-fest/",\
         "packageDependencies": [\
           ["type-fest", "npm:0.21.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.38.0", {\
+        "packageLocation": "./.yarn/cache/type-fest-npm-4.38.0-09166cbe0a-db9990d682.zip/node_modules/type-fest/",\
+        "packageDependencies": [\
+          ["type-fest", "npm:4.38.0"]\
         ],\
         "linkType": "HARD"\
       }]\
