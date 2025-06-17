@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "8.34.0",
     "cpy-cli": "5.0.0",
     "depcheck": "1.4.7",
-    "eslint": "9.28.0",
+    "eslint": "9.29.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-jest": "28.13.5",
     "husky": "9.1.7",
