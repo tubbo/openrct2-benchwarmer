@@ -41,7 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.13.5"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:16.1.0"],\
+          ["lint-staged", "npm:16.1.2"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
@@ -3742,6 +3742,20 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["virtual:b98c92e9a97c290d4bedc1a80e174b486214a670927acbd652fe026ed62eee1f166d98b1ece67ebf92c16f518d38e6bb64172eea6a1497fa9276cecba1978ffc#npm:4.4.1", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-cf231d69c0/0/cache/debug-npm-4.4.1-6eab84b9f7-d2b44bc1af.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["@types/supports-color", null],\
+          ["debug", "virtual:b98c92e9a97c290d4bedc1a80e174b486214a670927acbd652fe026ed62eee1f166d98b1ece67ebf92c16f518d38e6bb64172eea6a1497fa9276cecba1978ffc#npm:4.4.1"],\
+          ["ms", "npm:2.1.3"],\
+          ["supports-color", null]\
+        ],\
+        "packagePeers": [\
+          "@types/supports-color",\
+          "supports-color"\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["virtual:d9a5f00bfc11d56fd0d391c83d70ceade45ea6b20139b488c916c2225b2c904e8c8722786b03dfb6d06fef38f31a649a4fbdf210a93be455090758ff610f2afb#npm:4.3.4", {\
         "packageLocation": "./.yarn/__virtual__/debug-virtual-1d970e8425/0/cache/debug-npm-4.3.4-4513954577-cedbec4529.zip/node_modules/debug/",\
         "packageDependencies": [\
@@ -3761,20 +3775,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/supports-color", null],\
           ["debug", "virtual:f0d14b7af70eb448798dcae46a831a1e19d73d2be93ddf78b97843918034ac347998c9aba86f86f59a6835f8995031b0d36582ca75ebe80ad6b174dfdebdc377#npm:4.4.0"],\
-          ["ms", "npm:2.1.3"],\
-          ["supports-color", null]\
-        ],\
-        "packagePeers": [\
-          "@types/supports-color",\
-          "supports-color"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:fdac25f52b943cb8c88b5ecfd5afc2c8b214f2eb510019fb73db3f510f9bb278d3921a4aca61ba197e6f68a49e5c9bdfbc69ebbbf9e50999407fae5bcb8932db#npm:4.4.1", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-85a306d7cf/0/cache/debug-npm-4.4.1-6eab84b9f7-d2b44bc1af.zip/node_modules/debug/",\
-        "packageDependencies": [\
-          ["@types/supports-color", null],\
-          ["debug", "virtual:fdac25f52b943cb8c88b5ecfd5afc2c8b214f2eb510019fb73db3f510f9bb278d3921a4aca61ba197e6f68a49e5c9bdfbc69ebbbf9e50999407fae5bcb8932db#npm:4.4.1"],\
           ["ms", "npm:2.1.3"],\
           ["supports-color", null]\
         ],\
@@ -6016,14 +6016,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["lint-staged", [\
-      ["npm:16.1.0", {\
-        "packageLocation": "./.yarn/cache/lint-staged-npm-16.1.0-fdac25f52b-5cc33d61ec.zip/node_modules/lint-staged/",\
+      ["npm:16.1.2", {\
+        "packageLocation": "./.yarn/cache/lint-staged-npm-16.1.2-b98c92e9a9-2a299fc0d5.zip/node_modules/lint-staged/",\
         "packageDependencies": [\
           ["chalk", "npm:5.4.1"],\
           ["commander", "npm:14.0.0"],\
-          ["debug", "virtual:fdac25f52b943cb8c88b5ecfd5afc2c8b214f2eb510019fb73db3f510f9bb278d3921a4aca61ba197e6f68a49e5c9bdfbc69ebbbf9e50999407fae5bcb8932db#npm:4.4.1"],\
+          ["debug", "virtual:b98c92e9a97c290d4bedc1a80e174b486214a670927acbd652fe026ed62eee1f166d98b1ece67ebf92c16f518d38e6bb64172eea6a1497fa9276cecba1978ffc#npm:4.4.1"],\
           ["lilconfig", "npm:3.1.3"],\
-          ["lint-staged", "npm:16.1.0"],\
+          ["lint-staged", "npm:16.1.2"],\
           ["listr2", "npm:8.3.3"],\
           ["micromatch", "npm:4.0.8"],\
           ["nano-spawn", "npm:1.0.2"],\
@@ -6669,7 +6669,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:28.13.5"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:16.1.0"],\
+          ["lint-staged", "npm:16.1.2"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.5.3"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\

@@ -4816,9 +4816,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:16.1.0":
-  version: 16.1.0
-  resolution: "lint-staged@npm:16.1.0"
+"lint-staged@npm:16.1.2":
+  version: 16.1.2
+  resolution: "lint-staged@npm:16.1.2"
   dependencies:
     chalk: "npm:^5.4.1"
     commander: "npm:^14.0.0"
@@ -4832,7 +4832,7 @@ __metadata:
     yaml: "npm:^2.8.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10c0/5cc33d61ec2c682e488eb3fcea5c153ce486623b80314f2c56af438ad78d73c7fcd3e7c911d273ac740bd34f1e030d35d4fb92d8e476984150c0c59724ac7fa4
+  checksum: 10c0/2a299fc0d56e0a64ed0af8caf937e00eac47cb270df2917e2d4b939074eaa63ecd7f16d3b70b7e5e57bff75ffbbbf8aae5768dedf3dfd45e3ca1b9caaf7740cc
   languageName: node
   linkType: hard
 
@@ -5419,7 +5419,7 @@ __metadata:
     eslint-plugin-jest: "npm:28.13.5"
     husky: "npm:9.1.7"
     jest: "npm:29.7.0"
-    lint-staged: "npm:16.1.0"
+    lint-staged: "npm:16.1.2"
     prettier: "npm:3.5.3"
     ts-jest: "npm:29.3.4"
     tsup: "npm:8.5.0"
