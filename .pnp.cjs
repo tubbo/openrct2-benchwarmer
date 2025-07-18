@@ -44,7 +44,7 @@ const RAW_RUNTIME_STATE =
           ["lint-staged", "npm:16.1.2"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.6.2"],\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.4.0"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.5.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
@@ -6710,7 +6710,7 @@ const RAW_RUNTIME_STATE =
           ["lint-staged", "npm:16.1.2"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.6.2"],\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.4.0"],\
           ["tsup", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:8.5.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"]\
         ],\
@@ -7993,15 +7993,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["ts-jest", [\
-      ["npm:29.3.4", {\
-        "packageLocation": "./.yarn/cache/ts-jest-npm-29.3.4-ab85c5ac0f-68ed5abbbd.zip/node_modules/ts-jest/",\
+      ["npm:29.4.0", {\
+        "packageLocation": "./.yarn/cache/ts-jest-npm-29.4.0-9f040f13a5-c266431200.zip/node_modules/ts-jest/",\
         "packageDependencies": [\
-          ["ts-jest", "npm:29.3.4"]\
+          ["ts-jest", "npm:29.4.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4", {\
-        "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-2d97a412a6/0/cache/ts-jest-npm-29.3.4-ab85c5ac0f-68ed5abbbd.zip/node_modules/ts-jest/",\
+      ["virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.4.0", {\
+        "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-50e5679082/0/cache/ts-jest-npm-29.4.0-9f040f13a5-c266431200.zip/node_modules/ts-jest/",\
         "packageDependencies": [\
           ["@babel/core", null],\
           ["@jest/transform", null],\
@@ -8010,6 +8010,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel__core", null],\
           ["@types/esbuild", null],\
           ["@types/jest", "npm:29.5.14"],\
+          ["@types/jest-util", null],\
           ["@types/jest__transform", null],\
           ["@types/jest__types", null],\
           ["@types/typescript", null],\
@@ -8019,12 +8020,12 @@ const RAW_RUNTIME_STATE =
           ["esbuild", null],\
           ["fast-json-stable-stringify", "npm:2.1.0"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["jest-util", "npm:29.7.0"],\
+          ["jest-util", null],\
           ["json5", "npm:2.2.3"],\
           ["lodash.memoize", "npm:4.1.2"],\
           ["make-error", "npm:1.3.6"],\
           ["semver", "npm:7.7.2"],\
-          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
+          ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.4.0"],\
           ["type-fest", "npm:4.41.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["yargs-parser", "npm:21.1.1"]\
@@ -8036,12 +8037,14 @@ const RAW_RUNTIME_STATE =
           "@types/babel-jest",\
           "@types/babel__core",\
           "@types/esbuild",\
+          "@types/jest-util",\
           "@types/jest",\
           "@types/jest__transform",\
           "@types/jest__types",\
           "@types/typescript",\
           "babel-jest",\
           "esbuild",\
+          "jest-util",\
           "jest",\
           "typescript"\
         ],\
