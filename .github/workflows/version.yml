@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'breaking')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - run: |
@@ -27,7 +27,7 @@ jobs:
         contains(github.event.pull_request.labels.*.name, 'feature') &&
         !contains(github.event.pull_request.labels.*.name, 'breaking')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - run: |
@@ -45,7 +45,7 @@ jobs:
         !contains(github.event.pull_request.labels.*.name, 'feature') &&
         !contains(github.event.pull_request.labels.*.name, 'breaking')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - run: |
