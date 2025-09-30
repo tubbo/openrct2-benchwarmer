@@ -1441,90 +1441,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-darwin-arm64@npm:1.13.19"
+"@swc/core-darwin-arm64@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-darwin-arm64@npm:1.13.20"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-darwin-x64@npm:1.13.19"
+"@swc/core-darwin-x64@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-darwin-x64@npm:1.13.20"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.13.19"
+"@swc/core-linux-arm-gnueabihf@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.13.20"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.13.19"
+"@swc/core-linux-arm64-gnu@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.13.20"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-linux-arm64-musl@npm:1.13.19"
+"@swc/core-linux-arm64-musl@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-linux-arm64-musl@npm:1.13.20"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-linux-x64-gnu@npm:1.13.19"
+"@swc/core-linux-x64-gnu@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-linux-x64-gnu@npm:1.13.20"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-linux-x64-musl@npm:1.13.19"
+"@swc/core-linux-x64-musl@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-linux-x64-musl@npm:1.13.20"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.13.19"
+"@swc/core-win32-arm64-msvc@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.13.20"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.13.19"
+"@swc/core-win32-ia32-msvc@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.13.20"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core-win32-x64-msvc@npm:1.13.19"
+"@swc/core-win32-x64-msvc@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core-win32-x64-msvc@npm:1.13.20"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:1.13.19":
-  version: 1.13.19
-  resolution: "@swc/core@npm:1.13.19"
+"@swc/core@npm:1.13.20":
+  version: 1.13.20
+  resolution: "@swc/core@npm:1.13.20"
   dependencies:
-    "@swc/core-darwin-arm64": "npm:1.13.19"
-    "@swc/core-darwin-x64": "npm:1.13.19"
-    "@swc/core-linux-arm-gnueabihf": "npm:1.13.19"
-    "@swc/core-linux-arm64-gnu": "npm:1.13.19"
-    "@swc/core-linux-arm64-musl": "npm:1.13.19"
-    "@swc/core-linux-x64-gnu": "npm:1.13.19"
-    "@swc/core-linux-x64-musl": "npm:1.13.19"
-    "@swc/core-win32-arm64-msvc": "npm:1.13.19"
-    "@swc/core-win32-ia32-msvc": "npm:1.13.19"
-    "@swc/core-win32-x64-msvc": "npm:1.13.19"
+    "@swc/core-darwin-arm64": "npm:1.13.20"
+    "@swc/core-darwin-x64": "npm:1.13.20"
+    "@swc/core-linux-arm-gnueabihf": "npm:1.13.20"
+    "@swc/core-linux-arm64-gnu": "npm:1.13.20"
+    "@swc/core-linux-arm64-musl": "npm:1.13.20"
+    "@swc/core-linux-x64-gnu": "npm:1.13.20"
+    "@swc/core-linux-x64-musl": "npm:1.13.20"
+    "@swc/core-win32-arm64-msvc": "npm:1.13.20"
+    "@swc/core-win32-ia32-msvc": "npm:1.13.20"
+    "@swc/core-win32-x64-msvc": "npm:1.13.20"
     "@swc/counter": "npm:^0.1.3"
     "@swc/types": "npm:^0.1.25"
   peerDependencies:
@@ -1553,7 +1553,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: 10c0/a15f39636af10e93c6f40b22cb4ea2ec52735c2f7a08e0490354e9fea526cb0d7c68ecaa704bfb807c55da96bfde284f1057c4d5682709aa72fa12528e6d182a
+  checksum: 10c0/ef9ed965f20fe8331ef6b279b30ae2421ec9cd4105cfc0ac4645ae716844dfa9998162b132abbd6e8ccfb91deb263861792cf815fdcdcb7a011384e3505e0532
   languageName: node
   linkType: hard
 
@@ -5352,7 +5352,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.2.0"
     "@jest/globals": "npm:^29.7.0"
-    "@swc/core": "npm:1.13.19"
+    "@swc/core": "npm:1.13.20"
     "@types/jest": "npm:29.5.14"
     "@typescript-eslint/eslint-plugin": "npm:8.44.1"
     "@typescript-eslint/parser": "npm:8.44.1"
