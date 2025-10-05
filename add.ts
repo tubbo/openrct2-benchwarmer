@@ -45,11 +45,12 @@ export function Add(settings: Settings): Paths {
   }
 
   // Build benches and bins on unsloped paths
+  const { spacing } = settings;
   paths.unsloped.forEach(({ path, x, y }) => {
     const { bench, bin } = settings;
     const addition = findAddition(bench, bin, x, y);
 
-    ensureHasAddition(x, y, path.baseZ, addition);
+    ensureHasAddition(x, y, path.baseZ, addition, spacing);
   });
 
   // Build bins on sloped paths
@@ -59,13 +60,13 @@ export function Add(settings: Settings): Paths {
     const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
 
     if (buildOnSlopedPath) {
-      ensureHasAddition(x, y, path.baseZ, settings.bin);
+      ensureHasAddition(x, y, path.baseZ, settings.bin, spacing);
     }
   });
 
   // Build queue tvs on queue lines
   paths.queues.forEach(({ path, x, y }) => {
-    ensureHasAddition(x, y, path.baseZ, settings.queuetv);
+    ensureHasAddition(x, y, path.baseZ, settings.queuetv, spacing);
   });
 
   return paths;
@@ -79,20 +80,23 @@ function ensureHasAddition(
   y: number,
   z: number,
   addition: number,
+  spacing: number,
 ): void {
-  context.executeAction(
-    "footpathadditionplace",
-    {
-      // x/y coords need to be multiples of 32
-      x: x * 32,
-      y: y * 32,
-      z,
-      object: addition,
-    },
-    ({ errorTitle, errorMessage }) => {
-      if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
-    },
-  );
+  if ((x + spacing) % spacing === (y + spacing) % spacing) {
+    context.executeAction(
+      "footpathadditionplace",
+      {
+        // x/y coords need to be multiples of 32
+        x: x * 32,
+        y: y * 32,
+        z,
+        object: addition,
+      },
+      ({ errorTitle, errorMessage }) => {
+        if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+      },
+    );
+  }
 }
 
 export function findAddition(
