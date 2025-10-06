@@ -38,6 +38,7 @@ bower_components
 dist/
 
 # Dependency directories
+.idea
 node_modules/
 jspm_packages/
 .yarn/unplugged/

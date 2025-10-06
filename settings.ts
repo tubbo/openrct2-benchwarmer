@@ -4,22 +4,45 @@ const QUEUETV = "Benchwarmer.QueueTV";
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths";
 const PRESERVE = "Benchwarmer.PreserveOtherAdditions";
 const AS_YOU_GO = "Benchwarmer.BuildAsYouGo";
+const SPACING = "Benchwarmer.Spacing";
 
-type Selections = {
+interface SpacingChoices {
+  name: string;
+  index: number;
+}
+
+interface Selections {
   bench: number;
   bin: number;
   queuetv: number;
-};
+  spacing: number;
+}
 
 export class Settings {
   benches: LoadedObject[];
   bins: LoadedObject[];
   queuetvs: LoadedObject[];
+  spacings: SpacingChoices[];
 
   constructor(all: LoadedObject[]) {
     this.benches = all.filter((a) => a.identifier.includes("bench"));
     this.bins = all.filter((a) => a.identifier.includes("litter"));
     this.queuetvs = all.filter((a) => a.identifier.includes("qtv"));
+    this.spacings = [
+      {
+        name: "No Gaps",
+        index: 1,
+      },
+
+      {
+        name: "Two Gaps",
+        index: 3,
+      },
+      {
+        name: "Four Gaps",
+        index: 5,
+      },
+    ];
   }
 
   get bench(): number {
@@ -46,12 +69,21 @@ export class Settings {
     context.sharedStorage.set(QUEUETV, index);
   }
 
+  get spacing(): number {
+    return this.spacings[this.selections.spacing]?.index;
+  }
+
+  set spacing(index: number) {
+    context.sharedStorage.set(SPACING, index);
+  }
+
   get selections(): Selections {
     const bench = context.sharedStorage.get(BENCH, 0);
     const bin = context.sharedStorage.get(BIN, 0);
     const queuetv = context.sharedStorage.get(QUEUETV, 0);
+    const spacing = context.sharedStorage.get(SPACING, 0);
 
-    return { bench, bin, queuetv };
+    return { bench, bin, queuetv, spacing };
   }
 
   get buildBinsOnAllSlopedPaths(): boolean {

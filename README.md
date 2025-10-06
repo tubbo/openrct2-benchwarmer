@@ -31,7 +31,13 @@ with an odd index. Sloped footpaths and ride queues are ignored.
 If you wish to contribute to this project, make sure it builds locally
 before pushing your changes.
 
-To do this, install dependencies with Yarn:
+If you do not already have yarn installed, you can do so with:
+
+```bash
+npm -g install yarn
+```
+
+Install dependencies with Yarn:
 
 ```bash
 yarn

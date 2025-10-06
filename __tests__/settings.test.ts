@@ -37,6 +37,7 @@ describe("settings", () => {
     expect(settings.bench).toBe(0);
     expect(settings.bin).toBe(1);
     expect(settings.queuetv).toBe(2);
+    expect(settings.spacing).toBe(1);
     expect(settings.configured).toBe(true);
     expect(settings.queueTVConfigured).toBe(true);
   });
@@ -50,10 +51,12 @@ describe("settings", () => {
     settings.bench = 0;
     settings.bin = 0;
     settings.queuetv = 0;
+    settings.spacing = 0;
 
     expect(settings.bench).toBe(0);
     expect(settings.bin).toBe(1);
     expect(settings.queuetv).toBe(2);
+    expect(settings.spacing).toBe(1);
   });
 
   it("preserves additions", () => {

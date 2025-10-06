@@ -9,7 +9,7 @@ export type ClickEventHandler = () => void;
 
 export type Choice = {
   name: string;
-  identifier: string;
+  identifier?: string;
 };
 
 export function Document(...widgets: Widget[]): Widget[] {
@@ -24,7 +24,9 @@ export function Dropdown(
   selectedIndex: number,
   onChange: ChangeEventHandler<number>,
 ): [LabelWidget, DropdownWidget] {
-  const items = choices.map((b) => `${b.name} ${b.identifier}`);
+  const items = choices.map(
+    (b) => `${b.name} ${b.identifier ? " - " + b.identifier : ""}`,
+  );
 
   y += 20;
 
@@ -41,7 +43,7 @@ export function Dropdown(
       type: "dropdown",
       x: INPUT_X,
       y,
-      width: 200,
+      width: 250,
       height: 10,
       items,
       selectedIndex,
@@ -61,7 +63,7 @@ export function Checkbox(
     type: "checkbox",
     x: LABEL_X,
     y,
-    width: 200,
+    width: 300,
     height: 15,
     isChecked,
     text,

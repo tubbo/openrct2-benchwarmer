@@ -13,8 +13,8 @@ function main() {
       title: name,
       id: 1,
       classification: name,
-      width: 300,
-      height: 160,
+      width: 330,
+      height: 180,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -38,6 +38,14 @@ function main() {
           settings.selections.queuetv,
           (index: number) => {
             settings.queuetv = index;
+          },
+        ),
+        ...Dropdown(
+          "Spacing:",
+          settings.spacings,
+          settings.selections.spacing,
+          (index: number) => {
+            settings.spacing = index;
           },
         ),
         Checkbox(

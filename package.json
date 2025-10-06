@@ -1,6 +1,6 @@
 {
   "name": "openrct2-benchwarmer",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "type": "module",
   "description": "Add benches and trash cans to all of your paths with one click",
   "main": "dist/benchwarmer.js",
@@ -52,7 +52,6 @@
     "type": "git",
     "url": "https://github.com/tubbo/openrct2-benchwarmer.git"
   },
-  "packageManager": "yarn@4.10.3",
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
