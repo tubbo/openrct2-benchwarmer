@@ -26,7 +26,7 @@
   "files": [
     "dist/**"
   ],
-  "author": "Tom Scott <tubbo@psychedeli.ca>",
+  "author": "Tom Scott <tubbo@psychedeli.ca>, Frank Nielson <f.nielson@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.2.0",
@@ -50,7 +50,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tubbo/openrct2-benchwarmer.git"
+    "url": "https://github.com/fnielson1/openrct2-benchwarmer"
   },
   "jest": {
     "preset": "ts-jest",
