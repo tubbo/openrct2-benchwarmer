@@ -41,7 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.0.1"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:16.2.3"],\
+          ["lint-staged", "npm:16.2.4"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.6.2"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
@@ -5990,14 +5990,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["lint-staged", [\
-      ["npm:16.2.3", {\
-        "packageLocation": "./.yarn/cache/lint-staged-npm-16.2.3-d2e7d68634-9b057949f0.zip/node_modules/lint-staged/",\
+      ["npm:16.2.4", {\
+        "packageLocation": "./.yarn/cache/lint-staged-npm-16.2.4-9199f5ada5-101b32040b.zip/node_modules/lint-staged/",\
         "packageDependencies": [\
           ["commander", "npm:14.0.1"],\
-          ["lint-staged", "npm:16.2.3"],\
+          ["lint-staged", "npm:16.2.4"],\
           ["listr2", "npm:9.0.4"],\
           ["micromatch", "npm:4.0.8"],\
-          ["nano-spawn", "npm:1.0.3"],\
+          ["nano-spawn", "npm:2.0.0"],\
           ["pidtree", "npm:0.6.0"],\
           ["string-argv", "npm:0.3.2"],\
           ["yaml", "npm:2.8.1"]\
@@ -6454,10 +6454,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["nano-spawn", [\
-      ["npm:1.0.3", {\
-        "packageLocation": "./.yarn/cache/nano-spawn-npm-1.0.3-820da1ed9f-ea18857e49.zip/node_modules/nano-spawn/",\
+      ["npm:2.0.0", {\
+        "packageLocation": "./.yarn/cache/nano-spawn-npm-2.0.0-96abe72805-d00f9b5739.zip/node_modules/nano-spawn/",\
         "packageDependencies": [\
-          ["nano-spawn", "npm:1.0.3"]\
+          ["nano-spawn", "npm:2.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6631,7 +6631,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.0.1"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:16.2.3"],\
+          ["lint-staged", "npm:16.2.4"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.6.2"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
