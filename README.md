@@ -1,4 +1,4 @@
-# Benchwarmer
+# Benchwarmer V2
 
 A plugin for [OpenRCT2][] that quickly builds benches and litter bins with an adjustable distance between each one. This is generally the best way to ensure
 your park value stays high, and is a very tedious part of playing
