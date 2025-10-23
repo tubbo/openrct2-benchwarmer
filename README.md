@@ -1,7 +1,6 @@
 # Benchwarmer
 
-A plugin for [OpenRCT2][] that quickly builds benches and litter bins on
-each alternating footpath tile. This is generally the best way to ensure
+A plugin for [OpenRCT2][] that quickly builds benches and litter bins with an adjustable distance between each one. This is generally the best way to ensure
 your park value stays high, and is a very tedious part of playing
 RollerCoaster Tycoon 2.
 This is based off the fantastic code from https://github.com/tubbo/openrct2-benchwarmer
