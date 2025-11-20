@@ -11,31 +11,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
       - run: yarn build
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
         if: steps.cache.outputs.cache-hit != 'true'
       - run: yarn test --ci
   types:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
       - run: yarn types
   style:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
       - run: yarn style
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
       - run: yarn lint

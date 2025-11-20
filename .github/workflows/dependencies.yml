@@ -13,12 +13,12 @@ jobs:
   cache:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache --check-cache
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/dependency-review-action@v4
         with:
           base-ref: master
@@ -26,6 +26,6 @@ jobs:
   usage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: yarn --immutable --immutable-cache
       - run: yarn depcheck
