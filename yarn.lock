@@ -4834,19 +4834,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:16.3.4":
-  version: 16.3.4
-  resolution: "lint-staged@npm:16.3.4"
+"lint-staged@npm:16.4.0":
+  version: 16.4.0
+  resolution: "lint-staged@npm:16.4.0"
   dependencies:
     commander: "npm:^14.0.3"
     listr2: "npm:^9.0.5"
-    micromatch: "npm:^4.0.8"
+    picomatch: "npm:^4.0.3"
     string-argv: "npm:^0.3.2"
     tinyexec: "npm:^1.0.4"
     yaml: "npm:^2.8.2"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10c0/ee773d315d2338cf5fac3b0708be8d3ff67191a4b36d9d539429331399f7cacdae8ab19ffd59207eed03c4d1ff5badaa6cde5178d6b9d01294099a909a3d77df
+  checksum: 10c0/67625a49a2a01368c7df2da7e553567a79c4b261d9faf3436e00fc3a2f9c4bbe7295909012c47b3d9029e269fd7d7469901a5120573527a032f15797aa497c26
   languageName: node
   linkType: hard
 
@@ -5430,7 +5430,7 @@ __metadata:
     eslint-plugin-jest: "npm:29.15.0"
     husky: "npm:9.1.7"
     jest: "npm:29.7.0"
-    lint-staged: "npm:16.3.4"
+    lint-staged: "npm:16.4.0"
     prettier: "npm:3.8.1"
     ts-jest: "npm:29.3.4"
     tsup: "npm:8.5.1"
