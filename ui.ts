@@ -19,33 +19,27 @@ export function Document(...widgets: Widget[]): Widget[] {
 }
 
 export function Dropdown(
-  text: string,
-  choices: Choice[],
+  label: string,
+  items: string[],
   selectedIndex: number,
-  onChange: ChangeEventHandler<number>,
-): [LabelWidget, DropdownWidget] {
-  const items = choices.map((b) => `${b.name} ${b.identifier}`);
-
+  onChange: (index: number) => void
+): Widget[] {
   y += 20;
-
+  const namedItems: string[] = items.map((a, index) => {
+    if (a === "None") return a;
+    return `${a} type-${index}`;
+  });
   return [
-    {
-      type: "label",
-      x: LABEL_X,
-      y,
-      width: 60,
-      height: 10,
-      text,
-    },
+    { type: "label", x: 10, y, width: 100, height: 10, text: label },
     {
       type: "dropdown",
-      x: INPUT_X,
+      x: 110,
       y,
-      width: 200,
-      height: 10,
-      items,
-      selectedIndex,
-      onChange,
+      width: 180,
+      height: 12,
+      items: namedItems,
+      selectedIndex: selectedIndex,
+      onChange: onChange,
     },
   ];
 }
