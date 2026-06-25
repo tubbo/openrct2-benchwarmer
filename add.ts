@@ -12,6 +12,8 @@ type Paths = {
   queues: Path[];
 };
 
+export var last_additions : { x: number; y: number; z: number; cost: number }[] = [];
+  
 export function Add(settings: Settings): Paths {
   const paths: Paths = {
     unsloped: [],
@@ -44,6 +46,9 @@ export function Add(settings: Settings): Paths {
     }
   }
 
+  // Clear any previous additions from the last build
+  last_additions = [];
+
   // Build benches and bins on unsloped paths
   paths.unsloped.forEach(({ path, x, y }) => {
     const { bench, bin } = settings;
@@ -71,6 +76,32 @@ export function Add(settings: Settings): Paths {
   return paths;
 }
 
+export function UndoBuild(): void {
+    let refundedTotal : number = 0;
+    let totalAdditions : number = last_additions.length;
+
+    last_additions.forEach(function(addition : any) {
+        removeAddition(addition);
+        refundedTotal += addition.cost;
+    });
+
+    context.executeAction("cheatset", {
+        type: 16,
+        param1: refundedTotal,
+        param2: 0
+    },
+    ({ errorTitle, errorMessage }) => {
+      if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+    }),
+    // Show a message to indicate that the refund was successful
+    park.postMessage({
+      type: "money",
+      text: "Refunded ".concat((refundedTotal / 10).toString(), " for ").concat(totalAdditions.toString(), " removed items.")
+    });
+    // Clear the last additions array after undoing
+    last_additions = [];
+}
+
 /**
  * Build the footpath addition on a footpath.
  */
@@ -89,8 +120,14 @@ function ensureHasAddition(
       z,
       object: addition,
     },
-    ({ errorTitle, errorMessage }) => {
+    ({ errorTitle, errorMessage, cost }: any) => {
       if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+      last_additions.push({
+        x: x,
+        y: y,
+        z: z,
+        cost: cost,
+      });
     },
   );
 }
@@ -106,6 +143,24 @@ export function findAddition(
   } else {
     return bin;
   }
+}
+
+function removeAddition(
+  addition : any
+): void {
+  context.executeAction(
+    "footpathadditionremove",
+    {
+      // x/y coords need to be multiples of 32
+      x: addition.x * 32,
+      y: addition.y * 32,
+      z: addition.z,
+      object: addition,
+    },
+    ({ errorTitle, errorMessage }) => {
+      if (errorMessage) throw new Error(`${errorTitle}: ${errorMessage}`);
+    },
+  );
 }
 
 function canBuildAdditionOnPath(
