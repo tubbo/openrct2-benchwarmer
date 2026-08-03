@@ -41,7 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.16.0"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:17.2.0"],\
+          ["lint-staged", "npm:17.3.0"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.9.6"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
@@ -6005,10 +6005,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["lint-staged", [\
-      ["npm:17.2.0", {\
-        "packageLocation": "./.yarn/cache/lint-staged-npm-17.2.0-656223f14d-47eb706373.zip/node_modules/lint-staged/",\
+      ["npm:17.3.0", {\
+        "packageLocation": "./.yarn/cache/lint-staged-npm-17.3.0-8aaa067ba2-48703bf88f.zip/node_modules/lint-staged/",\
         "packageDependencies": [\
-          ["lint-staged", "npm:17.2.0"],\
+          ["lint-staged", "npm:17.3.0"],\
           ["picomatch", "npm:4.0.5"],\
           ["string-argv", "npm:0.3.2"],\
           ["tinyexec", "npm:1.2.4"],\
@@ -6595,7 +6595,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.16.0"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:17.2.0"],\
+          ["lint-staged", "npm:17.3.0"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.9.6"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
