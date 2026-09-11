@@ -41,7 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.16.6"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:17.4.1"],\
+          ["lint-staged", "npm:17.5.0"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.9.6"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
@@ -6005,13 +6005,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["lint-staged", [\
-      ["npm:17.4.1", {\
-        "packageLocation": "./.yarn/cache/lint-staged-npm-17.4.1-16fcd7147d-a9d30836ee.zip/node_modules/lint-staged/",\
+      ["npm:17.5.0", {\
+        "packageLocation": "./.yarn/cache/lint-staged-npm-17.5.0-23d50b3fe0-fcf3f8baeb.zip/node_modules/lint-staged/",\
         "packageDependencies": [\
-          ["lint-staged", "npm:17.4.1"],\
+          ["lint-staged", "npm:17.5.0"],\
           ["picomatch", "npm:4.0.7"],\
           ["string-argv", "npm:0.3.2"],\
-          ["tinyexec", "npm:1.3.0"],\
+          ["tinyexec", "npm:1.3.1"],\
           ["yaml", "npm:2.9.0"]\
         ],\
         "linkType": "HARD"\
@@ -6595,7 +6595,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.16.6"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.7.0"],\
-          ["lint-staged", "npm:17.4.1"],\
+          ["lint-staged", "npm:17.5.0"],\
           ["openrct2-benchwarmer", "workspace:."],\
           ["prettier", "npm:3.9.6"],\
           ["ts-jest", "virtual:9f1563d71a9fca39b18d691437299ec7db628d6ef0f6f912e0b5252ae8086d81e7f2f36eeebaa9a2cc30f815d2878f3d1a85a6efa553739de8d87e56c6a9b30f#npm:29.3.4"],\
@@ -7737,10 +7737,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:1.3.0", {\
-        "packageLocation": "./.yarn/cache/tinyexec-npm-1.3.0-1b2f4f4ed2-e9b89f9748.zip/node_modules/tinyexec/",\
+      ["npm:1.3.1", {\
+        "packageLocation": "./.yarn/cache/tinyexec-npm-1.3.1-9e3ecae92e-c590369cb3.zip/node_modules/tinyexec/",\
         "packageDependencies": [\
-          ["tinyexec", "npm:1.3.0"]\
+          ["tinyexec", "npm:1.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\
