@@ -1,6 +1,7 @@
 const BENCH = "Benchwarmer.Bench";
 const BIN = "Benchwarmer.Bin";
 const QUEUETV = "Benchwarmer.QueueTV";
+const LAMP = "Benchwarmer.Lamp"; // Added constant for lamps
 const BUILD = "Benchwarmer.BuildOnAllSlopedFootpaths";
 const PRESERVE = "Benchwarmer.PreserveOtherAdditions";
 const AS_YOU_GO = "Benchwarmer.BuildAsYouGo";
@@ -9,28 +10,31 @@ type Selections = {
   bench: number;
   bin: number;
   queuetv: number;
+  lamp: number; // Added lamp to the selections type
 };
 
 export class Settings {
   benches: LoadedObject[];
   bins: LoadedObject[];
   queuetvs: LoadedObject[];
+  lamps: LoadedObject[]; // Added lamps property
 
   constructor(all: LoadedObject[]) {
     this.benches = all.filter((a) => a.identifier.includes("bench"));
     this.bins = all.filter((a) => a.identifier.includes("litter"));
     this.queuetvs = all.filter((a) => a.identifier.includes("qtv"));
+    this.lamps = all.filter((a) => a.identifier.includes("lamp")); // Initialize lamps
   }
 
-  get bench(): number {
-    return this.benches[this.selections.bench].index;
+  get bench(): number | undefined { // Updated to return number | undefined
+    return this.benches[this.selections.bench]?.index;
   }
 
   set bench(index: number) {
     context.sharedStorage.set(BENCH, index);
   }
 
-  get bin(): number {
+  get bin(): number | undefined { // Updated to return number | undefined
     return this.bins[this.selections.bin]?.index;
   }
 
@@ -38,7 +42,7 @@ export class Settings {
     context.sharedStorage.set(BIN, index);
   }
 
-  get queuetv(): number {
+  get queuetv(): number | undefined { // Updated to return number | undefined
     return this.queuetvs[this.selections.queuetv]?.index;
   }
 
@@ -46,12 +50,20 @@ export class Settings {
     context.sharedStorage.set(QUEUETV, index);
   }
 
+  get lamp(): number | undefined { // Added getter for lamp
+    return this.lamps[this.selections.lamp]?.index;
+  }
+
+  set lamp(index: number) { // Added setter for lamp
+    context.sharedStorage.set(LAMP, index);
+  }
+
   get selections(): Selections {
     const bench = context.sharedStorage.get(BENCH, 0);
     const bin = context.sharedStorage.get(BIN, 0);
     const queuetv = context.sharedStorage.get(QUEUETV, 0);
-
-    return { bench, bin, queuetv };
+    const lamp = context.sharedStorage.get(LAMP, 0); // Added lamp selection
+    return { bench, bin, queuetv, lamp }; // Include lamp in the return object
   }
 
   get buildBinsOnAllSlopedPaths(): boolean {
@@ -71,11 +83,11 @@ export class Settings {
   }
 
   get configured(): boolean {
-    return this.bench !== null && this.bin !== null;
+    return this.bench !== undefined && this.bin !== undefined; // Updated to check undefined
   }
 
   get queueTVConfigured(): boolean {
-    return this.queuetv !== null;
+    return this.queuetv !== undefined; // Updated to check undefined
   }
 
   get asYouGo(): boolean {

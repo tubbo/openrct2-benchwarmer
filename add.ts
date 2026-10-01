@@ -44,28 +44,33 @@ export function Add(settings: Settings): Paths {
     }
   }
 
-  // Build benches and bins on unsloped paths
-  paths.unsloped.forEach(({ path, x, y }) => {
-    const { bench, bin } = settings;
-    const addition = findAddition(bench, bin, x, y);
+  // Destructure settings once, outside the loops
+  const {
+    bench = 0, // Provide a default value if undefined
+    bin = 0,   // Provide a default value if undefined
+    lamp = 0, // Provide a default value if undefined
+    buildBinsOnAllSlopedPaths,
+    queuetv = 0 // Provide a default value if undefined
+  } = settings;
 
+  // Build benches, bins, and lamps on unsloped paths
+  paths.unsloped.forEach(({ path, x, y }) => {
+    const addition = findAddition(bench, bin, lamp, x, y);
     ensureHasAddition(x, y, path.baseZ, addition);
   });
 
   // Build bins on sloped paths
   paths.sloped.forEach(({ path, x, y }) => {
-    const { buildBinsOnAllSlopedPaths } = settings;
     const evenTile = x % 2 === y % 2;
     const buildOnSlopedPath = buildBinsOnAllSlopedPaths || evenTile;
-
     if (buildOnSlopedPath) {
-      ensureHasAddition(x, y, path.baseZ, settings.bin);
+      ensureHasAddition(x, y, path.baseZ, bin); // Use bin directly
     }
   });
 
-  // Build queue tvs on queue lines
+  // Build queue TVs on queue lines
   paths.queues.forEach(({ path, x, y }) => {
-    ensureHasAddition(x, y, path.baseZ, settings.queuetv);
+    ensureHasAddition(x, y, path.baseZ, queuetv); // Use queuetv directly
   });
 
   return paths;
@@ -96,15 +101,21 @@ function ensureHasAddition(
 }
 
 export function findAddition(
-  bench: number,
-  bin: number,
+  bench: number, // Required, ensured by settings.configured
+  bin: number,   // Required, ensured by settings.configured
+  lamp: number | undefined, // Optional
   x: number,
   y: number,
 ): number {
-  if (x % 2 === y % 2) {
-    return bench;
+  console.log('x, y');
+  console.log(x);
+  console.log(y);
+  if (lamp !== undefined && (x + y) % 3 === 0) {
+    return lamp; // Place lamp when (x + y) is divisible by 3
+  } else if (x % 2 === y % 2) {
+    return bench; // Place bench on even parity
   } else {
-    return bin;
+    return bin; // Place bin otherwise
   }
 }
 
