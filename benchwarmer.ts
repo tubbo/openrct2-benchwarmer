@@ -1,5 +1,5 @@
 import { version, author, license as licence } from "./package.json";
-import { Add, findAddition } from "./add";
+import { Add, UndoBuild, findAddition } from "./add";
 import { Settings } from "./settings";
 import { Dropdown, Checkbox, Button, Document } from "./ui";
 
@@ -14,7 +14,7 @@ function main() {
       id: 1,
       classification: name,
       width: 300,
-      height: 160,
+      height: 180,
       widgets: Document(
         ...Dropdown(
           "Bench:",
@@ -67,6 +67,16 @@ function main() {
               Add(settings);
             } catch (e) {
               ui.showError("Error Building Benches/Bins", (e as Error).message);
+            }
+          }
+          window.close();
+        }),
+        Button("Undo Last Build", () => {
+          if (settings.configured) {
+            try {
+              UndoBuild();
+            } catch (e) {
+              ui.showError("Error undoing the last build", (e as Error).message);
             }
           }
           window.close();
